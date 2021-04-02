@@ -13,7 +13,7 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('appointment', function (Blueprint $table) {
             $table->id();
             $table->date('appointment_date');
             $table->unsignedBigInteger('employee_information_id');
@@ -36,6 +36,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('appointment');
     }
 }
