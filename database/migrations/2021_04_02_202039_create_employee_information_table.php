@@ -17,6 +17,7 @@ class CreateEmployeeInformationTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('salon_id');
+            $table->unsignedBigInteger('service_id');
             $table->string('address');
             $table->string('city');
             $table->string('phone_number');
@@ -24,6 +25,7 @@ class CreateEmployeeInformationTable extends Migration
 
             $table->index('user_id');
             $table->index('salon_id');
+            $table->index('service_id');
         });
     }
 
