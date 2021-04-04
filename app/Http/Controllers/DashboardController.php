@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,17 +17,16 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-
     public function index()
     {
         if (Auth::user()->role) {
             switch (Auth::user()->role){
-                case 'employee':
-                    return redirect('dashboard');
+                case 'customer':
+                    return redirect('home');
                 case 'admin':
                     return redirect('admin');
             }
         }
-        return view('home');
+        return view('dashboard');
     }
 }

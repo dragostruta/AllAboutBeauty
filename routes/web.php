@@ -13,19 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/information', 'EmployeeInformationController@index')->name('information.index');
-Route::get('/information/create', 'EmployeeInformationController@create')->name('information.create');
-Route::post('/information', 'EmployeeInformationController@store')->name('information.store');
-Route::get('/information/{information}', 'EmployeeInformationController@show')->name('information.show');
-Route::get('/information/{information}/edit', 'EmployeeInformationController@edit')->name('information.edit');
-Route::put('/information/{information}', 'EmployeeInformationController@update')->name('information.update');
-Route::delete('/information/{information}', 'EmployeeInformationController@destroy')->name('information.destory');
+Route::get('/employeeInformation', 'EmployeeInformationController@index')->name('employeeInformation.index');
+Route::get('/employeeInformation/create', 'EmployeeInformationController@create')->name('employeeInformation.create');
+Route::post('/employeeInformation', 'EmployeeInformationController@store')->name('employeeInformation.store');
+Route::get('/employeeInformation/{employeeInformation}', 'EmployeeInformationController@show')->name('employeeInformation.show');
+Route::get('/employeeInformation/{employeeInformation}/edit', 'EmployeeInformationController@edit')->name('employeeInformation.edit');
+Route::put('/employeeInformation/{employeeInformation}', 'EmployeeInformationController@update')->name('employeeInformation.update');
+Route::delete('/employeeInformation/{employeeInformation}', 'EmployeeInformationController@destroy')->name('employeeInformation.destory');
 
 Route::get('/service', 'ServiceController@index')->name('service.index');
 Route::get('/service/create', 'ServiceController@create')->name('service.create');
@@ -51,4 +47,8 @@ Route::get('/appointment/{appointment}/edit', 'AppointmentController@edit')->nam
 Route::put('/appointment/{appointment}', 'AppointmentController@update')->name('appointment.update');
 Route::delete('/appointment/{appointment}', 'AppointmentController@destroy')->name('appointment.destroy');
 
+
+Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/admin', 'AdminController@index')->name('admin');

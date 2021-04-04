@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,12 +22,12 @@ class HomeController extends Controller
     {
         if (Auth::user()->role) {
             switch (Auth::user()->role){
+                case 'customer':
+                    return redirect('home');
                 case 'employee':
                     return redirect('dashboard');
-                case 'admin':
-                    return redirect('admin');
             }
         }
-        return view('home');
+        return view('admin');
     }
 }
