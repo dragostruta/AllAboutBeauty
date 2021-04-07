@@ -15,17 +15,12 @@ class CreateEmployeeInformationTable extends Migration
     {
         Schema::create('employee_information', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('salon_id');
-            $table->unsignedBigInteger('service_id');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('salon_id')->constrained('salons');
             $table->string('address');
             $table->string('city');
             $table->string('phone_number');
             $table->timestamps();
-
-            $table->index('user_id');
-            $table->index('salon_id');
-            $table->index('service_id');
         });
     }
 

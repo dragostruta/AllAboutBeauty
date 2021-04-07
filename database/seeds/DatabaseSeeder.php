@@ -1,5 +1,6 @@
 <?php
 
+use App\Appointment;
 use App\EmployeeInformation;
 use App\Salon;
 use App\Service;
@@ -15,10 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 10)->create();
-        factory(Service::class, 5)->create();
-        factory(Salon::class, 3)->create();
-        factory(EmployeeInformation::class, 5)->create();
+        factory(Appointment::class, 1)->create();
         // $this->call(UsersTableSeeder::class);
     }
 }

@@ -11,11 +11,11 @@ class EmployeeInformation extends Model
     }
 
     public function salon(){
-        return $this->hasOne(Salon::class);
+        return $this->belongsTo(Salon::class);
     }
 
     public function appointments(){
-        return $this->hasMany(Appointment::class);
+        return $this->belongsToMany(Appointment::class);
     }
 
     public function services(){

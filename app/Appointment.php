@@ -15,10 +15,10 @@ class Appointment extends Model
     }
 
     public function services(){
-        return $this->hasMany(Service::class);
+        return $this->belongsTo(Service::class);
     }
 
     public function salon(){
-        return $this->hasOne(Salon::class);
+        return $this->belongsTo(Salon::class);
     }
 }

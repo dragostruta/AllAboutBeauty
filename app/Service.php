@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
    public function appointments(){
-       return $this->belongsToMany(Appointment::class);
+       return $this->hasMany(Appointment::class);
    }
 
    public function employeeInformation(){
-       return $this->belongsToMany(EmployeeInformation::class);
+       return $this->hasMany(EmployeeInformation::class);
    }
 }

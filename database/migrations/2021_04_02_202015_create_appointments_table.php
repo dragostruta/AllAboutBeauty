@@ -13,19 +13,14 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointment', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->date('appointment_date');
-            $table->unsignedBigInteger('employee_information_id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('salon_id');
-            $table->unsignedBigInteger('service_id');
+            $table->dateTime('appointment_date');
+            $table->foreignId('employee_information_id')->constrained('employee_information');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('salon_id')->constrained('salons');
+            $table->foreignId('service_id')->constrained('services');
             $table->timestamps();
-
-            $table->index('employee_information_id');
-            $table->index('user_id');
-            $table->index('salon_id');
-            $table->index('service_id');
         });
     }
 
@@ -36,6 +31,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointment');
+        Schema::dropIfExists('appointments');
     }
 }
