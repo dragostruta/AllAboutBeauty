@@ -17,7 +17,7 @@ class EmployeeInformationController extends Controller
 
         $resultArray = [];
         foreach ($employeeInformation as $information){
-            $user =  DB::table('users')->where('id', $information->id)->first();
+            $user =  DB::table('users')->where('id', $information->user_id)->first();
             $resultArray[] = [
               'id' => $information->id,
               'firstname' => $user->firstname,
