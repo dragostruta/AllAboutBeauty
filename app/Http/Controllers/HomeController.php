@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\EmployeeInformation;
 use App\Providers\RouteServiceProvider;
+use App\Salon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +31,8 @@ class HomeController extends Controller
                     return redirect('admin');
             }
         }
-        return view('home');
+
+        $salons = Salon::where('city', '=', 'Cluj-Napoca')->get();
+        return view('home', ['salons' => $salons]);
     }
 }
