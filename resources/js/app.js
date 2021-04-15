@@ -32,19 +32,52 @@ const app = new Vue({
     el: '#app',
 });
 
-let salon = document.getElementById('salon');
+// Home //
+let salon = document.getElementById('create-appointment-salon-field');
 salon.addEventListener('click',  async (event)=>{
     if (Number.isFinite(parseInt(event.currentTarget.value))) {
+        let formData = {'salonId' : event.currentTarget.value};
+        let response = await fetch('/service/getAllServicesBySalon', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        });
 
-        let response = await fetch('/employeeInformation/'+ parseInt(event.currentTarget.value, 10), {
-            method: 'GET',
+        let result = await response.json();
+        if (result.status === 200){
+            let services = result.services;
+            let servicesSelect = document.getElementById('create-appointment-service-field');
+            servicesSelect.innerHTML = '<option selected>Selectează Serviciul</option>';
+            for(let index in services){
+                servicesSelect.innerHTML = servicesSelect.innerHTML +
+                    '<option value="'+services[index].id+'">'+services[index].name + '</option>';
+            }
+            document.getElementById('create-appointment-service').style.display = "block";
+        }
+    }
+})
+
+let service = document.getElementById('create-appointment-service-field');
+service.addEventListener('click', async ()=>{
+    if (Number.isFinite(parseInt(event.currentTarget.value))) {
+        let formData = {'serviceId' : event.currentTarget.value};
+        let response = await fetch('/employeeInformation/getAllEmployeesByService', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
         });
 
         let result = await response.json();
         if (result.status === 200){
             let employees = result.employees;
-            let employeeSelect = document.getElementById('employee');
-            employeeSelect.innerHTML = '<option selected>Selectează angajatul</option>';
+            let employeeSelect = document.getElementById('create-appointment-employee-field');
+            employeeSelect.innerHTML = ' <option selected>Selectează angajatul</option>';
             for(let index in employees){
                 employeeSelect.innerHTML = employeeSelect.innerHTML +
                     '<option value="'+employees[index].id+'">'+employees[index].firstname +' '+ employees[index].lastname + '</option>';
@@ -54,29 +87,8 @@ salon.addEventListener('click',  async (event)=>{
     }
 })
 
-let employee = document.getElementById('employee');
+let employee = document.getElementById('create-appointment-employee-field');
 employee.addEventListener('click', async ()=>{
-    if (Number.isFinite(parseInt(event.currentTarget.value))) {
-        let response = await fetch('/service/'+ parseInt(event.currentTarget.value, 10), {
-            method: 'GET',
-        });
-
-        let result = await response.json();
-        if (result.status === 200){
-            let services = result.services;
-            let serviceSelect = document.getElementById('service');
-            serviceSelect.innerHTML = ' <option selected>Selectează serviciul</option>';
-            for(let index in services){
-                serviceSelect.innerHTML = serviceSelect.innerHTML +
-                    '<option value="'+services[index].id+'">'+services[index].name + '</option>';
-            }
-            document.getElementById('create-appointment-service').style.display = "block";
-        }
-    }
-})
-
-let service = document.getElementById('service');
-service.addEventListener('click', async ()=>{
     if (Number.isFinite(parseInt(event.currentTarget.value))) {
         document.getElementById('create-appointment-date').style.display = "block";
         document.getElementById('create-appointment-hour').style.display = "block";

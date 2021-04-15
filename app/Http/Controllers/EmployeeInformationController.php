@@ -7,19 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class EmployeeInformationController extends Controller
 {
-    public function create()
-    {
-        return view('employeeInformation/create');
-    }
-
-    public function show($id){
-        $employeeInformation = DB::table('employee_information')->where('salon_id', $id)->get();
+    public function getAllEmployeesByService(Request $request){
+        $serviceId = $request->get('serviceId');
+        $employeeInformationService = DB::table('employee_information_service')->where('service_id', $serviceId)->get();
 
         $resultArray = [];
-        foreach ($employeeInformation as $information){
-            $user =  DB::table('users')->where('id', $information->user_id)->first();
+        foreach ($employeeInformationService as $informationService){
+            $employeeInformation = DB::table('employee_information')->where('id', $informationService->employee_information_id)->first();
+            $user =  DB::table('users')->where('id', $employeeInformation->user_id)->first();
             $resultArray[] = [
-              'id' => $information->id,
+              'id' => $employeeInformation->id,
               'firstname' => $user->firstname,
               'lastname' => $user->lastname,
             ];

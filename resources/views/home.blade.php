@@ -8,28 +8,28 @@
             <div class="create-appointment-title">Creează Programare</div>
             <div id="create-appointment-salon" class="create-appointment-field form-group">
                 <label class="create-appointment-label" for="salon">Salon</label>
-                <select name="salon" id="salon" class="custom-select custom-select-lg mb-3">
+                <select name="salon" id="create-appointment-salon-field" class="custom-select custom-select-lg mb-3">
                     <option selected>Selectează salonul</option>
                     @foreach($salons as $salon)
                         <option value="{{ $salon->id }}">{{ $salon->name }}</option>
                     @endforeach
                 </select>
             </div>
-            <div id="create-appointment-employee" class="create-appointment-field form-group">
-                <label class="create-appointment-label" for="employee">Angajat</label>
-                <select name="employee" id="employee" class="custom-select custom-select-lg mb-3">
-                    <option selected>Selectează angajatul</option>
-                </select>
-            </div>
             <div id="create-appointment-service" class="create-appointment-field form-group">
                 <label class="create-appointment-label" for="service">Serviciu</label>
-                <select name="service" id="service" class="custom-select custom-select-lg mb-3">
+                <select name="service" id="create-appointment-service-field" class="custom-select custom-select-lg mb-3">
                     <option selected>Selectează serviciul</option>
+                </select>
+            </div>
+            <div id="create-appointment-employee" class="create-appointment-field form-group">
+                <label class="create-appointment-label" for="employee">Angajat</label>
+                <select name="employee" id="create-appointment-employee-field" class="custom-select custom-select-lg mb-3">
+                    <option selected>Selectează angajatul</option>
                 </select>
             </div>
             <div id="create-appointment-date" class="create-appointment-field form-group">
                 <label class="create-appointment-label" for="date">Ziua</label>
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="date"/>
+                <input class="form-control" id="create-appointment-date-field" name="date" placeholder="MM/DD/YYY" type="date"/>
             </div>
             <div id="create-appointment-hour" class="create-appointment-field form-group">
                 <label class="create-appointment-label" for="service">Ora</label>

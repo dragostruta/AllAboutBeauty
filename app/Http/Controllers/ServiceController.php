@@ -17,11 +17,6 @@ class ServiceController extends Controller
         $this->middleware('auth');
     }
 
-    public function create()
-    {
-        return view('service/create');
-    }
-
     public function show($id){
         $employeeInformationServices = DB::table('employee_information_service')->where('employee_information_id', $id)->get();
 
@@ -32,6 +27,25 @@ class ServiceController extends Controller
                 'id' => $service->id,
                 'name' => $service->name
             ];
+        }
+
+        return response()->json(['status' => 200, 'services' => $resultArray]);
+    }
+
+    public function getAllServicesBySalon(Request $request){
+        $salonId = $request->get('salonId');
+        $employeeInformation = DB::table('employee_information')->where('salon_id', $salonId)->get();
+        $resultArray = [];
+
+        foreach ($employeeInformation as $information){
+            $employeeInformationService = DB::table('employee_information_service')->where('employee_information_id', $information->id)->get();
+            foreach ($employeeInformationService as $item) {
+                $service = DB::table('services')->where('id', $item->service_id)->first();
+                $resultArray[] = [
+                    'id' => $service->id,
+                    'name' => $service->name
+                ];
+            }
         }
 
         return response()->json(['status' => 200, 'services' => $resultArray]);

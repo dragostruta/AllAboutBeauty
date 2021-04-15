@@ -50604,46 +50604,55 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
-var salon = document.getElementById('salon');
+}); // Home //
+
+var salon = document.getElementById('create-appointment-salon-field');
 salon.addEventListener('click', /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(event) {
-    var response, result, employees, employeeSelect, index;
+    var formData, response, result, services, servicesSelect, index;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!Number.isFinite(parseInt(event.currentTarget.value))) {
-              _context.next = 8;
+              _context.next = 9;
               break;
             }
 
-            _context.next = 3;
-            return fetch('/employeeInformation/' + parseInt(event.currentTarget.value, 10), {
-              method: 'GET'
+            formData = {
+              'salonId': event.currentTarget.value
+            };
+            _context.next = 4;
+            return fetch('/service/getAllServicesBySalon', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
             });
 
-          case 3:
+          case 4:
             response = _context.sent;
-            _context.next = 6;
+            _context.next = 7;
             return response.json();
 
-          case 6:
+          case 7:
             result = _context.sent;
 
             if (result.status === 200) {
-              employees = result.employees;
-              employeeSelect = document.getElementById('employee');
-              employeeSelect.innerHTML = '<option selected>Selectează angajatul</option>';
+              services = result.services;
+              servicesSelect = document.getElementById('create-appointment-service-field');
+              servicesSelect.innerHTML = '<option selected>Selectează Serviciul</option>';
 
-              for (index in employees) {
-                employeeSelect.innerHTML = employeeSelect.innerHTML + '<option value="' + employees[index].id + '">' + employees[index].firstname + ' ' + employees[index].lastname + '</option>';
+              for (index in services) {
+                servicesSelect.innerHTML = servicesSelect.innerHTML + '<option value="' + services[index].id + '">' + services[index].name + '</option>';
               }
 
-              document.getElementById('create-appointment-employee').style.display = "block";
+              document.getElementById('create-appointment-service').style.display = "block";
             }
 
-          case 8:
+          case 9:
           case "end":
             return _context.stop();
         }
@@ -50655,52 +50664,60 @@ salon.addEventListener('click', /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }());
-var employee = document.getElementById('employee');
-employee.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-  var response, result, services, serviceSelect, index;
+var service = document.getElementById('create-appointment-service-field');
+service.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+  var formData, response, result, employees, employeeSelect, index;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           if (!Number.isFinite(parseInt(event.currentTarget.value))) {
-            _context2.next = 8;
+            _context2.next = 9;
             break;
           }
 
-          _context2.next = 3;
-          return fetch('/service/' + parseInt(event.currentTarget.value, 10), {
-            method: 'GET'
+          formData = {
+            'serviceId': event.currentTarget.value
+          };
+          _context2.next = 4;
+          return fetch('/employeeInformation/getAllEmployeesByService', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
           });
 
-        case 3:
+        case 4:
           response = _context2.sent;
-          _context2.next = 6;
+          _context2.next = 7;
           return response.json();
 
-        case 6:
+        case 7:
           result = _context2.sent;
 
           if (result.status === 200) {
-            services = result.services;
-            serviceSelect = document.getElementById('service');
-            serviceSelect.innerHTML = ' <option selected>Selectează serviciul</option>';
+            employees = result.employees;
+            employeeSelect = document.getElementById('create-appointment-employee-field');
+            employeeSelect.innerHTML = ' <option selected>Selectează angajatul</option>';
 
-            for (index in services) {
-              serviceSelect.innerHTML = serviceSelect.innerHTML + '<option value="' + services[index].id + '">' + services[index].name + '</option>';
+            for (index in employees) {
+              employeeSelect.innerHTML = employeeSelect.innerHTML + '<option value="' + employees[index].id + '">' + employees[index].firstname + ' ' + employees[index].lastname + '</option>';
             }
 
-            document.getElementById('create-appointment-service').style.display = "block";
+            document.getElementById('create-appointment-employee').style.display = "block";
           }
 
-        case 8:
+        case 9:
         case "end":
           return _context2.stop();
       }
     }
   }, _callee2);
 })));
-var service = document.getElementById('service');
-service.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+var employee = document.getElementById('create-appointment-employee-field');
+employee.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
