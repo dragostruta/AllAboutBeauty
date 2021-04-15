@@ -92,6 +92,7 @@ employee.addEventListener('click', async ()=>{
     if (Number.isFinite(parseInt(event.currentTarget.value))) {
         document.getElementById('create-appointment-date').style.display = "block";
         document.getElementById('create-appointment-hour').style.display = "block";
+        document.getElementById('create-appointment-submit').style.display = "block";
     }
 })
 

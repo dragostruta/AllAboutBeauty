@@ -37,6 +37,9 @@
                     <option selected>Selectează ora dorită</option>
                 </select>
             </div>
+            <div id="create-appointment-submit" class="create-appointment-field form-group">
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
         </form>
     </div>
 </div>

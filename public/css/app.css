@@ -29,6 +29,20 @@
   display: none;
 }
 
+#create-appointment-submit {
+  display: none;
+  -moz-text-align-last: center;
+       text-align-last: center;
+}
+
+#create-appointment-submit input {
+  width: 30%;
+}
+
+#create-appointment-submit input {
+  width: 30%;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

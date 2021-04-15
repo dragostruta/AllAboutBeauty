@@ -50725,6 +50725,7 @@ employee.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/
           if (Number.isFinite(parseInt(event.currentTarget.value))) {
             document.getElementById('create-appointment-date').style.display = "block";
             document.getElementById('create-appointment-hour').style.display = "block";
+            document.getElementById('create-appointment-submit').style.display = "block";
           }
 
         case 1:
