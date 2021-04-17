@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        dashboard
+        <div id="calendar"></div>
     </div>
 @endsection
