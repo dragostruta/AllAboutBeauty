@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('messages.appointment-success')
 <div class="container">
     <div class="row justify-content-center" id="home-container">
         <form class="create-appointment" id="create-appointment-form-field">

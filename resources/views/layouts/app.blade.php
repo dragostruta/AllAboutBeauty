@@ -26,6 +26,7 @@
 </head>
 <body>
     <div id="app">
+        @include('messages.appointment-success')
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -54,19 +55,6 @@
                         @else
                             <div id="bell"> <i class="fas fa-bell notification-bell"></i> </div>
                             <div class="notifications" id="box">
-                                <h2>Programări - <span>{{$appointmentCount}}</span></h2>
-{{--                                <div class="notifications-item">--}}
-{{--                                    <div class="text">--}}
-{{--                                        <h4>Samso aliao</h4>--}}
-{{--                                        <p>Samso Nagaro Like your home work</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="notifications-item">--}}
-{{--                                    <div class="text">--}}
-{{--                                        <h4>John Silvester</h4>--}}
-{{--                                        <p>+20 vista badge earned</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                             </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
