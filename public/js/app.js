@@ -50643,7 +50643,7 @@ salon.addEventListener('click', /*#__PURE__*/function () {
             if (result.status === 200) {
               services = result.services;
               servicesSelect = document.getElementById('create-appointment-service-field');
-              servicesSelect.innerHTML = '<option selected>Selectează Serviciul</option>';
+              servicesSelect.innerHTML = '<option selected>Selectează serviciul</option>';
 
               for (index in services) {
                 servicesSelect.innerHTML = servicesSelect.innerHTML + '<option value="' + services[index].id + '">' + services[index].name + '</option>';
@@ -50665,22 +50665,112 @@ salon.addEventListener('click', /*#__PURE__*/function () {
   };
 }());
 var service = document.getElementById('create-appointment-service-field');
-service.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-  var formData, response, result, employees, employeeSelect, index;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+service.addEventListener('click', /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(event) {
+    var formData, response, result, employees, employeeSelect, index;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            if (!Number.isFinite(parseInt(event.currentTarget.value))) {
+              _context2.next = 9;
+              break;
+            }
+
+            formData = {
+              'serviceId': event.currentTarget.value
+            };
+            _context2.next = 4;
+            return fetch('/employeeInformation/getAllEmployeesByService', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+          case 4:
+            response = _context2.sent;
+            _context2.next = 7;
+            return response.json();
+
+          case 7:
+            result = _context2.sent;
+
+            if (result.status === 200) {
+              employees = result.employees;
+              employeeSelect = document.getElementById('create-appointment-employee-field');
+              employeeSelect.innerHTML = ' <option selected>Selectează angajatul</option>';
+
+              for (index in employees) {
+                employeeSelect.innerHTML = employeeSelect.innerHTML + '<option value="' + employees[index].id + '">' + employees[index].firstname + ' ' + employees[index].lastname + '</option>';
+              }
+
+              document.getElementById('create-appointment-employee').style.display = "block";
+            }
+
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x2) {
+    return _ref2.apply(this, arguments);
+  };
+}());
+var employee = document.getElementById('create-appointment-employee-field');
+employee.addEventListener('click', /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(event) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            if (Number.isFinite(parseInt(event.currentTarget.value))) {
+              document.getElementById('create-appointment-date').style.display = "block";
+              document.getElementById('create-appointment-hour').style.display = "block";
+            }
+
+          case 1:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+
+  return function (_x3) {
+    return _ref3.apply(this, arguments);
+  };
+}());
+employee.addEventListener('change', function () {
+  var date = document.getElementById('create-appointment-date-field');
+  date.value = "";
+});
+var hour = document.getElementById('create-appointment-date-field');
+hour.addEventListener('change', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+  var date, employeeId, formData, response, result, hours, hoursSelect, index;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
     while (1) {
-      switch (_context2.prev = _context2.next) {
+      switch (_context4.prev = _context4.next) {
         case 0:
-          if (!Number.isFinite(parseInt(event.currentTarget.value))) {
-            _context2.next = 9;
+          date = document.getElementById('create-appointment-date-field');
+          employeeId = document.getElementById('create-appointment-employee-field');
+
+          if (!(date.value != '')) {
+            _context4.next = 11;
             break;
           }
 
           formData = {
-            'serviceId': event.currentTarget.value
+            'date': date.value,
+            'employeeId': employeeId.value
           };
-          _context2.next = 4;
-          return fetch('/employeeInformation/getAllEmployeesByService', {
+          _context4.next = 6;
+          return fetch('/appointment/getAllAvailableHoursByDate', {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
@@ -50689,52 +50779,103 @@ service.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_
             }
           });
 
-        case 4:
-          response = _context2.sent;
-          _context2.next = 7;
+        case 6:
+          response = _context4.sent;
+          _context4.next = 9;
           return response.json();
 
-        case 7:
-          result = _context2.sent;
+        case 9:
+          result = _context4.sent;
 
           if (result.status === 200) {
-            employees = result.employees;
-            employeeSelect = document.getElementById('create-appointment-employee-field');
-            employeeSelect.innerHTML = ' <option selected>Selectează angajatul</option>';
+            hours = result.hours;
+            hoursSelect = document.getElementById('create-appointment-hour-field');
+            hoursSelect.innerHTML = '<option selected>Selectează ora dorită</option>';
 
-            for (index in employees) {
-              employeeSelect.innerHTML = employeeSelect.innerHTML + '<option value="' + employees[index].id + '">' + employees[index].firstname + ' ' + employees[index].lastname + '</option>';
+            for (index in hours) {
+              hoursSelect.innerHTML = hoursSelect.innerHTML + '<option value="' + hours[index] + '">' + hours[index] + '</option>';
             }
 
-            document.getElementById('create-appointment-employee').style.display = "block";
-          }
-
-        case 9:
-        case "end":
-          return _context2.stop();
-      }
-    }
-  }, _callee2);
-})));
-var employee = document.getElementById('create-appointment-employee-field');
-employee.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-    while (1) {
-      switch (_context3.prev = _context3.next) {
-        case 0:
-          if (Number.isFinite(parseInt(event.currentTarget.value))) {
-            document.getElementById('create-appointment-date').style.display = "block";
-            document.getElementById('create-appointment-hour').style.display = "block";
             document.getElementById('create-appointment-submit').style.display = "block";
           }
 
-        case 1:
+        case 11:
         case "end":
-          return _context3.stop();
+          return _context4.stop();
       }
     }
-  }, _callee3);
+  }, _callee4);
 })));
+var form = document.getElementById('create-appointment-form-field');
+
+form.onsubmit = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(e) {
+    var salon, service, employee, date, hour, formData, response, result;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            e.preventDefault();
+            salon = document.getElementById('create-appointment-salon-field');
+            service = document.getElementById('create-appointment-service-field');
+            employee = document.getElementById('create-appointment-employee-field');
+            date = document.getElementById('create-appointment-date-field');
+            hour = document.getElementById('create-appointment-hour-field');
+            formData = {
+              'salonId': salon.value,
+              'serviceId': service.value,
+              'employeeId': employee.value,
+              'date': date.value + ' ' + hour.value + ':00'
+            };
+            _context5.next = 9;
+            return fetch('/appointment/createAppointment', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+          case 9:
+            response = _context5.sent;
+            _context5.next = 12;
+            return response.json();
+
+          case 12:
+            result = _context5.sent;
+
+            if (result.status === 200) {
+              document.getElementById('appointment-success').style.display = 'block';
+              document.getElementById('create-appointment-submit').style.display = 'none';
+              service.innerHTML = '<option selected>Selectează serviciul</option>';
+              document.getElementById('create-appointment-service').style.display = 'none';
+              employee.innerHTML = '<option selected>Selectează angajatul</option>';
+              document.getElementById('create-appointment-employee').style.display = 'none';
+              document.getElementById('create-appointment-date').style.display = 'none';
+              document.getElementById('create-appointment-hour').style.display = 'none';
+              salon.innerHTML = salon.innerHTML.slice(0, 7) + ' selected ' + salon.innerHTML.slice(7);
+              date.value = "";
+              hour.innerHTML = '<option selected>Selectează ora dorită</option>';
+            }
+
+          case 14:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+
+  return function (_x4) {
+    return _ref5.apply(this, arguments);
+  };
+}();
+
+var appointmentSuccessClose = document.getElementById('appointment-success-close');
+appointmentSuccessClose.addEventListener('click', function (event) {
+  event.currentTarget.style.display = 'none';
+});
 
 /***/ }),
 

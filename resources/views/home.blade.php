@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('messages.appointment-success')
 <div class="container">
-    <div class="row justify-content-center">
-        <form class="create-appointment">
+    <div class="row justify-content-center" id="home-container">
+        <form class="create-appointment" id="create-appointment-form-field">
             @csrf
             <div class="create-appointment-title">Creează Programare</div>
             <div id="create-appointment-salon" class="create-appointment-field form-group">
@@ -32,13 +33,13 @@
                 <input class="form-control" id="create-appointment-date-field" name="date" placeholder="MM/DD/YYY" type="date"/>
             </div>
             <div id="create-appointment-hour" class="create-appointment-field form-group">
-                <label class="create-appointment-label" for="service">Ora</label>
-                <select name="hour" class="custom-select custom-select-lg mb-3">
+                <label class="create-appointment-label" for="hour">Ora</label>
+                <select name="hour" id="create-appointment-hour-field" class="custom-select custom-select-lg mb-3">
                     <option selected>Selectează ora dorită</option>
                 </select>
             </div>
             <div id="create-appointment-submit" class="create-appointment-field form-group">
-                <input class="btn btn-primary" type="submit" value="Submit">
+                <input class="btn btn-primary" id="create-appointment-submit-field" type="submit" value="Submit">
             </div>
         </form>
     </div>

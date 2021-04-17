@@ -49,6 +49,9 @@ Route::get('/appointment', 'AppointmentController@index')->name('appointment.ind
 //Route::get('/appointment/{appointment}/edit', 'AppointmentController@edit')->name('appointment.edit');
 //Route::put('/appointment/{appointment}', 'AppointmentController@update')->name('appointment.update');
 //Route::delete('/appointment/{appointment}', 'AppointmentController@destroy')->name('appointment.destroy');
+Route::post('/appointment/getAllAvailableHoursByDate', 'AppointmentController@getAllAvailableHoursByDate')->name('appointment.getAllAvailableHoursByDate');
+Route::post('/appointment/createAppointment', 'AppointmentController@createAppointment')->name('appointment.createAppointment');
+
 
 
 Route::get('/', 'WelcomeController@index')->name('welcome');

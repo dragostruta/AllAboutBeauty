@@ -39,8 +39,8 @@
   width: 30%;
 }
 
-#create-appointment-submit input {
-  width: 30%;
+#appointment-success {
+  display: none;
 }
 
 /*!

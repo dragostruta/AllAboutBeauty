@@ -32,6 +32,24 @@ class ServiceController extends Controller
         return response()->json(['status' => 200, 'services' => $resultArray]);
     }
 
+    public function deleteDuplicates($array){
+        $resultArray = [];
+
+        foreach ($array as $item){
+            $flag = false;
+            foreach ($resultArray as $element){
+                if (($item['id'] == $element['id']) || ($item['name'] == $element['name'])){
+                    $flag = true;
+                }
+            }
+            if ($flag == false) {
+                $resultArray[] = $item;
+            }
+        }
+
+        return $resultArray;
+    }
+
     public function getAllServicesBySalon(Request $request){
         $salonId = $request->get('salonId');
         $employeeInformation = DB::table('employee_information')->where('salon_id', $salonId)->get();
@@ -48,6 +66,6 @@ class ServiceController extends Controller
             }
         }
 
-        return response()->json(['status' => 200, 'services' => $resultArray]);
+        return response()->json(['status' => 200, 'services' => $this->deleteDuplicates($resultArray)]);
     }
 }

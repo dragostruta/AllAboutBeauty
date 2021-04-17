@@ -30,10 +30,11 @@
 #create-appointment-submit {
     display: none;
     text-align-last: center;
-    input {
-        width: 30%;
-    }
 }
 #create-appointment-submit input {
     width: 30%;
+}
+
+#appointment-success{
+    display: none;
 }
