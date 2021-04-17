@@ -97,4 +97,20 @@ class AppointmentController extends Controller
         }, $appointments);
         return response()->json(['status' => 200, 'appointments' => $appointments]);
     }
+
+    public function getAllAppointmentsByEmployeeId(){
+        $appointments = Appointment::where('employee_information_id', '=', Auth::user()->id)->get();
+        $appointments = $appointments->toArray();
+        $appointments = array_map(function ($element){
+            $customerUser = User::where('id', '=',$element['user_id'])->first();
+            $date = explode(':',$element['appointment_date']);
+            $service = Service::where('id', '=', $element['service_id'])->first();
+            return [
+                'customer' => $customerUser->firstname.' '.$customerUser->lastname,
+                'service' => $service,
+                'date' => $date[0].':'.$date[1],
+            ];
+        }, $appointments);
+        return response()->json(['status' => 200, 'appointments' => $appointments]);
+    }
 }
