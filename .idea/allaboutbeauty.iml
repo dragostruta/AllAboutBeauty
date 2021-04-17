@@ -116,5 +116,8 @@
     <orderEntry type="library" name="formden" level="application" />
     <orderEntry type="library" name="jquery-1.12.4" level="application" />
     <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="bootstrap.bundle" level="application" />
+    <orderEntry type="library" name="a076d05399" level="application" />
+    <orderEntry type="library" name="5f9076f587" level="application" />
   </component>
 </module>

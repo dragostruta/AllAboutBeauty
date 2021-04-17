@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\EmployeeInformation;
+use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -76,5 +79,22 @@ class AppointmentController extends Controller
             'appointment_date' => $date
         ]);
         return response()->json(['status' => 200]);
+    }
+
+    public function getAllAppointmentsByUserId(){
+        $appointments = Appointment::where('user_id', '=', Auth::user()->id)->get();
+        $appointments = $appointments->toArray();
+        $appointments = array_map(function ($element){
+            $employeeInformation = EmployeeInformation::where('id', '=', $element['employee_information_id'])->first();
+            $employeeInformationUser = User::where('id', '=',$employeeInformation->user_id)->first();
+            $date = explode(':',$element['appointment_date']);
+            $service = Service::where('id', '=', $element['service_id'])->first();
+            return [
+                'employee' => $employeeInformationUser->firstname.' '.$employeeInformationUser->lastname,
+                'service' => $service,
+                'date' => $date[0].':'.$date[1],
+                ];
+        }, $appointments);
+        return response()->json(['status' => 200, 'appointments' => $appointments]);
     }
 }

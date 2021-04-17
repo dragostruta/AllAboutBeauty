@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
 use App\EmployeeInformation;
 use App\Providers\RouteServiceProvider;
 use App\Salon;
@@ -33,6 +34,7 @@ class HomeController extends Controller
         }
 
         $salons = Salon::where('city', '=', 'Cluj-Napoca')->get();
-        return view('home', ['salons' => $salons]);
+        $appointments = Appointment::where('user_id', '=', Auth::user()->id)->get();
+        return view('home', ['salons' => $salons, 'appointmentCount' => count($appointments)]);
     }
 }

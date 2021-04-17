@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/5f9076f587.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
     <!--  jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -32,11 +34,9 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -52,6 +52,22 @@
                                 </li>
                             @endif
                         @else
+                            <div id="bell"> <i class="fas fa-bell notification-bell"></i> </div>
+                            <div class="notifications" id="box">
+                                <h2>Programări - <span>{{$appointmentCount}}</span></h2>
+{{--                                <div class="notifications-item">--}}
+{{--                                    <div class="text">--}}
+{{--                                        <h4>Samso aliao</h4>--}}
+{{--                                        <p>Samso Nagaro Like your home work</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="notifications-item">--}}
+{{--                                    <div class="text">--}}
+{{--                                        <h4>John Silvester</h4>--}}
+{{--                                        <p>+20 vista badge earned</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                            </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}

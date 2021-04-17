@@ -50875,6 +50875,92 @@ form.onsubmit = /*#__PURE__*/function () {
 var appointmentSuccessClose = document.getElementById('appointment-success-close');
 appointmentSuccessClose.addEventListener('click', function (event) {
   event.currentTarget.style.display = 'none';
+}); // NavBar //
+
+$(document).ready(function () {
+  var down = false;
+  $('#bell').click( /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(e) {
+      var response, result, appointments, box, index, notificationItem, boxText, boxTextEmployee, boxTextDate, boxTextService, boxTextServicePrice, color;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return fetch('/appointment/getAllAppointmentsByUserId', {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 2:
+              response = _context6.sent;
+              _context6.next = 5;
+              return response.json();
+
+            case 5:
+              result = _context6.sent;
+
+              if (result.status === 200) {
+                appointments = result.appointments;
+                box = document.getElementById('box');
+                box.innerHTML = '<h2>Programări - <span>' + appointments.length + '</span></h2>';
+
+                for (index in appointments) {
+                  notificationItem = document.createElement('div');
+                  notificationItem.setAttribute('class', 'notifications-item');
+                  boxText = document.createElement('div');
+                  boxText.setAttribute('class', 'text');
+                  boxTextEmployee = document.createElement('h4');
+                  boxTextEmployee.innerText = appointments[index].employee;
+                  boxTextDate = document.createElement('div');
+                  boxTextDate.innerText = 'Data: ' + appointments[index].date;
+                  boxTextService = document.createElement('div');
+                  boxTextService.innerText = 'Serviciu: ' + appointments[index].service.name;
+                  boxTextServicePrice = document.createElement('div');
+                  boxTextServicePrice.innerText = 'Pret: ' + appointments[index].service.price + ' lei';
+                  boxText.appendChild(boxTextEmployee);
+                  boxText.appendChild(boxTextDate);
+                  boxText.appendChild(boxTextService);
+                  boxText.appendChild(boxTextServicePrice);
+                  notificationItem.appendChild(boxText);
+                  box.appendChild(notificationItem);
+                }
+              }
+
+              color = $(this).text();
+
+              if (down) {
+                $('#box').css('height', '0px');
+                $('#box').css('opacity', '0');
+                down = false;
+              } else {
+                $('#box').css('height', 'auto');
+                $('#box').css('opacity', '1');
+                down = true;
+              }
+
+            case 9:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this);
+    }));
+
+    return function (_x5) {
+      return _ref6.apply(this, arguments);
+    };
+  }());
+  window.addEventListener('click', function () {
+    if (down) {
+      $('#box').css('height', '0px');
+      $('#box').css('opacity', '0');
+      down = false;
+    }
+  });
 });
 
 /***/ }),
