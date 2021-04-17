@@ -27,6 +27,7 @@ if (calendar) {
             }
         }
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: 'ro',
             initialView: 'dayGridMonth',
             titleFormat: {year: 'numeric', month: '2-digit', day: '2-digit'},
             headerToolbar: {

@@ -1989,6 +1989,7 @@ if (calendar) {
             }
 
             calendar = new FullCalendar.Calendar(calendarEl, {
+              locale: 'ro',
               initialView: 'dayGridMonth',
               titleFormat: {
                 year: 'numeric',
