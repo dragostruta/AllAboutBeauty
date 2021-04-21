@@ -16,6 +16,16 @@
     <!-- Styles -->
     <link href='fullcalendar/lib/main.css' rel='stylesheet' />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons -->
+    <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <!-- Main Css -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
+    <link href="css/colors/default.css" rel="stylesheet" id="color-opt">
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/5f9076f587.js" crossorigin="anonymous"></script>
@@ -28,7 +38,7 @@
 <body>
     <div id="app">
         @include('messages.appointment-success')
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="height: 70px !important;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     AllAboutBeauty
@@ -46,11 +56,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary mt-2 me-2">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a href="{{ route('register') }}" class="btn btn-outline-primary mt-2"> {{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
