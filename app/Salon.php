@@ -13,4 +13,8 @@ class Salon extends Model
     public function employeeInformation(){
         return $this->hasMany(EmployeeInformation::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

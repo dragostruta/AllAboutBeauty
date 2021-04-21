@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSalonsTable extends Migration
+class CreateSalonRequests extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateSalonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('salons', function (Blueprint $table) {
+        Schema::create('salon_requests', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('address');
             $table->string('city');
-            $table->foreignId('user_id')->constrained('users');
+            $table->string('email')->unique();
+            $table->string('description');
+            $table->string('phone_number');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateSalonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salons');
+        Schema::dropIfExists('salon_requests');
     }
 }
