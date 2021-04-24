@@ -1,7 +1,9 @@
 let appointmentSuccessClose = document.getElementById('appointment-success-close');
-appointmentSuccessClose.addEventListener('click', (event)=>{
-    event.currentTarget.style.display = 'none';
-});
+if (appointmentSuccessClose) {
+    appointmentSuccessClose.addEventListener('click', (event) => {
+        event.currentTarget.style.display = 'none';
+    });
+}
 
 $(document).ready(function(){
     var down = false;
