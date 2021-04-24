@@ -2873,7 +2873,7 @@ p {
 }
 
 .bg-home {
-  height: 80vh;
+  height: 100vh;
   background-size: cover;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;

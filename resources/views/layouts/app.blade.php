@@ -48,7 +48,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    @include('messages.appointment-success')
+    <div id="app">
+        @include('messages.appointment-success')
 {{--        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="height: 70px !important;">--}}
 {{--            <div class="container">--}}
 {{--                <a class="navbar-brand" href="{{ url('/') }}">--}}
@@ -103,7 +104,7 @@
 {{--            </div>--}}
 {{--        </nav>--}}
         <!-- Navbar STart -->
-        <header id="topnav" class="defaultscroll sticky bg-white" style="position: relative">
+        <header id="topnav" class="defaultscroll sticky bg-white">
 
             <div class="container">
                 <!-- Logo container-->
@@ -143,7 +144,9 @@
             </div><!--end container-->
         </header><!--end header-->
         <!-- Navbar End -->
-
-        @yield('content')
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
 </body>
 </html>
