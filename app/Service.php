@@ -6,11 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-   public function appointments(){
-       return $this->hasMany(Appointment::class);
-   }
+    protected $fillable = [
+        'name', 'duration', 'gender', 'price',
+    ];
 
-   public function employeeInformation(){
-       return $this->hasMany(EmployeeInformation::class);
-   }
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function employeeInformation()
+    {
+        return $this->hasMany(EmployeeInformation::class);
+    }
 }

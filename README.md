@@ -76,3 +76,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Commands
+
+- php artisan migrate:fresh (brind DB to be fresh empty)
+- php artisan command:fill (fills the DB)
