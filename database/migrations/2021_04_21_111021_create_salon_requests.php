@@ -21,7 +21,7 @@ class CreateSalonRequests extends Migration
             $table->string('email')->unique();
             $table->longText('description');
             $table->string('phone_number');
-            $table->string('status');
+            $table->string('status')->default('new');
             $table->boolean('approved')->default(false);
             $table->timestamps();
         });
