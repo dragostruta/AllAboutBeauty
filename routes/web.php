@@ -41,6 +41,8 @@ Route::get('/salon', 'SalonController@index')->name('salon.index');
 //Route::get('/salon/{salon}/edit', 'SalonController@edit')->name('salon.edit');
 //Route::put('/salon/{salon}', 'SalonController@update')->name('salon.update');
 //Route::delete('/salon/{salon}', 'SalonController@destroy')->name('salon.destroy');
+Route::get('/request', 'SalonController@request')->name('salon.request');
+Route::post('/process', 'SalonController@process')->name('salon.process');
 
 Route::get('/appointment', 'AppointmentController@index')->name('appointment.index');
 //Route::get('/appointment/create', 'AppointmentController@create')->name('appointment.create');

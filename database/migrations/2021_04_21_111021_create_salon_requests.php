@@ -19,9 +19,10 @@ class CreateSalonRequests extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('email')->unique();
-            $table->string('description');
+            $table->longText('description');
             $table->string('phone_number');
             $table->string('status');
+            $table->boolean('approved')->default(false);
             $table->timestamps();
         });
     }

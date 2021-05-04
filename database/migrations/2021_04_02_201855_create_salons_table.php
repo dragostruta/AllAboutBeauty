@@ -19,6 +19,7 @@ class CreateSalonsTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->foreignId('user_id')->constrained('users');
+            $table->longText('description');
             $table->timestamps();
         });
     }

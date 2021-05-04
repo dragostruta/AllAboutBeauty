@@ -49,61 +49,6 @@
 </head>
 <body>
     <div id="app">
-        @include('messages.appointment-success')
-{{--        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="height: 70px !important;">--}}
-{{--            <div class="container">--}}
-{{--                <a class="navbar-brand" href="{{ url('/') }}">--}}
-{{--                    AllAboutBeauty--}}
-{{--                </a>--}}
-{{--                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
-{{--                    <span class="navbar-toggler-icon"></span>--}}
-{{--                </button>--}}
-{{--                <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--                    <!-- Left Side Of Navbar -->--}}
-{{--                    <ul class="navbar-nav mr-auto">--}}
-{{--                    </ul>--}}
-
-{{--                    <!-- Right Side Of Navbar -->--}}
-{{--                    <ul class="navbar-nav ml-auto">--}}
-{{--                        <!-- Authentication Links -->--}}
-{{--                        @guest--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="{{ route('login') }}" class="btn btn-primary mt-2 me-2">{{ __('Login') }}</a>--}}
-{{--                            </li>--}}
-{{--                            @if (Route::has('register'))--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a href="{{ route('register') }}" class="btn btn-outline-primary mt-2"> {{ __('Register') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-{{--                        @else--}}
-{{--                            @if (Auth::user()->role === 'customer')--}}
-{{--                                <div id="bell"> <i class="fas fa-bell notification-bell"></i> </div>--}}
-{{--                                <div class="notifications" id="box"></div>--}}
-{{--                            @endif--}}
-
-{{--                            <li class="nav-item dropdown">--}}
-{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}--}}
-{{--                                </a>--}}
-
-{{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                                       onclick="event.preventDefault();--}}
-{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                                        {{ __('Logout') }}--}}
-{{--                                    </a>--}}
-
-{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                                        @csrf--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        @endguest--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </nav>--}}
-        <!-- Navbar STart -->
         <header id="topnav" class="defaultscroll sticky bg-white">
 
             <div class="container">
@@ -117,7 +62,10 @@
                 </div>
                 <div class="buy-button">
                     <a href="{{ route('register') }}" class="btn btn-primary">Inregistrare</a>
-                </div><!--end login button-->
+                </div>
+                <div class="buy-button">
+                    <a href="{{ route('salon.request') }}" class="btn btn-primary">Inregistrare Salon</a>
+                </div>
                 <!-- End Logo container-->
                 @endguest
 

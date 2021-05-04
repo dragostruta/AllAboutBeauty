@@ -906,6 +906,7 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
                 'name' => $employee['salon']['name'],
                 'address' => $employee['salon']['address'],
                 'city' => $employee['salon']['city'],
+                'description' => $employee['salon']['description'],
                 'user_id' => $manager->id
             ]);
 
@@ -931,6 +932,6 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
                 }
             }
         }
-
+        echo 'Success';
     }
 }

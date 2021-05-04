@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Salon extends Model
 {
     protected $fillable = [
-        'name', 'user_id', 'address', 'city'
+        'name', 'user_id', 'address', 'city', 'description'
     ];
 
     public function appointments(){
