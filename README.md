@@ -79,5 +79,23 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Commands
 
-- php artisan migrate:fresh (brind DB to be fresh empty)
-- php artisan command:fill (fills the DB)
+ php artisan migrate:fresh (brind DB to be fresh empty)
+ php artisan command:fill (fills the DB)
+
+## Email Notification
+
+Add this to .env :
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME= {email}
+MAIL_PASSWORD= {password}
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS= {email}
+MAIL_FROM_NAME= {Name}
+
+- After email configuration in .env run this commands:
+  php artisan config:clear
+  php artisan cache:clear
+  php artisan config:cache
