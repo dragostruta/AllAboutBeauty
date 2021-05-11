@@ -30,4 +30,8 @@ class AdminController extends Controller
         }
         return view('admin');
     }
+
+    public function request(){
+        return view('admin.adminRequest');
+    }
 }

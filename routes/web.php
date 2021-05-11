@@ -58,6 +58,6 @@ Route::get('/appointment/getAllAppointmentsByEmployeeId', 'AppointmentController
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/test', 'HomeController@test')->name('test');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/adminRequest', 'AdminController@request')->name('admin.request');
