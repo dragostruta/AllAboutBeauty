@@ -13,6 +13,10 @@ class SalonController extends Controller
         return view('salon.request');
     }
 
+    public function salonRequestSuccess(){
+        return view('messages.thank-you');
+    }
+
     public function process(Request $request)
     {
         $name = $request->get('name');
@@ -21,8 +25,8 @@ class SalonController extends Controller
         $address = $request->get('address');
         $phoneNumber = $request->get('phone_number');
         $description = $request->get('description');
-        $salons = DB::table('salon_requests')->where('name', '=',$name)->where('address','=' ,$address)->get();
-        if ($salons){
+        $salons = SalonRequests::query()->where('name', '=',$name)->where('address','=' ,$address)->get();
+        if (count($salons) !== 0){
             return redirect('/request');
         }
         SalonRequests::create([
@@ -34,6 +38,11 @@ class SalonController extends Controller
             'description' => $description
         ]);
 
-        return redirect('/');
+        return redirect('/salonRequestSuccess');
+    }
+
+    public function showSalonRequests(Request $request){
+        $salonRequests = SalonRequests::query()->get();
+        return response()->json(['salonsRequests' => $salonRequests]);
     }
 }
