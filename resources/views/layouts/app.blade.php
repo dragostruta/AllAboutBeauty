@@ -81,6 +81,9 @@
                             @csrf
                         </form>
                     </div>
+                    <div class="buy-button">
+                        <a href="{{ route('setup') }}" class="btn btn-primary">Cont</a>
+                    </div>
                 @endauth
 
                 <div id="navigation">

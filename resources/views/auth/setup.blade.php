@@ -11,7 +11,7 @@
                                 <div class="card-item">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <h1 class="h6 card-item-title text-secondary mb-3">Program angajat</h1>
+                                            <h1 class="h6 card-item-title text-secondary mb-3">Setari Cont</h1>
                                         </div>
                                     </div>
                                 </div>

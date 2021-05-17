@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/employeeInformation', 'EmployeeInformationController@index')->name('employeeInformation.index');
+Route::get('/employee', 'EmployeeInformationController@index')->name('employee.index');
 Route::get('/service', 'ServiceController@index')->name('service.index');
 Route::get('/salon', 'SalonController@index')->name('salon.index');
 Route::get('/request', 'SalonController@request')->name('salon.request');
@@ -27,6 +27,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/setup', 'Controller@setup')->name('setup');
 Route::get('/adminRequest', 'AdminController@request')->name('admin.request');
 Route::get('/adminAppointment', 'AdminController@appointment')->name('admin.appointment');
 Route::get('/adminEmployee', 'AdminController@employee')->name('admin.employee');

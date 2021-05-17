@@ -26,7 +26,7 @@ Route::group([
     Route::post('/review/create', 'ReviewController@create')->name('review.create');
 
     // Employee
-    Route::post('/employeeInformation/getAllEmployeesByService', 'EmployeeInformationController@getAllEmployeesByService')->name('employeeInformation.getAllEmployeesByService');
+    Route::post('/employee/getAllEmployeesByService', 'EmployeeInformationController@getAllEmployeesByService')->name('employee.getAllEmployeesByService');
 
     // Service
     Route::post('/service/getAllServicesBySalon', 'ServiceController@getAllServicesBySalon')->name('service.getAllServicesBySalon');
