@@ -90,6 +90,8 @@
                         <li><a href="{{ route('welcome') }}" class="sub-menu-item">Acasă</a></li>
                         @if (Auth::user()->role === 'admin')
                             <li><a href="{{ route('admin.request') }}" class="sub-menu-item">Cereri</a></li>
+                            <li><a href="{{ route('admin.appointment') }}" class="sub-menu-item">Programări</a></li>
+                            <li><a href="{{ route('admin.employee') }}" class="sub-menu-item">Angajați</a></li>
                         @endif
                     </ul><!--end navigation menu-->
                     @endauth

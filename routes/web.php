@@ -28,4 +28,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/adminRequest', 'AdminController@request')->name('admin.request');
+Route::get('/adminAppointment', 'AdminController@appointment')->name('admin.appointment');
+Route::get('/adminEmployee', 'AdminController@employee')->name('admin.employee');
+Route::get('/adminEmployeeInfo', 'AdminController@employeeInfo')->name('admin.employeeInfo');
+Route::get('/adminSalonInfo', 'AdminController@salonInfo')->name('admin.salonInfo');
 Route::get('/salonRequestSuccess', 'SalonController@salonRequestSuccess')->name('admin.salonRequestSuccess');

@@ -34,4 +34,18 @@ class AdminController extends Controller
     public function request(){
         return view('admin.adminRequest');
     }
+
+    public function appointment(){
+        return view('admin.adminAppointments');
+    }
+
+    public function employee(){
+        return view('admin.adminEmployee');
+    }
+    public function employeeInfo(){
+        return view('admin.adminEmployeeInfo');
+    }
+    public function salonInfo(){
+        return view('admin.adminSalonInfo');
+    }
 }

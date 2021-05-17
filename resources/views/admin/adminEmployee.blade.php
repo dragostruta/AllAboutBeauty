@@ -11,7 +11,7 @@
                                 <div class="card-item">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <h1 class="h6 card-item-title text-secondary mb-3">Cereri de inregistrare a saloanelor</h1>
+                                            <h1 class="h6 card-item-title text-secondary mb-3">Angajați</h1>
                                         </div>
                                     </div>
                                     <div class="table-responsive">
@@ -20,14 +20,24 @@
                                             <tr>
                                                 <th scope="col">Name</th>
                                                 <th>Address</th>
+                                                <th>Salon</th>
                                                 <th>Info</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>HairTestName</td>
-                                                <td>AddressName</td>
-                                                <td>InfoName</td>
+                                                <td>
+                                                    <a href="{{ route('admin.employeeInfo') }}" class="sub-menu-item">Ion</a>
+                                                </td>
+                                                <td>
+                                                    AddressName
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('admin.salonInfo') }}" class="sub-menu-item">SalonName</a>
+                                                </td>
+                                                <td>
+                                                    InfoName
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
