@@ -36,3 +36,6 @@ Route::get('/adminEmployee', 'AdminController@employee')->name('admin.employee')
 Route::get('/adminEmployeeInfo', 'AdminController@employeeInfo')->name('admin.employeeInfo');
 Route::get('/adminSalonInfo', 'AdminController@salonInfo')->name('admin.salonInfo');
 Route::get('/salonRequestSuccess', 'SalonController@salonRequestSuccess')->name('admin.salonRequestSuccess');
+Route::get('/editUserSuccess', 'HomeController@editUserSuccess')->name('home.editUserSuccess');
+Route::get('/editUserFailed', 'HomeController@editUserFailed')->name('home.editUserFailed');
+Route::post('/editUser', 'HomeController@editUser')->name('home.editUser');

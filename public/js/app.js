@@ -2032,6 +2032,8 @@ __webpack_require__(/*! ./adminAppontments */ "./resources/js/adminAppontments.j
 
 __webpack_require__(/*! ./adminEmployee */ "./resources/js/adminEmployee.js");
 
+__webpack_require__(/*! ./editUser */ "./resources/js/editUser.js");
+
 __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js");
 
 __webpack_require__(/*! ./dashboard */ "./resources/js/dashboard.js");
@@ -6269,6 +6271,85 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     };
   }])["default"];
 });
+
+/***/ }),
+
+/***/ "./resources/js/editUser.js":
+/*!**********************************!*\
+  !*** ./resources/js/editUser.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var form = document.getElementById('edit-user-form');
+
+if (form) {
+  form.onsubmit = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+      var _password$value;
+
+      var firstname, lastname, email, password, formData, response, result;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              firstname = document.getElementById('inputFirstName');
+              lastname = document.getElementById('inputLastName');
+              email = document.getElementById('inputEmail');
+              password = document.getElementById('inputPassword');
+              formData = {
+                'firstname': firstname.value,
+                'lastname': lastname.value,
+                'email': email.value,
+                'password': (_password$value = password.value) !== null && _password$value !== void 0 ? _password$value : null
+              };
+              _context.next = 8;
+              return fetch('/editUser', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 8:
+              response = _context.sent;
+              _context.next = 11;
+              return response.json();
+
+            case 11:
+              result = _context.sent;
+
+              if (result.status === 200) {
+                window.location.replace("/editUserSuccess");
+              } else {
+                window.location.replace("/editUserFailed");
+              }
+
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+}
 
 /***/ }),
 

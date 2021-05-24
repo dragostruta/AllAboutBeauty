@@ -37,7 +37,6 @@ Route::group([
     Route::get('/salon/showSalonRequests', 'SalonController@showSalonRequests')->name('salon.showSalonRequests');
 
 
-
     // Appointment
     Route::get('/appointment/getAllAvailableHoursByDate', 'AppointmentController@getAllAvailableHoursByDate')->name('appointment.getAllAvailableHoursByDate');
     Route::post('/appointment/createAppointment', 'AppointmentController@createAppointment')->name('appointment.createAppointment');

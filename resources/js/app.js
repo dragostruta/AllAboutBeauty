@@ -9,6 +9,7 @@ require('./home');
 require('./salonRequest');
 require('./adminAppontments');
 require('./adminEmployee');
+require('./editUser');
 require('./navbar');
 require('./dashboard');
 require('./bootstrap.bundle.min');
