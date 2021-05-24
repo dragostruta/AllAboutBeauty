@@ -36,10 +36,4 @@ Route::group([
     Route::post('/salon/process', 'SalonController@process')->name('salon.process');
     Route::get('/salon/showSalonRequests', 'SalonController@showSalonRequests')->name('salon.showSalonRequests');
 
-
-    // Appointment
-    Route::get('/appointment/getAllAppointmentsByUserId', 'AppointmentController@getAllAppointmentsByUserId')->name('appointment.getAllAppointmentsByUserId');
-    Route::get('/appointment/getAllAppointmentsByEmployeeId', 'AppointmentController@getAllAppointmentsByEmployeeId')->name('appointment.getAllAppointmentsByEmployeeId');
-    Route::get('/appointment/getAllAppointmentsBySalonId', 'AppointmentController@getAllAppointmentsBySalonId')->name('appointment.getAllAppointmentsBySalonId');
-
 });

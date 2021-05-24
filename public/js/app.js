@@ -1880,7 +1880,7 @@ if (salon) {
                 'salonId': event.currentTarget.value
               };
               _context.next = 4;
-              return fetch('/api/appointment/getAllAppointmentsBySalonId?salon_id=' + event.currentTarget.value);
+              return fetch('/appointment/getAllAppointmentsBySalonId?salon_id=' + event.currentTarget.value);
 
             case 4:
               response = _context.sent;

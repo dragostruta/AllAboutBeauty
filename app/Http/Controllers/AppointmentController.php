@@ -104,7 +104,8 @@ class AppointmentController extends Controller
     }
 
     public function getAllAppointmentsByEmployeeId(){
-        $appointments = Appointment::where('employee_information_id', '=', Auth::user()->id)->get();
+        $employee = EmployeeInformation::query()->where('user_id', '=', Auth::user()->id)->first();
+        $appointments = Appointment::where('employee_information_id', '=', $employee->id)->get();
         $appointments = $appointments->toArray();
         $appointments = array_map(function ($element){
             $customerUser = User::where('id', '=',$element['user_id'])->first();

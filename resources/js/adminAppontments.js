@@ -3,7 +3,7 @@ if (salon) {
     salon.addEventListener('click', async (event) => {
         if (Number.isFinite(parseInt(event.currentTarget.value))) {
             let formData = {'salonId': event.currentTarget.value};
-            let response = await fetch('/api/appointment/getAllAppointmentsBySalonId?salon_id='+ event.currentTarget.value);
+            let response = await fetch('/appointment/getAllAppointmentsBySalonId?salon_id='+ event.currentTarget.value);
 
             let result = await response.json();
             if (result.status === 200) {
