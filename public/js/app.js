@@ -1845,6 +1845,172 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/adminAppontments.js":
+/*!******************************************!*\
+  !*** ./resources/js/adminAppontments.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var salon = document.getElementById('choose-salon-admin-appointements');
+
+if (salon) {
+  salon.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
+      var formData, response, result, table, data, tableRow, tableDataDate, tableDataEmployee, tableDataCustomer, tableDataService;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!Number.isFinite(parseInt(event.currentTarget.value))) {
+                _context.next = 9;
+                break;
+              }
+
+              formData = {
+                'salonId': event.currentTarget.value
+              };
+              _context.next = 4;
+              return fetch('/api/appointment/getAllAppointmentsBySalonId?salon_id=' + event.currentTarget.value);
+
+            case 4:
+              response = _context.sent;
+              _context.next = 7;
+              return response.json();
+
+            case 7:
+              result = _context.sent;
+
+              if (result.status === 200) {
+                table = document.getElementById('table-admin-appointments-body');
+                table.innerHTML = '';
+
+                for (data in result.appointments) {
+                  tableRow = document.createElement('tr');
+                  tableDataDate = document.createElement('td');
+                  tableDataDate.innerText = result.appointments[data].date;
+                  tableDataEmployee = document.createElement('td');
+                  tableDataEmployee.innerText = result.appointments[data].employee;
+                  tableDataCustomer = document.createElement('td');
+                  tableDataCustomer.innerText = result.appointments[data].customer;
+                  tableDataService = document.createElement('td');
+                  tableDataService.innerText = result.appointments[data].service;
+                  tableRow.appendChild(tableDataDate);
+                  tableRow.appendChild(tableDataEmployee);
+                  tableRow.appendChild(tableDataCustomer);
+                  tableRow.appendChild(tableDataService);
+                  table.appendChild(tableRow);
+                }
+              }
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+/***/ }),
+
+/***/ "./resources/js/adminEmployee.js":
+/*!***************************************!*\
+  !*** ./resources/js/adminEmployee.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var salon = document.getElementById('choose-salon-admin-employee');
+
+if (salon) {
+  salon.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
+      var formData, response, result, table, data, tableRow, tableDataFirstName, tableDataLastName, tableDataAddress, tableDataPhoneNumber;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!Number.isFinite(parseInt(event.currentTarget.value))) {
+                _context.next = 9;
+                break;
+              }
+
+              formData = {
+                'salonId': event.currentTarget.value
+              };
+              _context.next = 4;
+              return fetch('/api/employee/getAllEmployeesBySalon?salon_id=' + event.currentTarget.value);
+
+            case 4:
+              response = _context.sent;
+              _context.next = 7;
+              return response.json();
+
+            case 7:
+              result = _context.sent;
+
+              if (result.status === 200) {
+                table = document.getElementById('table-body-admin-employee');
+                table.innerHTML = '';
+
+                for (data in result.employees) {
+                  tableRow = document.createElement('tr');
+                  tableDataFirstName = document.createElement('td');
+                  tableDataFirstName.innerText = result.employees[data].firstname;
+                  tableDataLastName = document.createElement('td');
+                  tableDataLastName.innerText = result.employees[data].lastname;
+                  tableDataAddress = document.createElement('td');
+                  tableDataAddress.innerText = result.employees[data].address;
+                  tableDataPhoneNumber = document.createElement('td');
+                  tableDataPhoneNumber.innerText = result.employees[data].phone_number;
+                  tableRow.appendChild(tableDataFirstName);
+                  tableRow.appendChild(tableDataLastName);
+                  tableRow.appendChild(tableDataAddress);
+                  tableRow.appendChild(tableDataPhoneNumber);
+                  table.appendChild(tableRow);
+                }
+              }
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -1859,6 +2025,12 @@ module.exports = {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./home */ "./resources/js/home.js");
+
+__webpack_require__(/*! ./salonRequest */ "./resources/js/salonRequest.js");
+
+__webpack_require__(/*! ./adminAppontments */ "./resources/js/adminAppontments.js");
+
+__webpack_require__(/*! ./adminEmployee */ "./resources/js/adminEmployee.js");
 
 __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js");
 
@@ -10375,6 +10547,125 @@ try {
   ;
   window.onload(typewrite());
 } catch (err) {}
+
+/***/ }),
+
+/***/ "./resources/js/salonRequest.js":
+/*!**************************************!*\
+  !*** ./resources/js/salonRequest.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var salonRequest = document.getElementById('accept-salon-request');
+
+if (salonRequest) {
+  salonRequest.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
+      var formData, response, result;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              formData = {
+                'email': salonRequest.getAttribute('data-email'),
+                'id': salonRequest.getAttribute('data-id')
+              };
+              _context.next = 3;
+              return fetch('/admin/acceptSalonRequest', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return response.json();
+
+            case 6:
+              result = _context.sent;
+
+              if (result) {
+                window.location.reload();
+              }
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+var exportButton = document.getElementById('export-salon-requests');
+
+if (exportButton) {
+  exportButton.addEventListener('click', /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
+      var formData, response, result, link;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              formData = {};
+              _context2.next = 3;
+              return fetch('/admin/exportExcel', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 3:
+              response = _context2.sent;
+              _context2.next = 6;
+              return response.json();
+
+            case 6:
+              result = _context2.sent;
+
+              if (result.status === 200) {
+                link = document.createElement("a");
+                link.download = result.name;
+                link.href = result.path;
+                link.click();
+                link.remove();
+              }
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+}
 
 /***/ }),
 

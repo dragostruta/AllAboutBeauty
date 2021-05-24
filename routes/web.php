@@ -18,10 +18,12 @@ Auth::routes();
 Route::get('/employee', 'EmployeeInformationController@index')->name('employee.index');
 Route::get('/service', 'ServiceController@index')->name('service.index');
 Route::get('/salon', 'SalonController@index')->name('salon.index');
-Route::get('/request', 'SalonController@request')->name('salon.request');
+Route::get('/request', 'SalonController@request')->name('request');
 
 
 Route::get('/appointment', 'AppointmentController@index')->name('appointment.index');
+Route::post('/admin/acceptSalonRequest', 'AdminController@acceptSalonRequest')->name('admin.acceptSalonRequest');
+Route::post('/admin/exportExcel', 'AdminController@exportExcel')->name('admin.exportExcel');
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');

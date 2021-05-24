@@ -113,4 +113,23 @@ class AppointmentController extends Controller
         }, $appointments);
         return response()->json(['status' => 200, 'appointments' => $appointments]);
     }
+    public function getAllAppointmentsBySalonId(Request $request){
+        $appointments = Appointment::where('salon_id', '=', $request->get('salon_id'))->get();
+        $appointments = $appointments->toArray();
+        $appointments = array_map(function ($element){
+            $customerUser = User::where('id', '=',$element['user_id'])->first();
+            $employee = EmployeeInformation::query()->where('id', '=', $element['employee_information_id'])->first();
+            $employeeUserInfo = User::query()->where('id', '=', $employee->user_id)->first();
+            $date = explode(':',$element['appointment_date']);
+            $service = Service::where('id', '=', $element['service_id'])->first();
+            return [
+                'customer' => $customerUser->firstname.' '.$customerUser->lastname,
+                'employee' => $employeeUserInfo->firstname.' '.$employeeUserInfo->lastname,
+                'service' => $service->name,
+                'date' => $date[0].':'.$date[1],
+            ];
+        }, $appointments);
+        return response()->json(['status' => 200, 'appointments' => $appointments]);
+    }
+
 }

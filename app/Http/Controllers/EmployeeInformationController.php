@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\EmployeeInformation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,6 +22,17 @@ class EmployeeInformationController extends Controller
               'lastname' => $user->lastname,
             ];
         }
+
+        return response()->json(['status' => 200, 'employees' => $resultArray]);
+    }
+
+    public function getAllEmployeesBySalon(Request $request){
+        $salonId = $request->get('salon_id');
+        $resultArray = EmployeeInformation::query()
+            ->where('salon_id', '=', $salonId)
+            ->join('users', 'employee_information.user_id', '=', 'users.id')
+            ->select('employee_information.*', 'users.*')
+            ->get();
 
         return response()->json(['status' => 200, 'employees' => $resultArray]);
     }

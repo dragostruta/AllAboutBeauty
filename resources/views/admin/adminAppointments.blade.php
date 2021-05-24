@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <section style="margin-top: 30%">
+        <section style="margin-top: 20%">
             <div class="container space-bottom-1 mt-2 mb-5">
                 <div class="card bg-shadow mb-4">
                     <div class="card-body card-item-container mx-spacing">
@@ -14,26 +14,29 @@
                                             <h1 class="h6 card-item-title text-secondary mb-3">Programari</h1>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <select id="choose-salon-admin-appointements" class="form-select" aria-label="Default select example">
+                                                <option selected>Alege salonul</option>
+                                                @foreach($salons as $salon)
+                                                    <option value="{{$salon->id}}">{{$salon->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead class="thead-explorer">
                                             <tr>
-                                                <th scope="col">Name</th>
-                                                <th>Address</th>
-                                                <th>Info</th>
+                                                <th scope="col">Appointment Date</th>
+                                                <th>Employee</th>
+                                                <th>Client</th>
+                                                <th>Service</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>HairTestName</td>
-                                                <td>AddressName</td>
-                                                <td>InfoName</td>
-                                            </tr>
+                                            <tbody id="table-admin-appointments-body">
                                             </tbody>
                                         </table>
-                                        <div class="buy-button">
-                                            <div class="btn btn-primary">Excel</div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

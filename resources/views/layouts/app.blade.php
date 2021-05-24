@@ -66,7 +66,7 @@
                     <a href="{{ route('register') }}" class="btn btn-primary">Inregistrare</a>
                 </div>
                 <div class="buy-button">
-                    <a href="{{ route('salon.request') }}" class="btn btn-primary">Inregistrare Salon</a>
+                    <a href="{{ route('request') }}" class="btn btn-primary">Inregistrare Salon</a>
                 </div>
                 <!-- End Logo container-->
                 @endguest
