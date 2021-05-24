@@ -9,8 +9,15 @@ use Illuminate\Support\Facades\DB;
 class EmployeeInformationController extends Controller
 {
     public function getAllEmployeesByService(Request $request){
+        $salonId = $request->get('salonId');
         $serviceId = $request->get('serviceId');
-        $employeeInformationService = DB::table('employee_information_service')->where('service_id', $serviceId)->get();
+        $employeeInformationService = DB::table('employee_information_service')
+            ->join('employee_information', 'employee_information_service.employee_information_id', '=', 'employee_information.id')
+            ->where('employee_information_service.service_id', $serviceId)
+            ->where('employee_information.salon_id', $salonId)
+            ->select('employee_information.*','employee_information_service.*')
+            ->get();
+
 
         $resultArray = [];
         foreach ($employeeInformationService as $informationService){

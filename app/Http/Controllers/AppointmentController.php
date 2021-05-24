@@ -15,6 +15,11 @@ class AppointmentController extends Controller
     private $programHours = ['08', '09', '10', '11', '12', '13', '14', '15'];
     private $programMinutes = ['00', '30'];
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getProgram($hours, $minutes, $minus = null)
     {
         $result = [];

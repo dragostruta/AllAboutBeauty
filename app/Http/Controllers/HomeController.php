@@ -35,7 +35,7 @@ class HomeController extends Controller
             }
         }
 
-        $salons = Salon::where('city', '=', 'Cluj-Napoca')->get();
+        $salons = Salon::where('city', '=', 'Baia Mare')->get();
         $appointments = Appointment::where('user_id', '=', Auth::user()->id)->get();
         return view('home', ['salons' => $salons, 'appointmentCount' => count($appointments)]);
     }

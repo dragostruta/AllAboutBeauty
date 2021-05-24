@@ -8177,10 +8177,11 @@ if (service) {
               }
 
               formData = {
-                'serviceId': event.currentTarget.value
+                'serviceId': event.currentTarget.value,
+                'salonId': document.getElementById('create-appointment-salon-field').value
               };
               _context2.next = 4;
-              return fetch('/employeeInformation/getAllEmployeesByService', {
+              return fetch('/api/employee/getAllEmployeesByService', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -8356,17 +8357,9 @@ if (form) {
               result = _context5.sent;
 
               if (result.status === 200) {
-                document.getElementById('appointment-success').style.display = 'block';
-                document.getElementById('create-appointment-submit').style.display = 'none';
-                service.innerHTML = '<option selected>Selectează serviciul</option>';
-                document.getElementById('create-appointment-service').style.display = 'none';
-                employee.innerHTML = '<option selected>Selectează angajatul</option>';
-                document.getElementById('create-appointment-employee').style.display = 'none';
-                document.getElementById('create-appointment-date').style.display = 'none';
-                document.getElementById('create-appointment-hour').style.display = 'none';
-                salon.innerHTML = salon.innerHTML.slice(0, 7) + ' selected ' + salon.innerHTML.slice(7);
-                date.value = "";
-                hour.innerHTML = '<option selected>Selectează ora dorită</option>';
+                window.location.replace("/editUserSuccess");
+              } else {
+                window.location.replace("/editUserFailed");
               }
 
             case 14:

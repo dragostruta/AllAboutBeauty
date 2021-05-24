@@ -32,8 +32,11 @@ let service = document.getElementById('create-appointment-service-field');
 if (service) {
     service.addEventListener('click', async (event) => {
         if (Number.isFinite(parseInt(event.currentTarget.value))) {
-            let formData = {'serviceId': event.currentTarget.value};
-            let response = await fetch('/employeeInformation/getAllEmployeesByService', {
+            let formData = {
+                'serviceId': event.currentTarget.value,
+                'salonId': document.getElementById('create-appointment-salon-field').value,
+            };
+            let response = await fetch('/api/employee/getAllEmployeesByService', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -130,18 +133,10 @@ if (form) {
         });
 
         let result = await response.json();
-        if (result.status === 200) {
-            document.getElementById('appointment-success').style.display = 'block';
-            document.getElementById('create-appointment-submit').style.display = 'none';
-            service.innerHTML = '<option selected>Selectează serviciul</option>';
-            document.getElementById('create-appointment-service').style.display = 'none';
-            employee.innerHTML = '<option selected>Selectează angajatul</option>';
-            document.getElementById('create-appointment-employee').style.display = 'none';
-            document.getElementById('create-appointment-date').style.display = 'none';
-            document.getElementById('create-appointment-hour').style.display = 'none';
-            salon.innerHTML = salon.innerHTML.slice(0, 7) + ' selected ' + salon.innerHTML.slice(7);
-            date.value = "";
-            hour.innerHTML = '<option selected>Selectează ora dorită</option>';
+        if (result.status === 200){
+            window.location.replace("/editUserSuccess");
+        } else {
+            window.location.replace("/editUserFailed");
         }
     };
 }

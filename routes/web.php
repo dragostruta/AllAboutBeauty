@@ -24,6 +24,9 @@ Route::get('/request', 'SalonController@request')->name('request');
 Route::get('/appointment', 'AppointmentController@index')->name('appointment.index');
 Route::post('/admin/acceptSalonRequest', 'AdminController@acceptSalonRequest')->name('admin.acceptSalonRequest');
 Route::post('/admin/exportExcel', 'AdminController@exportExcel')->name('admin.exportExcel');
+Route::post('/service/getAllServicesBySalon', 'ServiceController@getAllServicesBySalon')->name('service.getAllServicesBySalon');
+Route::post('/appointment/getAllAvailableHoursByDate', 'AppointmentController@getAllAvailableHoursByDate')->name('appointment.getAllAvailableHoursByDate');
+Route::post('/appointment/createAppointment', 'AppointmentController@createAppointment')->name('appointment.createAppointment');
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');

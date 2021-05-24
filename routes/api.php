@@ -38,7 +38,6 @@ Route::group([
 
 
     // Appointment
-    Route::get('/appointment/getAllAvailableHoursByDate', 'AppointmentController@getAllAvailableHoursByDate')->name('appointment.getAllAvailableHoursByDate');
     Route::post('/appointment/createAppointment', 'AppointmentController@createAppointment')->name('appointment.createAppointment');
     Route::get('/appointment/getAllAppointmentsByUserId', 'AppointmentController@getAllAppointmentsByUserId')->name('appointment.getAllAppointmentsByUserId');
     Route::get('/appointment/getAllAppointmentsByEmployeeId', 'AppointmentController@getAllAppointmentsByEmployeeId')->name('appointment.getAllAppointmentsByEmployeeId');
