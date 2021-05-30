@@ -6,6 +6,7 @@ use App\Appointment;
 use App\EmployeeInformation;
 use App\Providers\RouteServiceProvider;
 use App\Salon;
+use App\SalonRequests;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,26 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    public function appointment(){
+        $salons = Salon::query()
+            ->join('appointments', 'appointments.salon_id', '=', 'salons.id')
+            ->where('appointments.user_id', '=', Auth::user()->id)
+            ->select('salons.*')
+            ->get();
+        $resultArray = [];
+        foreach ($salons as $salon){
+            if (empty($resultArray)){
+                $resultArray[] = $salon;
+            }
+            foreach ($resultArray as $result){
+                if ($result['name'] === $salon->name){
+                    break;
+                }
+                $resultArray[] = $salon;
+            }
+        }
+        return view('customer.customerAppointments', ['salons' => $resultArray]);
+    }
 
     public function index()
     {

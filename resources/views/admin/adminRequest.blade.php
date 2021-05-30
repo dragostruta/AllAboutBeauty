@@ -32,7 +32,7 @@
                                                     <td>{{ $salon->address }}</td>
                                                     <td>{{ $salon->email }}</td>
                                                     <td>{{ $salon->phone_number }}</td>
-                                                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".{{$salon->name}}">Informații</button></td>
+                                                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".{{str_replace(' ', '', $salon->name)}}">Informații</button></td>
                                                 </tr>
                                                 @include('admin.adminRequestModal', ['salon' => $salon])
                                             @endforeach

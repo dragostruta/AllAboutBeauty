@@ -34,6 +34,7 @@ Route::post('/appointment/createAppointment', 'AppointmentController@createAppoi
 Route::get('/appointment/getAllAppointmentsByUserId', 'AppointmentController@getAllAppointmentsByUserId')->name('appointment.getAllAppointmentsByUserId');
 Route::get('/appointment/getAllAppointmentsByEmployeeId', 'AppointmentController@getAllAppointmentsByEmployeeId')->name('appointment.getAllAppointmentsByEmployeeId');
 Route::get('/appointment/getAllAppointmentsBySalonId', 'AppointmentController@getAllAppointmentsBySalonId')->name('appointment.getAllAppointmentsBySalonId');
+Route::get('/appointment/getAllAppointmentsBySalonIdAndUserId', 'AppointmentController@getAllAppointmentsBySalonIdAndUserId')->name('appointment.getAllAppointmentsBySalonIdAndUserId');
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -41,6 +42,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/setup', 'Controller@setup')->name('setup');
 Route::get('/adminRequest', 'AdminController@request')->name('admin.request');
+Route::get('/customerAppointment', 'HomeController@appointment')->name('customer.appointment');
 Route::get('/adminAppointment', 'AdminController@appointment')->name('admin.appointment');
 Route::get('/adminEmployee', 'AdminController@employee')->name('admin.employee');
 Route::get('/adminEmployeeInfo', 'AdminController@employeeInfo')->name('admin.employeeInfo');

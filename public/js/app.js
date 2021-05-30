@@ -2142,6 +2142,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
+__webpack_require__(/*! ./customerAppointments */ "./resources/js/customerAppointments.js");
+
 __webpack_require__(/*! ./salonRequest */ "./resources/js/salonRequest.js");
 
 __webpack_require__(/*! ./adminAppontments */ "./resources/js/adminAppontments.js");
@@ -5664,6 +5666,92 @@ function fadeIn() {
       clearInterval(intervalID);
     }
   }, 200);
+}
+
+/***/ }),
+
+/***/ "./resources/js/customerAppointments.js":
+/*!**********************************************!*\
+  !*** ./resources/js/customerAppointments.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var salon = document.getElementById('choose-salon-customer-appointements');
+
+if (salon) {
+  salon.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
+      var formData, response, result, table, data, tableRow, tableDataDate, tableDataEmployee, tableDataCustomer, tableDataService, tableDataPrice;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (!Number.isFinite(parseInt(event.currentTarget.value))) {
+                _context.next = 9;
+                break;
+              }
+
+              formData = {
+                'salonId': event.currentTarget.value
+              };
+              _context.next = 4;
+              return fetch('/appointment/getAllAppointmentsBySalonIdAndUserId?salon_id=' + event.currentTarget.value);
+
+            case 4:
+              response = _context.sent;
+              _context.next = 7;
+              return response.json();
+
+            case 7:
+              result = _context.sent;
+
+              if (result.status === 200) {
+                table = document.getElementById('table-admin-appointments-body');
+                table.innerHTML = '';
+
+                for (data in result.appointments) {
+                  tableRow = document.createElement('tr');
+                  tableDataDate = document.createElement('td');
+                  tableDataDate.innerText = result.appointments[data].date;
+                  tableDataEmployee = document.createElement('td');
+                  tableDataEmployee.innerText = result.appointments[data].employee;
+                  tableDataCustomer = document.createElement('td');
+                  tableDataCustomer.innerText = result.appointments[data].customer;
+                  tableDataService = document.createElement('td');
+                  tableDataService.innerText = result.appointments[data].service;
+                  tableDataPrice = document.createElement('td');
+                  tableDataPrice.innerText = result.appointments[data].servicePrice + ' RON';
+                  tableRow.appendChild(tableDataDate);
+                  tableRow.appendChild(tableDataEmployee);
+                  tableRow.appendChild(tableDataCustomer);
+                  tableRow.appendChild(tableDataService);
+                  tableRow.appendChild(tableDataPrice);
+                  table.appendChild(tableRow);
+                }
+              }
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
 }
 
 /***/ }),

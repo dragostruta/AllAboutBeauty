@@ -191,7 +191,7 @@ Cunoastem in profunzime detaliile care stau la baza tehnicilor primare ale produ
                     ]
                 ],
                 'salon' => [
-                    'name' => 'Illusion',
+                    'name' => 'Prestige',
                     'description' => 'Salonul Prestige ofera inca din 2003 incredere, frumusete, energie şi optimism prin gama variata de servicii, tratamente şi tehnologii de ultima generaţie.
 Facem acest lucru pentru ca dumneavoastra, clientii nostri, sa va bucuraţi de cele mai noi, eficiente şi performante produse din lumea internaţionala a frumuseţii.
 Salonul Prestige si-a propus inca de la infiintare sa satisfaca exigentele fiecarei persoane, oferindu-i cea mai buna experienta a culorii, tunsorii si stylingului.',

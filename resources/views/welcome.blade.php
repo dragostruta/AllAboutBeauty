@@ -1,103 +1,3 @@
-{{--<!DOCTYPE html>--}}
-{{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
-{{--    <head>--}}
-{{--        <meta charset="utf-8">--}}
-{{--        <meta name="viewport" content="width=device-width, initial-scale=1">--}}
-
-{{--        <title>Laravel</title>--}}
-
-{{--        <!-- Fonts -->--}}
-{{--        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">--}}
-
-{{--        <!-- Styles -->--}}
-{{--        <style>--}}
-{{--            html, body {--}}
-{{--                background-color: #fff;--}}
-{{--                color: #636b6f;--}}
-{{--                font-family: 'Nunito', sans-serif;--}}
-{{--                font-weight: 200;--}}
-{{--                height: 100vh;--}}
-{{--                margin: 0;--}}
-{{--            }--}}
-
-{{--            .full-height {--}}
-{{--                height: 100vh;--}}
-{{--            }--}}
-
-{{--            .flex-center {--}}
-{{--                align-items: center;--}}
-{{--                display: flex;--}}
-{{--                justify-content: center;--}}
-{{--            }--}}
-
-{{--            .position-ref {--}}
-{{--                position: relative;--}}
-{{--            }--}}
-
-{{--            .top-right {--}}
-{{--                position: absolute;--}}
-{{--                right: 10px;--}}
-{{--                top: 18px;--}}
-{{--            }--}}
-
-{{--            .content {--}}
-{{--                text-align: center;--}}
-{{--            }--}}
-
-{{--            .title {--}}
-{{--                font-size: 84px;--}}
-{{--            }--}}
-
-{{--            .links > a {--}}
-{{--                color: #636b6f;--}}
-{{--                padding: 0 25px;--}}
-{{--                font-size: 13px;--}}
-{{--                font-weight: 600;--}}
-{{--                letter-spacing: .1rem;--}}
-{{--                text-decoration: none;--}}
-{{--                text-transform: uppercase;--}}
-{{--            }--}}
-
-{{--            .m-b-md {--}}
-{{--                margin-bottom: 30px;--}}
-{{--            }--}}
-{{--        </style>--}}
-{{--    </head>--}}
-{{--    <body>--}}
-{{--        <div class="flex-center position-ref full-height">--}}
-{{--            @if (Route::has('login'))--}}
-{{--                <div class="top-right links">--}}
-{{--                    @auth--}}
-{{--                        <a href="{{ url('/home') }}">Home</a>--}}
-{{--                    @else--}}
-{{--                        <a href="{{ route('login') }}">Login</a>--}}
-
-{{--                        @if (Route::has('register'))--}}
-{{--                            <a href="{{ route('register') }}">Register</a>--}}
-{{--                        @endif--}}
-{{--                    @endauth--}}
-{{--                </div>--}}
-{{--            @endif--}}
-
-{{--            <div class="content">--}}
-{{--                <div class="title m-b-md">--}}
-{{--                    Laravel--}}
-{{--                </div>--}}
-
-{{--                <div class="links">--}}
-{{--                    <a href="https://laravel.com/docs">Docs</a>--}}
-{{--                    <a href="https://laracasts.com">Laracasts</a>--}}
-{{--                    <a href="https://laravel-news.com">News</a>--}}
-{{--                    <a href="https://blog.laravel.com">Blog</a>--}}
-{{--                    <a href="https://nova.laravel.com">Nova</a>--}}
-{{--                    <a href="https://forge.laravel.com">Forge</a>--}}
-{{--                    <a href="https://vapor.laravel.com">Vapor</a>--}}
-{{--                    <a href="https://github.com/laravel/laravel">GitHub</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </body>--}}
-{{--</html>--}}
 @extends('layouts.app')
 
 @section('content')
@@ -221,8 +121,36 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
                     <div class="section-title mb-4 pb-2">
-{{--                        <h4 class="title mb-4">Rooms & Suits</h4>--}}
-{{--                        <p class="text-muted para-desc mb-0 mx-auto">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>--}}
+                        <h4 class="title mb-4">Saloane</h4>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row">
+                @foreach($salons as $salon)
+                    <div class="col-lg-4 col-md-6 mt-4 pt-2">
+                        <div class="card work-container work-modern rounded border-0 overflow-hidden">
+                            <div class="card-body p-0">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".{{str_replace(' ', '', $salon['name'])}}">{{$salon['name']}}</button>
+                                @include('customer.customerAppointmentsModal', ['salon' => $salon])
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                @endforeach
+            </div><!--end row-->
+
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- Rooms End -->
+
+
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title mb-4 pb-2">
+                        {{--                        <h4 class="title mb-4">Rooms & Suits</h4>--}}
+                        {{--                        <p class="text-muted para-desc mb-0 mx-auto">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>--}}
                     </div>
                 </div><!--end col-->
             </div><!--end row-->
@@ -285,109 +213,6 @@
 
         </div><!--end container-->
     </section><!--end section-->
-    <!-- Rooms End -->
-
-    <!-- Services Start -->
-    <section class="section">
-        <div class="container pb-lg-4 mb-md-5 mb-4">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <div class="section-title mb-4 pb-2">
-                        <h4 class="title mb-4">Cele mai bune servicii pentru tine.</h4>
-                        <p class="text-muted para-desc mb-0 mx-auto">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
-
-            <div class="row">
-                <div class="col-md-4 col-12 mt-5">
-                    <div class="features text-center">
-                        <div class="image position-relative d-inline-block">
-                            <i class="uil uil-wifi h1 text-primary"></i>
-                        </div>
-
-                        <div class="content mt-4">
-                            <h5>Site-ul tau, creat gratuit</h5>
-                            <p class="text-muted mb-0">Clientii tai vechi cat si cei noi, se pot programa fara niciun cost.</p>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-4 col-12 mt-5">
-                    <div class="features text-center">
-                        <div class="image position-relative d-inline-block">
-                            <i class="uil uil-process h1 text-primary"></i>
-                        </div>
-
-                        <div class="content mt-4">
-                            <h5>Relaxation</h5>
-                            <p class="text-muted mb-0">Allegedly, a Latin scholar established the origin of the text by established compiling unusual word.</p>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-4 col-12 mt-5">
-                    <div class="features text-center">
-                        <div class="image position-relative d-inline-block">
-                            <i class="uil uil-dumbbell h1 text-primary"></i>
-                        </div>
-
-                        <div class="content mt-4">
-                            <h5>Spa & Fitness</h5>
-                            <p class="text-muted mb-0">It seems that only fragments of the original text remain in the Lorem Ipsum fragments texts used today.</p>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-4 col-12 mt-5">
-                    <div class="features text-center">
-                        <div class="image position-relative d-inline-block">
-                            <i class="uil uil-restaurant h1 text-primary"></i>
-                        </div>
-
-                        <div class="content mt-4">
-                            <h5>Restaurant</h5>
-                            <p class="text-muted mb-0">It seems that only fragments of the original text remain in the Lorem Ipsum fragments texts used today.</p>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-4 col-12 mt-5">
-                    <div class="features text-center">
-                        <div class="image position-relative d-inline-block">
-                            <i class="uil uil-band-aid h1 text-primary"></i>
-                        </div>
-
-                        <div class="content mt-4">
-                            <h5>Smooth Parallax</h5>
-                            <p class="text-muted mb-0">Nisi aenean vulputate eleifend tellus vitae eleifend enim a Aliquam aenean elementum semper.</p>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-4 col-12 mt-5">
-                    <div class="features text-center">
-                        <div class="image position-relative d-inline-block">
-                            <i class="uil uil-bed-double h1 text-primary"></i>
-                        </div>
-
-                        <div class="content mt-4">
-                            <h5>Bedrooms</h5>
-                            <p class="text-muted mb-0">Allegedly, a Latin scholar established the origin of the text by established compiling unusual word.</p>
-                        </div>
-                    </div>
-                </div><!--end col-->
-            </div>
-        </div><!--end container-->
-    </section><!--end section-->
-    <div class="position-relative">
-        <div class="shape overflow-hidden text-light">
-            <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M720 125L2160 0H2880V250H0V125H720Z" fill="currentColor"></path>
-            </svg>
-        </div>
-    </div>
-    <!-- End services -->
 
     <!-- Client Start -->
     <section class="section" style="background: url('images/salon/salon1.jpg') center center;">
@@ -598,16 +423,6 @@
                     <div class="text-sm-start">
                         <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Landrick. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="http://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
                     </div>
-                </div><!--end col-->
-
-                <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <ul class="list-unstyled text-sm-end mb-0">
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/american-ex.png" class="avatar avatar-ex-sm" title="American Express" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/discover.png" class="avatar avatar-ex-sm" title="Discover" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/master-card.png" class="avatar avatar-ex-sm" title="Master Card" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/paypal.png" class="avatar avatar-ex-sm" title="Paypal" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/visa.png" class="avatar avatar-ex-sm" title="Visa" alt=""></a></li>
-                    </ul>
                 </div><!--end col-->
             </div><!--end row-->
         </div><!--end container-->
