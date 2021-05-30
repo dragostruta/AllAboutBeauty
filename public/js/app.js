@@ -1866,7 +1866,7 @@ var salon = document.getElementById('choose-salon-admin-appointements');
 if (salon) {
   salon.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
-      var formData, response, result, table, data, tableRow, tableDataDate, tableDataEmployee, tableDataCustomer, tableDataService;
+      var formData, response, result, table, data, tableRow, tableDataDate, tableDataEmployee, tableDataCustomer, tableDataService, tableDataPrice;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -1904,10 +1904,13 @@ if (salon) {
                   tableDataCustomer.innerText = result.appointments[data].customer;
                   tableDataService = document.createElement('td');
                   tableDataService.innerText = result.appointments[data].service;
+                  tableDataPrice = document.createElement('td');
+                  tableDataPrice.innerText = result.appointments[data].servicePrice + ' RON';
                   tableRow.appendChild(tableDataDate);
                   tableRow.appendChild(tableDataEmployee);
                   tableRow.appendChild(tableDataCustomer);
                   tableRow.appendChild(tableDataService);
+                  tableRow.appendChild(tableDataPrice);
                   table.appendChild(tableRow);
                 }
               }
@@ -1922,6 +1925,61 @@ if (salon) {
 
     return function (_x) {
       return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+var exportButton = document.getElementById('export-appointments');
+
+if (exportButton) {
+  var _salon = document.getElementById('choose-salon-admin-appointements');
+
+  exportButton.addEventListener('click', /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
+      var formData, response, result, link;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              formData = {
+                'salon_id': _salon.value
+              };
+              _context2.next = 3;
+              return fetch('/admin/exportAppointements', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 3:
+              response = _context2.sent;
+              _context2.next = 6;
+              return response.json();
+
+            case 6:
+              result = _context2.sent;
+
+              if (result.status === 200) {
+                link = document.createElement("a");
+                link.download = result.name;
+                link.href = result.path;
+                link.click();
+                link.remove();
+              }
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
     };
   }());
 }
@@ -1949,7 +2007,7 @@ var salon = document.getElementById('choose-salon-admin-employee');
 if (salon) {
   salon.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
-      var formData, response, result, table, data, tableRow, tableDataFirstName, tableDataLastName, tableDataAddress, tableDataPhoneNumber;
+      var formData, response, result, table, data, tableRow, tableDataFirstName, tableDataLastName, tableDataAddress, tableDataPhoneNumber, tableDataEarned;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -1987,10 +2045,13 @@ if (salon) {
                   tableDataAddress.innerText = result.employees[data].address;
                   tableDataPhoneNumber = document.createElement('td');
                   tableDataPhoneNumber.innerText = result.employees[data].phone_number;
+                  tableDataEarned = document.createElement('td');
+                  tableDataEarned.innerText = result.employees[data].earned;
                   tableRow.appendChild(tableDataFirstName);
                   tableRow.appendChild(tableDataLastName);
                   tableRow.appendChild(tableDataAddress);
                   tableRow.appendChild(tableDataPhoneNumber);
+                  tableRow.appendChild(tableDataEarned);
                   table.appendChild(tableRow);
                 }
               }
@@ -2005,6 +2066,61 @@ if (salon) {
 
     return function (_x) {
       return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+var exportButton = document.getElementById('export-employee-info');
+
+if (exportButton) {
+  var _salon = document.getElementById('choose-salon-admin-employee');
+
+  exportButton.addEventListener('click', /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
+      var formData, response, result, link;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              formData = {
+                'salonId': _salon.value
+              };
+              _context2.next = 3;
+              return fetch('/admin/exportEmployeeInfo', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 3:
+              response = _context2.sent;
+              _context2.next = 6;
+              return response.json();
+
+            case 6:
+              result = _context2.sent;
+
+              if (result.status === 200) {
+                link = document.createElement("a");
+                link.download = result.name;
+                link.href = result.path;
+                link.click();
+                link.remove();
+              }
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
     };
   }());
 }

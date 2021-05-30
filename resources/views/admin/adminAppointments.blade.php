@@ -32,11 +32,15 @@
                                                 <th>Employee</th>
                                                 <th>Client</th>
                                                 <th>Service</th>
+                                                <th>Price</th>
                                             </tr>
                                             </thead>
                                             <tbody id="table-admin-appointments-body">
                                             </tbody>
                                         </table>
+                                        <div class="buy-button">
+                                            <div id="export-appointments" class="btn btn-primary">Excel</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

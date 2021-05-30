@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
 use App\EmployeeInformation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,8 +39,26 @@ class EmployeeInformationController extends Controller
         $resultArray = EmployeeInformation::query()
             ->where('salon_id', '=', $salonId)
             ->join('users', 'employee_information.user_id', '=', 'users.id')
-            ->select('employee_information.*', 'users.*')
-            ->get();
+            ->select('employee_information.id as employee_information_id', 'employee_information.address', 'employee_information.phone_number', 'users.*')
+            ->get()->toArray();
+
+        $resultArray = array_map(function ($employee){
+            $earned = 0;
+            $appointments = Appointment::query()
+                ->where('employee_information_id', '=', $employee['employee_information_id'])
+                ->join('services', 'appointments.service_id', '=', 'services.id')
+                ->select('appointments.*', 'services.*')
+                ->get()->toArray();
+
+            foreach ($appointments as $appointment){
+                $earned += $appointment['price'];
+            }
+
+            $employee['earned'] = $earned;
+
+            return $employee;
+
+        }, $resultArray);
 
         return response()->json(['status' => 200, 'employees' => $resultArray]);
     }

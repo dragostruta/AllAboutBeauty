@@ -32,13 +32,14 @@
                                                 <th>Nume de familie</th>
                                                 <th>Adresă</th>
                                                 <th>Număr de telefon</th>
+                                                <th>Venituri (ultimele 30 de zile)</th>
                                             </tr>
                                             </thead>
                                             <tbody id="table-body-admin-employee">
                                             </tbody>
                                         </table>
                                         <div class="buy-button">
-                                            <div class="btn btn-primary">Excel</div>
+                                            <div id="export-employee-info" class="btn btn-primary">Excel</div>
                                         </div>
                                     </div>
                                 </div>

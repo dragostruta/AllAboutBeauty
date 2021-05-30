@@ -132,6 +132,7 @@ class AppointmentController extends Controller
                 'customer' => $customerUser->firstname.' '.$customerUser->lastname,
                 'employee' => $employeeUserInfo->firstname.' '.$employeeUserInfo->lastname,
                 'service' => $service->name,
+                'servicePrice' => $service->price,
                 'date' => $date[0].':'.$date[1],
             ];
         }, $appointments);
