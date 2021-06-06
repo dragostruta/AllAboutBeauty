@@ -25,6 +25,8 @@ class DashboardController extends Controller
                     return redirect('home');
                 case 'admin':
                     return redirect('admin');
+                case 'manager':
+                    return redirect('manager');
             }
         }
         return view('dashboard');

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class AdminController extends Controller
+class ManagerController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -38,56 +38,17 @@ class AdminController extends Controller
                     return redirect('home');
                 case 'employee':
                     return redirect('dashboard');
-                case 'manager':
-                    return redirect('manager');
             }
         }
-        return view('admin');
+        return view('manager');
     }
 
-    public function request(){
-        $salonRequests = SalonRequests::query()->where('status', '=', 'new')->skip(0)->take(10)->get();
-        return view('admin.adminRequest', ['salonRequests' => $salonRequests]);
-    }
-
-    public function acceptSalonRequest(Request $request){
-        $email = $request->get('email');
-        $id = $request->get('id');
-
-        $salonRequest = SalonRequests::query()->where('id', '=', $id)->first();
-
-        $user = User::query()->where('email', '=', $email)->where('role', '=', 'manager')->first();
-        if (!$user){
-            $user = User::create([
-                'firstname' => $salonRequest->name,
-                'lastname' => $salonRequest->name,
-                'email' => $email,
-                'password' => Hash::make('test'),
-                'role' => 'manager',
-            ]);
-
-            event(new Registered($user));
-        }
-
-        $salon = Salon::create([
-            'name' => $salonRequest->name,
-            'address' => $salonRequest->address,
-            'city' => $salonRequest->city,
-            'user_id' => $user->id,
-            'description' => $salonRequest->description,
-        ]);
-
-        $salonRequest->status = 'approved';
-        $salonRequest->save();
-
-        return response()->json($salon);
-    }
 
     public function exportEmployeeInfo(Request $request){
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
 
-        $salonId = $request->get('salonId');
+        $salonId = Salon::query()->where('user_id', '=', Auth::user()->id)->first()->id;
         $resultArray = EmployeeInformation::query()
             ->where('salon_id', '=', $salonId)
             ->join('users', 'employee_information.user_id', '=', 'users.id')
@@ -138,8 +99,11 @@ class AdminController extends Controller
     public function exportAppointements(Request $request){
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
+        $salon = Salon::query()
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
 
-        $appointments = Appointment::where('salon_id', '=', $request->get('salon_id'))->get();
+        $appointments = Appointment::where('salon_id', '=', $salon->id)->get();
         $appointments = $appointments->toArray();
         $appointments = array_map(function ($element){
             $customerUser = User::where('id', '=',$element['user_id'])->first();
@@ -212,18 +176,63 @@ class AdminController extends Controller
     }
 
     public function appointment(){
-        $salons = Salon::query()->get();
-        return view('admin.adminAppointments', ['salons' => $salons]);
+        $salon = Salon::query()
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
+
+        $appointments = Appointment::where('salon_id', '=', $salon->id)->get();
+        $appointments = $appointments->toArray();
+        $appointments = array_map(function ($element){
+            $customerUser = User::where('id', '=',$element['user_id'])->first();
+            $employee = EmployeeInformation::query()->where('id', '=', $element['employee_information_id'])->first();
+            $employeeUserInfo = User::query()->where('id', '=', $employee->user_id)->first();
+            $date = explode(':',$element['appointment_date']);
+            $service = Service::where('id', '=', $element['service_id'])->first();
+            return [
+                'customer' => $customerUser->firstname.' '.$customerUser->lastname,
+                'employee' => $employeeUserInfo->firstname.' '.$employeeUserInfo->lastname,
+                'service' => $service->name,
+                'servicePrice' => $service->price,
+                'date' => $date[0].':'.$date[1],
+            ];
+        }, $appointments);
+
+        return view('manager.managerAppointments', ['appointments' => $appointments]);
     }
 
     public function employee(){
-        $salons = Salon::query()->get();
-        return view('admin.adminEmployee', ['salons' => $salons]);
+
+        $salon = Salon::query()
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
+
+        $resultArray = EmployeeInformation::query()
+            ->where('salon_id', '=', $salon->id)
+            ->join('users', 'employee_information.user_id', '=', 'users.id')
+            ->select('employee_information.id as employee_information_id', 'employee_information.address', 'employee_information.phone_number', 'users.*')
+            ->get()->toArray();
+
+        $resultArray = array_map(function ($employee){
+            $earned = 0;
+            $appointments = Appointment::query()
+                ->where('employee_information_id', '=', $employee['employee_information_id'])
+                ->join('services', 'appointments.service_id', '=', 'services.id')
+                ->select('appointments.*', 'services.*')
+                ->get()->toArray();
+
+            foreach ($appointments as $appointment){
+                $earned += $appointment['price'];
+            }
+
+            $employee['earned'] = $earned;
+
+            return $employee;
+
+        }, $resultArray);
+
+        return view('manager.managerEmployee', ['employees' => $resultArray]);
     }
     public function employeeInfo(){
-        return view('admin.adminEmployeeInfo');
-    }
-    public function salonInfo(){
-        return view('admin.adminSalonInfo');
+        return view('manager.managerEmployeeInfo');
     }
 }

@@ -28,6 +28,14 @@ Route::post('/admin/exportEmployeeInfo', 'AdminController@exportEmployeeInfo')->
 Route::post('/admin/exportAppointements', 'AdminController@exportAppointements')->name('admin.exportAppointements');
 Route::post('/service/getAllServicesBySalon', 'ServiceController@getAllServicesBySalon')->name('service.getAllServicesBySalon');
 
+Route::get('/manager', 'ManagerController@index')->name('manager');
+Route::post('/manager/exportExcel', 'ManagerController@exportExcel')->name('manager.exportExcel');
+Route::post('/manager/exportEmployeeInfo', 'ManagerController@exportEmployeeInfo')->name('manager.exportEmployeeInfo');
+Route::post('/manager/exportAppointements', 'ManagerController@exportAppointements')->name('manager.exportAppointements');
+Route::get('/managerAppointment', 'ManagerController@appointment')->name('manager.appointment');
+Route::get('/managerEmployee', 'ManagerController@employee')->name('manager.employee');
+Route::get('/managerEmployeeInfo', 'ManagerController@employeeInfo')->name('manager.employeeInfo');
+
 // Appointment //
 Route::post('/appointment/getAllAvailableHoursByDate', 'AppointmentController@getAllAvailableHoursByDate')->name('appointment.getAllAvailableHoursByDate');
 Route::post('/appointment/createAppointment', 'AppointmentController@createAppointment')->name('appointment.createAppointment');

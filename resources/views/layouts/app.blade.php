@@ -99,6 +99,10 @@
                         @if (Auth::user()->role === 'customer')
                             <li><a href="{{ route('customer.appointment') }}" class="sub-menu-item">Programări</a></li>
                         @endif
+                        @if (Auth::user()->role === 'manager')
+                            <li><a href="{{ route('manager.appointment') }}" class="sub-menu-item">Programări</a></li>
+                            <li><a href="{{ route('manager.employee') }}" class="sub-menu-item">Angajați</a></li>
+                        @endif
                     </ul><!--end navigation menu-->
                     @endauth
                 </div><!--end navigation-->

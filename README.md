@@ -99,3 +99,5 @@ MAIL_FROM_NAME= {Name}
   php artisan config:clear
   php artisan cache:clear
   php artisan config:cache
+  
+composer install --ignore-platform-reqs 

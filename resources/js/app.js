@@ -7,6 +7,8 @@
 require('./bootstrap');
 require('./home');
 require('./customerAppointments');
+require('./managerEmployee');
+require('./managerAppointments.js');
 require('./salonRequest');
 require('./adminAppontments');
 require('./adminEmployee');

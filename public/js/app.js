@@ -2144,6 +2144,10 @@ __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
 __webpack_require__(/*! ./customerAppointments */ "./resources/js/customerAppointments.js");
 
+__webpack_require__(/*! ./managerEmployee */ "./resources/js/managerEmployee.js");
+
+__webpack_require__(/*! ./managerAppointments.js */ "./resources/js/managerAppointments.js");
+
 __webpack_require__(/*! ./salonRequest */ "./resources/js/salonRequest.js");
 
 __webpack_require__(/*! ./adminAppontments */ "./resources/js/adminAppontments.js");
@@ -8578,6 +8582,144 @@ if (form) {
       return _ref5.apply(this, arguments);
     };
   }();
+}
+
+/***/ }),
+
+/***/ "./resources/js/managerAppointments.js":
+/*!*********************************************!*\
+  !*** ./resources/js/managerAppointments.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var exportButton = document.getElementById('export-appointments-manager');
+
+if (exportButton) {
+  exportButton.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
+      var formData, response, result, link;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              formData = {};
+              _context.next = 3;
+              return fetch('/manager/exportAppointements', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return response.json();
+
+            case 6:
+              result = _context.sent;
+
+              if (result.status === 200) {
+                link = document.createElement("a");
+                link.download = result.name;
+                link.href = result.path;
+                link.click();
+                link.remove();
+              }
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+/***/ }),
+
+/***/ "./resources/js/managerEmployee.js":
+/*!*****************************************!*\
+  !*** ./resources/js/managerEmployee.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var exportButton = document.getElementById('export-employee-info-manager');
+
+if (exportButton) {
+  exportButton.addEventListener('click', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
+      var formData, response, result, link;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              formData = {};
+              _context.next = 3;
+              return fetch('/manager/exportEmployeeInfo', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return response.json();
+
+            case 6:
+              result = _context.sent;
+
+              if (result.status === 200) {
+                link = document.createElement("a");
+                link.download = result.name;
+                link.href = result.path;
+                link.click();
+                link.remove();
+              }
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
 }
 
 /***/ }),

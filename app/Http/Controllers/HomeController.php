@@ -53,6 +53,8 @@ class HomeController extends Controller
                     return redirect('dashboard');
                 case 'admin':
                     return redirect('admin');
+                case 'manager':
+                    return redirect('manager');
             }
         }
 
