@@ -231,3 +231,9 @@ try {
 }catch(err) {
 
 }
+
+if (window.location.search.includes('page')){
+    location.href = "#prices";
+}
+
+

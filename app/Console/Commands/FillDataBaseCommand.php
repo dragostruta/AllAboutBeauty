@@ -456,7 +456,7 @@ Un nou inceput la fel de fresh ca o noua tunsoare!',
                     ]
                 ],
                 'salon' => [
-                    'name' => 'B`Elle Cosmetique',
+                    'name' => 'B Elle Cosmetique',
                     'description' => 'B’Elle Cosmetique ofera servicii de ingrijire si estetica a parului, inclusiv tunsori, vopsire si multe altele. De asemenea, ofera o gama variata de tratamente cosmetice personalizate in functie de tipul de ten.
 Indiferent de pretentiile tale, iti oferim tot ce ai nevoie sa arati si sa te simti impecabil. In plus, stilistii se mândresc cu capacitatea lor de a transforma o vizita obisnuita la salon intr-un ritual de infrumusetare.',
                     'address' => 'Strada Victoriei 73',
@@ -843,42 +843,6 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
                 'name' => 'Masaj ',
                 'gender' => 'female',
                 'price' => 30
-            ],
-            [
-                'id' => 46,
-                'name' => 'Masaj anticelulitic ',
-                'gender' => 'male',
-                'price' => 50
-            ],
-            [
-                'id' => 47,
-                'name' => 'Masaj relaxare ',
-                'gender' => 'male',
-                'price' => 45
-            ],
-            [
-                'id' => 48,
-                'name' => 'Masaj reflexo ',
-                'gender' => 'male',
-                'price' => 75
-            ],
-            [
-                'id' => 49,
-                'name' => 'Masaj ',
-                'gender' => 'male',
-                'price' => 30
-            ],
-            [
-                'id' => 50,
-                'name' => 'impachetari corporale',
-                'gender' => 'male',
-                'price' => 100
-            ],
-            [
-                'id' => 51,
-                'name' => 'impachetari corporale',
-                'gender' => 'female',
-                'price' => 100
             ]
 
         ];
@@ -932,6 +896,22 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
                 }
             }
         }
+
+       User::create([
+            'firstname' => 'customer',
+            'lastname' => 'customer',
+            'email' => 'customer@customer.com',
+            'password' => Hash::make('test123'),
+            'role' => 'customer',
+        ]);
+
+        User::create([
+            'firstname' => 'admin',
+            'lastname' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('test123'),
+            'role' => 'admin',
+        ]);
         echo 'Success';
     }
 }

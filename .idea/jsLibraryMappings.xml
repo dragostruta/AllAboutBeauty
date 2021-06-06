@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{5f9076f587, a076d05399, bootstrap-datepicker, bootstrap-iso, bootstrap.bundle, formden, jquery-1.11.3, jquery-1.12.4, jquery-ui}" />
+    <file url="PROJECT" libraries="{5f9076f587, a076d05399, bootstrap-datepicker, bootstrap-iso, bootstrap.bundle, formden, jquery-1.11.3, jquery-1.12.4, jquery-ui, jquery.dataTables}" />
   </component>
 </project>

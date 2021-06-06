@@ -38,6 +38,8 @@ class WelcomeController extends Controller
            $salon['services'] = $services;
            return $salon;
         }, $salons);
-        return view('welcome', ['salons' => $salons]);
+
+        $services = Service::query()->get();
+        return view('welcome', ['salons' => $salons, 'services' => $services]);
     }
 }

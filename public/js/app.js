@@ -2380,6 +2380,10 @@ try {
   var spy = new Gumshoe('#navmenu-nav a');
 } catch (err) {}
 
+if (window.location.search.includes('page')) {
+  location.href = "#prices";
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.bundle.min.js":

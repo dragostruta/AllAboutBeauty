@@ -62,59 +62,6 @@
     </section><!--end section-->
     <!-- Hero End -->
 
-    <!-- Partners start -->
-    <section class="section-two bg-light" id="bookroom">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <form class="p-4 shadow bg-white rounded">
-                        <h4 class="mb-3">Rezervă acum !</h4>
-                        <div class="row text-start">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="mb-3 mb-lg-0">
-                                    <label class="form-label"> Data: </label>
-                                    <input name="date" type="date" class="form-control start" placeholder="Selectează data :">
-                                </div>
-                            </div><!--end col-->
-
-                            <div class="col-lg-3 col-md-6">
-                                <div class="mb-3 mb-lg-0">
-                                    <label class="form-label"> Salon: </label>
-                                    <input name="date" type="text" class="form-control end" placeholder="Selectează salonul :">
-                                </div>
-                            </div><!--end col-->
-
-                            <div class="col-lg-6">
-                                <div class="row align-items-center">
-                                    <div class="col-md-4">
-                                        <div class="mb-3 mb-lg-0">
-                                            <label class="form-label">Service : </label>
-                                            <input type="number" min="0" autocomplete="off" id="adult" required="" class="form-control" placeholder="Selectează serviciul :">
-                                        </div>
-                                    </div><!--end col-->
-
-                                    <div class="col-md-4">
-                                        <div class="mb-3 mb-lg-0">
-                                            <label class="form-label">Employee : </label>
-                                            <input type="number" min="0" autocomplete="off" id="children" class="form-control" placeholder="Selectează angajatul :">
-                                        </div>
-                                    </div><!--end col-->
-
-                                    <div class="col-md-4 mt-lg-4 pt-2 pt-lg-1">
-                                        <div class="d-grid">
-                                            <input type="submit" id="search" name="search" class="searchbtn btn btn-primary" value="Search">
-                                        </div>
-                                    </div><!--end col-->
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container-->
-    </section><!--end section-->
-    <!-- Partners End -->
-
     <!-- Rooms Start -->
     <section class="section">
         <div class="container">
@@ -129,13 +76,11 @@
             <div class="row">
                 @foreach($salons as $salon)
                     <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                        <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                            <div class="card-body p-0">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".{{str_replace(' ', '', $salon['name'])}}">{{$salon['name']}}</button>
-                                @include('customer.customerAppointmentsModal', ['salon' => $salon])
-                            </div>
+                        <div class="d-flex key-feature align-items-center p-3 rounded shadow" data-toggle="modal" data-target=".{{str_replace(' ', '', $salon['name'])}}">
+                            {{$salon['name']}}
                         </div>
-                    </div><!--end col-->
+                        @include('customer.customerAppointmentsModal', ['salon' => $salon])
+                    </div>
                 @endforeach
             </div><!--end row-->
 
@@ -143,6 +88,40 @@
     </section><!--end section-->
     <!-- Rooms End -->
 
+    <!-- Price Start -->
+    <section class="section" id="prices">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title mb-4 pb-2">
+                        <h4 class="title mb-4">Prețuri</h4>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-14">
+                    <div class="table-responsive bg-white shadow-md rounded-md">
+                        <table class="table mb-0 table-center display" id="table_id">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="border-bottom">#</th>
+                                <th scope="col" class="border-bottom" >Name</th>
+                                <th scope="col" class="border-bottom" >Price</th>
+                                <th scope="col" class="border-bottom" >Gender</th>
+                                <th scope="col" class="border-bottom">Duration</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table><!--end table-->
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- Price End -->
 
     <section class="section">
         <div class="container">
@@ -428,4 +407,34 @@
         </div><!--end container-->
     </footer><!--end footer-->
     <!-- Footer End -->
+
+@section('jquery')
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        var data = [
+        @foreach($services as $service)
+            [
+                "{{ $service->id }}",
+                "{{ $service->name }}",
+                "{{ $service->price }}",
+                "{{ $service->gender }}",
+                "{{ $service->duration }}"
+            ],
+            @endforeach
+        ];
+
+        $.extend( $.fn.dataTable.defaults, {
+            searching: false,
+            autoWidth: false,
+            bInfo : false,
+            bLengthChange : false
+        } );
+
+        $('#table_id').DataTable( {
+            data: data
+        } );
+    </script>
+
 @endsection
