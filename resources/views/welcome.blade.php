@@ -438,14 +438,14 @@
                             <div class="d-flex contact-detail align-items-center mt-3">
                                 <div class="flex-1 content">
                                     <h6 class="title fw-bold mb-0">Email</h6>
-                                    <a href="mailto:contact@example.com" class="text-primary">allaboutbeautymail@gmail.com</a>
+                                    <a class="text-primary" style="color: #2fb6d4f7 !important;">allaboutbeautymail@gmail.com</a>
                                 </div>
                             </div>
 
                             <div class="d-flex contact-detail align-items-center mt-3">
                                 <div class="flex-1 content">
                                     <h6 class="title fw-bold mb-0">Telefon</h6>
-                                    <a href="tel:+152534-468-854" class="text-primary">+40 (744) 823 043</a>
+                                    <a  class="text-primary" style="color: #2fb6d4f7 !important;">+40 (744) 823 043</a>
                                 </div>
                             </div>
                         </div>
@@ -464,7 +464,7 @@
                     <a href="#" class="logo-footer">
                         <img src="images/logo/logo.png" height="68" alt="">
                     </a>
-                    <p class="mt-4">Start working with Landrick that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                    <p class="mt-4">Descoperă profesioniștii din zona ta.<br> Hai să colaboram.</p>
                 </div><!--end col-->
 
                 <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">

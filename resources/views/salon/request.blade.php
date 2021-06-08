@@ -10,7 +10,7 @@
                             <div class="col-12">
                                 <div class="card login-page border-0" style="z-index: 1">
                                     <div class="card-body p-0">
-                                        <h4 class="card-title text-center">Inregistrare Salon</h4>
+                                        <h4 class="card-title text-center">Înregistrare Salon</h4>
                                         <form class="login-form mt-4" method="POST" action="{{ route('salon.process') }}">
                                             @csrf
                                             <div class="row">
@@ -47,7 +47,7 @@
 
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Oras <span class="text-danger">*</span></label>
+                                                        <label class="form-label">Oraș <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
                                                             <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>

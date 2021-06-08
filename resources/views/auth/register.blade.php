@@ -104,7 +104,7 @@
                                             </div><!--end col-->
 
                                             <div class="mx-auto text-center">
-                                                <p class="mb-0 mt-3"><small class="text-dark me-2">Ai deja un account ?</small> <a href="{{ route('login') }}" class="text-dark fw-bold">Loghează-te</a></p>
+                                                <p class="mb-0 mt-3"><small class="text-dark me-2">Ai deja un cont ?</small> <a href="{{ route('login') }}" class="text-dark fw-bold">Autentifică-te</a></p>
                                             </div>
                                         </div><!--end row-->
                                     </form>

@@ -10,7 +10,7 @@
                         <div class="col-12">
                             <div class="card login-page border-0" style="z-index: 1">
                                 <div class="card-body p-0">
-                                    <h4 class="card-title text-center">Logare</h4>
+                                    <h4 class="card-title text-center">Autentificare</h4>
                                     <form class="login-form mt-4" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="row">

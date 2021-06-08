@@ -15,7 +15,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-9"  style="padding-bottom: 2%">
                                             <select id="choose-salon-admin-appointements" class="form-select" aria-label="Default select example">
                                                 <option selected>Alege salonul</option>
                                                 @foreach($salons as $salon)
