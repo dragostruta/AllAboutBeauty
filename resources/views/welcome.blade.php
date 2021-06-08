@@ -11,8 +11,8 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-7 col-md-7">
                                     <div class="title-heading position-relative mt-4" style="z-index: 1;">
-                                        <h1 class="heading mb-3">Enjoy Better Holidays With Landrick Resort</h1>
-                                        <p class="para-desc">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
+                                        <h1 class="heading mb-3">Descoperă stilistul potrivit pentru tine</h1>
+                                        <p class="para-desc">Navighează, descoperă și compară serviciile disponibile în zona ta.</p>
                                     </div>
                                 </div>
                             </div>
@@ -26,8 +26,8 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-7 col-md-7">
                                     <div class="title-heading position-relative mt-4" style="z-index: 1;">
-                                        <h1 class="heading mb-3">Enjoy The World of Relaxation</h1>
-                                        <p class="para-desc">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
+                                        <h1 class="heading mb-3">Economisește timp</h1>
+                                        <p class="para-desc">Descoperă un mod mai placut și rapid de a face o programare la salonul tău preferat.</p>
                                     </div>
                                 </div>
                             </div>
@@ -41,8 +41,8 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-7 col-md-7">
                                     <div class="title-heading position-relative mt-4" style="z-index: 1;">
-                                        <h1 class="heading mb-3">Welcome Landrick <br> A Stunning Hotel</h1>
-                                        <p class="para-desc">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
+                                        <h1 class="heading mb-3">Citește recenzii verificate</h1>
+                                        <p class="para-desc">Alege dintre saloanele recomandate de cei care au fost deja acolo.</p>
                                     </div>
                                 </div>
                             </div>
@@ -75,11 +75,35 @@
 
             <div class="row">
                 @foreach($salons as $salon)
-                    <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                        <div class="d-flex key-feature align-items-center p-3 rounded shadow" data-toggle="modal" data-target=".{{str_replace(' ', '', $salon['name'])}}">
-                            {{$salon['name']}}
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="modal-header justify-content-center">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{$salon['name']}}</h5>
+                                </div>
+                                <div class="col-md-5 slider-holder mb-3 mb-md-0">
+                                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
+                                        <div class="card-body p-0">
+                                            <img src="images/salon/salon6.jpg" class="img-fluid rounded" alt="work-image">
+                                            <div class="overlay-work"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="p-3">{{$salon['address']}}</div>
+                                    <div class="p-3">{{$salon['city']}}</div>
+                                    <div class="p-3">{{$salon['description']}}</div>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
+                                        <li class="list-inline-item"><i class="mdi mdi-star-half mb-0 h4 text-warning"></i></li>
+                                        <li class="list-inline-item">4.5 Stele <span class="text-muted">(380 Review-uri primite)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        @include('customer.customerAppointmentsModal', ['salon' => $salon])
                     </div>
                 @endforeach
             </div><!--end row-->
@@ -106,10 +130,10 @@
                             <thead>
                             <tr>
                                 <th scope="col" class="border-bottom">#</th>
-                                <th scope="col" class="border-bottom" >Name</th>
-                                <th scope="col" class="border-bottom" >Price</th>
-                                <th scope="col" class="border-bottom" >Gender</th>
-                                <th scope="col" class="border-bottom">Duration</th>
+                                <th scope="col" class="border-bottom" >Nume</th>
+                                <th scope="col" class="border-bottom" >Preț</th>
+                                <th scope="col" class="border-bottom" ></th>
+                                <th scope="col" class="border-bottom">Durată</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -419,8 +443,8 @@
                 "{{ $service->id }}",
                 "{{ $service->name }}",
                 "{{ $service->price }}",
-                "{{ $service->gender }}",
-                "{{ $service->duration }}"
+                "{{ $service->gender === 'female' ? 'Femei' : ( $service->gender ===  'male' ? 'Bărbați' : '')  }}",
+                "{{ $service->duration . ' minute' }}"
             ],
             @endforeach
         ];

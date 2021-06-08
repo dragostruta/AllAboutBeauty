@@ -91,7 +91,7 @@ class FillDataBaseCommand extends Command
                     'name' => 'NOBLESSE BEAUTY STUDIO',
                     'description' => 'Suntem atenti la tot ceea ce inseamna inovatie in acest domeniu, culegem informatii constant si alegem sa folosim doar ceea este realmente benefic pentru sanatatea parului.
 Cunoastem in profunzime detaliile care stau la baza tehnicilor primare ale produselor pe care le recomandam si ne implicam doar in proiecte care aduc realmente schimbari pozitive. Noi credem cu tarie ca in spatele unui NU ferm se afla puterea unui DA calculat care raspunde nevoilor clientilor nostri.',
-                    'address' => 'Strada Gheorghe sincai 31',
+                    'address' => 'Strada Gheorghe Șincai 31',
                     'city' => 'Baia Mare'
                 ]
             ],
@@ -353,7 +353,7 @@ Personulul salonului nostru este unul specializat. Acestia au studiat si exersat
                     'name' => 'Beauty house',
                     'description' => 'Beauty House este un spatiu de lucru unde cei mai talentati coafori isi desfasoara activitatea in fiecare zi. Ne asociem si folosim cele mai respectate branduri de pe piata astfel incat tu sa ai cel mai frumos si sanatos par.
 De asemenea transparenta este un principiu de baza astfel vei sti mereu care sunt costurile EXACTE pentru fiecare serviciu, inainte de programare.',
-                    'address' => 'Strada Gheorghe sincai 24',
+                    'address' => 'Strada Gheorghe Șincai 24',
                     'city' => 'Baia Mare'
                 ]
             ],
@@ -594,7 +594,7 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 4,
-                'name' => 'Tuns si spalat ',
+                'name' => 'Tuns și spălat ',
                 'gender' => 'female',
                 'price' => 100
             ],
@@ -624,7 +624,7 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 9,
-                'name' => 'Coc mireasa',
+                'name' => 'Coc mireasă',
                 'gender' => 'female',
                 'price' => 200
             ],
@@ -642,13 +642,13 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 12,
-                'name' => 'Manopera extensii',
+                'name' => 'Manoperă extensii',
                 'gender' => 'female',
                 'price' => 300
             ],
             [
                 'id' => 13,
-                'name' => 'Spalat extensii',
+                'name' => 'Spălat extensii',
                 'gender' => 'female',
                 'price' => 100
             ],
@@ -660,13 +660,13 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 15,
-                'name' => 'Manopera vopsit',
+                'name' => 'Manoperă vopsit',
                 'gender' => 'female',
                 'price' => 500
             ],
             [
                 'id' => 16,
-                'name' => 'suvite',
+                'name' => 'Suvițe',
                 'gender' => 'female',
                 'price' => 500
             ],
@@ -678,7 +678,7 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 18,
-                'name' => 'Tuns si spalat',
+                'name' => 'Tuns și spălat',
                 'gender' => 'male',
                 'price' => 40
             ],
@@ -690,13 +690,13 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 20,
-                'name' => 'Barbierit',
+                'name' => 'Bărbierit',
                 'gender' => 'male',
                 'price' => 35
             ],
             [
                 'id' => 21,
-                'name' => 'Tuns barba',
+                'name' => 'Tuns barbă',
                 'gender' => 'male',
                 'price' => 25
             ],
@@ -708,13 +708,13 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 23,
-                'name' => 'Machiaj de seara',
+                'name' => 'Machiaj de seară',
                 'gender' => 'female',
                 'price' => 200
             ],
             [
                 'id' => 24,
-                'name' => 'Machiaj special(mireasa)',
+                'name' => 'Machiaj special(mireasă)',
                 'gender' => 'female',
                 'price' => 300
             ],
@@ -756,67 +756,67 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 31,
-                'name' => 'intretinere fir cu fir',
+                'name' => 'Întreținere fir cu fir',
                 'gender' => 'female',
                 'price' => 200
             ],
             [
                 'id' => 32,
-                'name' => 'Manichiura simpla',
+                'name' => 'Manichiură simplă',
                 'gender' => 'female',
                 'price' => 50
             ],
             [
                 'id' => 33,
-                'name' => 'Manichiura cu oja semipermanenta',
+                'name' => 'Manichiură cu ojă semipermanentă',
                 'gender' => 'female',
                 'price' => 100
             ],
             [
                 'id' => 34,
-                'name' => 'Intretinere unghii semi',
+                'name' => 'Intreținere unghii semi',
                 'gender' => 'female',
                 'price' => 80
             ],
             [
                 'id' => 35,
-                'name' => 'Unghii tehnice(gel) constructie',
+                'name' => 'Unghii tehnice(gel) construcție',
                 'gender' => 'female',
                 'price' => 250
             ],
             [
                 'id' => 36,
-                'name' => 'Intretinere unghii tehnice',
+                'name' => 'Intreținere unghii tehnice',
                 'gender' => 'female',
                 'price' => 150
             ],
             [
                 'id' => 37,
-                'name' => 'Pictura in apa pe unghie',
+                'name' => 'Pictură in apă pe unghie',
                 'gender' => 'female',
                 'price' => 65
             ],
             [
                 'id' => 38,
-                'name' => 'Manichiura simpla',
+                'name' => 'Manichiură simplă',
                 'gender' => 'male',
                 'price' => 20
             ],
             [
                 'id' => 39,
-                'name' => 'Pedichiura simpla',
+                'name' => 'Pedichiură simplă',
                 'gender' => 'male',
                 'price' => 20
             ],
             [
                 'id' => 40,
-                'name' => 'Pedichiura simpla',
+                'name' => 'Pedichiură simplă',
                 'gender' => 'female',
                 'price' => 30
             ],
             [
                 'id' => 41,
-                'name' => 'Pedichiura cu oja semipermanenta',
+                'name' => 'Pedichiură cu ojă semipermanentă',
                 'gender' => 'female',
                 'price' => 50
             ],
@@ -828,13 +828,13 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
             ],
             [
                 'id' => 43,
-                'name' => 'Masaj relaxare ',
+                'name' => 'Masaj relaxare',
                 'gender' => 'female',
                 'price' => 45
             ],
             [
                 'id' => 44,
-                'name' => 'Masaj reflexo ',
+                'name' => 'Masaj reflexo',
                 'gender' => 'female',
                 'price' => 75
             ],
@@ -842,6 +842,30 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
                 'id' => 45,
                 'name' => 'Masaj ',
                 'gender' => 'female',
+                'price' => 30
+            ],
+            [
+                'id' => 42,
+                'name' => 'Masaj anticelulitic ',
+                'gender' => 'male',
+                'price' => 50
+            ],
+            [
+                'id' => 43,
+                'name' => 'Masaj relaxare',
+                'gender' => 'male',
+                'price' => 45
+            ],
+            [
+                'id' => 44,
+                'name' => 'Masaj reflexo',
+                'gender' => 'male',
+                'price' => 75
+            ],
+            [
+                'id' => 45,
+                'name' => 'Masaj ',
+                'gender' => 'male',
                 'price' => 30
             ]
 

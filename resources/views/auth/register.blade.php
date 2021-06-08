@@ -16,7 +16,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Prenumele <span class="text-danger">*</span></label>
+                                                    <label class="form-label">Prenume <span class="text-danger">*</span></label>
                                                     <div class="form-icon position-relative">
                                                         <i data-feather="user" class="fea icon-sm icons"></i>
                                                         <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
@@ -32,7 +32,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Numele de familie <span class="text-danger">*</span></label>
+                                                    <label class="form-label">Nume <span class="text-danger">*</span></label>
                                                     <div class="form-icon position-relative">
                                                         <i data-feather="user-check" class="fea icon-sm icons"></i>
                                                         <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
