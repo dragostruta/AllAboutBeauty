@@ -32,10 +32,6 @@
     <!-- tobii css -->
     <link href="css/tobii.min.css" rel="stylesheet" type="text/css" />
 
-    <!--    jQuery -->
-    @yield('jquery')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-
     <!-- Main Css -->
     <link href="css/style.css" rel="stylesheet" type="text/css" id="theme-opt" />
     <link href="css/colors/default.css" rel="stylesheet" id="color-opt">
@@ -64,7 +60,7 @@
                 </a>
                 @guest
                 <div class="buy-button m-3">
-                    <a href="{{ route('login') }}" class="btn btn-primary">Logare</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Autentificare</a>
                 </div>
                 <div class="buy-button m-3">
                     <a href="{{ route('register') }}" class="btn btn-primary">Inregistrare</a>

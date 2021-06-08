@@ -6,13 +6,28 @@
         <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
-                    <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('images/salon/salon1.jpg')">
+                    <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('images/salon/makeup.jpeg')">
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-lg-7 col-md-7">
                                     <div class="title-heading position-relative mt-4" style="z-index: 1;">
-                                        <h1 class="heading mb-3">Descoperă stilistul potrivit pentru tine</h1>
-                                        <p class="para-desc">Navighează, descoperă și compară serviciile disponibile în zona ta.</p>
+                                        <h1 class="heading mb-3 title-dark animated fadeInUpBig animation-delay-1">Descoperă stilistul potrivit pentru tine</h1>
+                                        <p class="para-desc para-dark mx-auto animated fadeInUpBig animation-delay-3">Navighează, descoperă și compară serviciile disponibile în zona ta.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="3000">
+                    <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('images/salon/62100458.jpeg')">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="title-heading position-relative mt-4" style="z-index: 1;">
+                                        <h1 class="heading mb-3 title-dark animated fadeInUpBig animation-delay-1">Descoperă stilistul potrivit pentru tine</h1>
+                                        <p class="para-desc para-dark mx-auto animated fadeInUpBig animation-delay-3">Navighează, descoperă și compară serviciile disponibile în zona ta.</p>
                                     </div>
                                 </div>
                             </div>
@@ -26,8 +41,23 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-7 col-md-7">
                                     <div class="title-heading position-relative mt-4" style="z-index: 1;">
-                                        <h1 class="heading mb-3">Economisește timp</h1>
-                                        <p class="para-desc">Descoperă un mod mai placut și rapid de a face o programare la salonul tău preferat.</p>
+                                        <h1 class="heading mb-3 title-dark animated fadeInUpBig animation-delay-1">Economisește timp</h1>
+                                        <p class="para-desc para-dark mx-auto animated fadeInUpBig animation-delay-3">Descoperă un mod mai placut și rapid de a face o programare la salonul tău preferat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="3000">
+                    <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('images/salon/otto.jpeg')">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="title-heading position-relative mt-4" style="z-index: 1;">
+                                        <h1 class="heading mb-3 title-dark animated fadeInUpBig animation-delay-1">Economisește timp</h1>
+                                        <p class="para-desc para-dark mx-auto animated fadeInUpBig animation-delay-3">Descoperă un mod mai placut și rapid de a face o programare la salonul tău preferat.</p>
                                     </div>
                                 </div>
                             </div>
@@ -41,8 +71,22 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-7 col-md-7">
                                     <div class="title-heading position-relative mt-4" style="z-index: 1;">
-                                        <h1 class="heading mb-3">Citește recenzii verificate</h1>
-                                        <p class="para-desc">Alege dintre saloanele recomandate de cei care au fost deja acolo.</p>
+                                        <h1 class="heading mb-3 title-dark animated fadeInUpBig animation-delay-1">Citește recenzii verificate</h1>
+                                        <p class="para-desc para-dark mx-auto animated fadeInUpBig animation-delay-3">Alege dintre saloanele recomandate de cei care au fost deja acolo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <div class="bg-home bg-animation-left d-flex align-items-center" style="background-image:url('images/salon/IMG_8701-1080x675.jpeg')">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="title-heading position-relative mt-4" style="z-index: 1;">
+                                        <h1 class="heading mb-3 title-dark animated fadeInUpBig animation-delay-1">Citește recenzii verificate</h1>
+                                        <p class="para-desc para-dark mx-auto animated fadeInUpBig animation-delay-3c">Alege dintre saloanele recomandate de cei care au fost deja acolo.</p>
                                     </div>
                                 </div>
                             </div>
@@ -75,39 +119,28 @@
 
             <div class="row">
                 @foreach($salons as $salon)
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="modal-header justify-content-center">
-                                    <h5 class="modal-title" id="exampleModalLabel">{{$salon['name']}}</h5>
-                                </div>
-                                <div class="col-md-5 slider-holder mb-3 mb-md-0">
-                                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                                        <div class="card-body p-0">
-                                            <img src="images/salon/salon6.jpg" class="img-fluid rounded" alt="work-image">
-                                            <div class="overlay-work"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="p-3">{{$salon['address']}}</div>
-                                    <div class="p-3">{{$salon['city']}}</div>
-                                    <div class="p-3">{{$salon['description']}}</div>
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star h4 mb-0 text-warning"></i></li>
-                                        <li class="list-inline-item"><i class="mdi mdi-star-half mb-0 h4 text-warning"></i></li>
+                    <div class="container mt-100 mt-60">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-6">
+                                <img src="images/salon/salon6.jpg" class="img-fluid shadow rounded" alt="">
+                            </div><!--end col-->
+
+                            <div class="col-lg-6 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                                <div class="section-title ms-lg-5">
+                                    <h4 class="title mb-4">{{$salon['name']}}</h4>
+                                    <p class="text-muted">{{$salon['description']}}</p>
+                                    <ul class="list-unstyled text-muted">
+                                        <li class="mb-0">{{$salon['city']}}</li>
+                                        <li class="mb-0">{{$salon['address']}}</li>
                                         <li class="list-inline-item">4.5 Stele <span class="text-muted">(380 Review-uri primite)</span></li>
                                     </ul>
+                                    <a href="/login" class="mt-3 h6 text-primary">Crează o programare <i class="uil uil-angle-right-b"></i></a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div><!--end container-->
                 @endforeach
             </div><!--end row-->
-
         </div><!--end container-->
     </section><!--end section-->
     <!-- Rooms End -->
@@ -123,109 +156,109 @@
                 </div><!--end col-->
             </div><!--end row-->
 
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-14">
-                    <div class="table-responsive bg-white shadow-md rounded-md">
-                        <table class="table mb-0 table-center display" id="table_id">
-                            <thead>
-                            <tr>
-                                <th scope="col" class="border-bottom">#</th>
-                                <th scope="col" class="border-bottom" >Nume</th>
-                                <th scope="col" class="border-bottom" >Preț</th>
-                                <th scope="col" class="border-bottom" ></th>
-                                <th scope="col" class="border-bottom">Durată</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table><!--end table-->
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
+            <div class="col mt-4 pt-2" id="accordions">
+                <div class="component-wrapper rounded shadow">
+                    <div class="p-4">
+                        <div class="accordion mt-4 pt-2" id="buyingquestion">
+                            <div class="accordion-item rounded">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                            aria-expanded="true" aria-controls="collapseOne">
+                                        Coafor
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse border-0 collapse" aria-labelledby="headingOne"
+                                     data-bs-parent="#buyingquestion">
+                                    <div class="accordion-body text-muted bg-white">
+                                        @for($i = 0; $i < 22; $i++)
+                                            <div class="accordion-body text-muted bg-white">
+                                                {{$services[$i]->name}}
+                                                <div style="float: right">
+                                                    {{$services[$i]->price}} RON
+                                                </div>
+                                            </div>
+                                        @endfor
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="accordion-item rounded mt-2">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                        Cosmetică
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse border-0 collapse" aria-labelledby="headingTwo"
+                                     data-bs-parent="#buyingquestion">
+                                    @for($i = 22; $i < 32; $i++)
+                                        <div class="accordion-body text-muted bg-white">
+                                            {{$services[$i]->name}}
+                                            <div style="float: right">
+                                                {{$services[$i]->price}} RON
+                                            </div>
+                                        </div>
+                                    @endfor
+                                </div>
+                            </div>
+
+                            <div class="accordion-item rounded mt-2">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Manichiură / Pedichiură
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse border-0 collapse" aria-labelledby="headingThree"
+                                     data-bs-parent="#buyingquestion">
+                                    @for($i = 32; $i < 42; $i++)
+                                        <div class="accordion-body text-muted bg-white">
+                                            {{$services[$i]->name}}
+                                            <div style="float: right">
+                                                {{$services[$i]->price}} RON
+                                            </div>
+                                        </div>
+                                    @endfor
+                                </div>
+                            </div>
+
+                            <div class="accordion-item rounded mt-2">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Masaj
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse border-0 collapse" aria-labelledby="headingFour"
+                                     data-bs-parent="#buyingquestion">
+                                    @for($i = 42; $i <= 49; $i++)
+                                        <div class="accordion-body text-muted bg-white">
+                                            {{$services[$i]->name}}
+                                            <div style="float: right">
+                                                {{$services[$i]->price}} RON
+                                            </div>
+                                        </div>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end col-->
+            <!-- Accordions End -->
         </div><!--end container-->
     </section><!--end section-->
     <!-- Price End -->
 
-    <section class="section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <div class="section-title mb-4 pb-2">
-                        {{--                        <h4 class="title mb-4">Rooms & Suits</h4>--}}
-                        {{--                        <p class="text-muted para-desc mb-0 mx-auto">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>--}}
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                        <div class="card-body p-0">
-                            <img src="images/salon/salon2.jpg" class="img-fluid rounded" alt="work-image">
-                            <div class="overlay-work"></div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                        <div class="card-body p-0">
-                            <img src="images/salon/salon3.jpg" class="img-fluid rounded" alt="work-image">
-                            <div class="overlay-work"></div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                        <div class="card-body p-0">
-                            <img src="images/salon/salon4.jpg" class="img-fluid rounded" alt="work-image">
-                            <div class="overlay-work"></div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                        <div class="card-body p-0">
-                            <img src="images/salon/salon6.jpg" class="img-fluid rounded" alt="work-image">
-                            <div class="overlay-work"></div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                        <div class="card-body p-0">
-                            <img src="images/salon/salon8.jpg" class="img-fluid rounded" alt="work-image">
-                            <div class="overlay-work"></div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                    <div class="card work-container work-modern rounded border-0 overflow-hidden">
-                        <div class="card-body p-0">
-                            <img src="images/salon/salon9.jpg" class="img-fluid rounded" alt="work-image">
-                            <div class="overlay-work"></div>
-                        </div>
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
-
-        </div><!--end container-->
-    </section><!--end section-->
-
     <!-- Client Start -->
-    <section class="section" style="background: url('images/salon/salon1.jpg') center center;">
+    <section class="section" style="background: url('images/salon/otto.jpeg') center center;">
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-7 text-center">
                     <div class="tiny-single-item">
                         <div class="tiny-slider text-center client-testi">
-                            <p class="text-light para-dark h6 fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
+                            <p class="text-light para-dark h6 fst-italic">" Cel mai ușor mod de a beneficia de serviciile dorite, după bunul plac, recomand cu încredere! "</p>
                             <ul class="list-unstyled mb-0 mt-3">
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -233,12 +266,12 @@
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             </ul>
-                            <h6 class="text-light title-dark"> Thomas Israel </h6>
+                            <h6 class="text-light title-dark"> Lucian Pop </h6>
                             <img src="images/client/01.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
                         </div>
 
                         <div class="tiny-slider text-center client-testi">
-                            <p class="text-light para-dark h6 fst-italic">" The advantage of its Latin origin and the relative meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's attention from the layout. "</p>
+                            <p class="text-light para-dark h6 fst-italic">" Am realizat o mulțime de programări, sunt foarte mulțumită!  "</p>
                             <ul class="list-unstyled mb-0 mt-3">
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -246,12 +279,12 @@
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             </ul>
-                            <h6 class="text-light title-dark"> Carl Oliver </h6>
+                            <h6 class="text-light title-dark"> Andreea Neag </h6>
                             <img src="images/client/02.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
                         </div>
 
                         <div class="tiny-slider text-center client-testi">
-                            <p class="text-light para-dark h6 fst-italic">" There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. These alternatives to the classic Lorem Ipsum texts are often amusing and tell short, funny or nonsensical stories. "</p>
+                            <p class="text-light para-dark h6 fst-italic">" Mulțumesc fetelor de la salonul Prestige, am rămas o clientă fidelă. Mă bucur că am apelat la serviciile lor! "</p>
                             <ul class="list-unstyled mb-0 mt-3">
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -259,12 +292,12 @@
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             </ul>
-                            <h6 class="text-light title-dark"> Barbara McIntosh </h6>
+                            <h6 class="text-light title-dark"> Ioana Moldovan </h6>
                             <img src="images/client/03.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
                         </div>
 
                         <div class="tiny-slider text-center client-testi">
-                            <p class="text-light para-dark h6 fst-italic">" According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero in 45 BC. Allegedly, a Latin scholar established the origin of the text by compiling all the instances of the unusual word 'consectetur' he could find "</p>
+                            <p class="text-light para-dark h6 fst-italic">"Nu cred ca există ceva mai frumos decât masajul, în materie de relaxare. Doar că aici masajul devine o experiență magnifică. Iar pentru celelalte servicii, profesionalism și seriozitate! "</p>
                             <ul class="list-unstyled mb-0 mt-3">
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -272,12 +305,12 @@
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             </ul>
-                            <h6 class="text-light title-dark"> Christa Smith </h6>
+                            <h6 class="text-light title-dark"> Sebastian Șipos </h6>
                             <img src="images/client/04.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
                         </div>
 
                         <div class="tiny-slider text-center client-testi">
-                            <p class="text-light para-dark h6 fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
+                            <p class="text-light para-dark h6 fst-italic">"Cele mai bune servicii pentru bărbați! "</p>
                             <ul class="list-unstyled mb-0 mt-3">
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -285,7 +318,7 @@
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             </ul>
-                            <h6 class="text-light title-dark"> Dean Tolle </h6>
+                            <h6 class="text-light title-dark"> Christine Lang </h6>
                             <img src="images/client/05.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
                         </div>
 
@@ -298,7 +331,7 @@
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                             </ul>
-                            <h6 class="text-light title-dark"> Jill Webb </h6>
+                            <h6 class="text-light title-dark"> Daniel Matache </h6>
                             <img src="images/client/06.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
                         </div>
                     </div><!--end owl carousel-->
@@ -308,6 +341,87 @@
         <!-- Client End -->
     </section>
     <!-- Client End -->
+
+    <section class="section bg-light">
+        <div class="container mt-100 mt-60">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6 order-1 order-md-2">
+                    <img src="images/salon/3.jpg" class="img-fluid rounded shadow-md" alt="">
+                </div><!--end col-->
+
+                <div class="col-lg-7 col-md-6 order-2 order-md-1 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="section-title me-lg-5">
+                        <h4 class="title mb-4">Ce este AllAboutBeauty?</h4>
+                        <p class="text-muted">AllAboutBeauty este o platforma online ce iti aduce aproape de tine cei mai buni stilisti, frizeri, barbieri si specialisti din industria hair & beauty. Descopera GRATUIT cele mai bune saloane si alege stilistul potrivit pentru tine.
+                            Programeaza-te simplu si rapid in intervalul orar stabilit de tine.</p>
+                    </div>
+
+                    <div class="accordion mt-4 pt-2" id="accordionExample">
+                        <div class="accordion-item rounded shadow">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                    Căt costa o programare prin platforma AllAboutBeauty?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse border-0 collapse" aria-labelledby="headingOne"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted bg-white">
+                                    Pentru orice programare stabilită cu ajutorul AllAboutBeauty nu ai nimic de plătit. Totul este gratuit.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-2">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo">
+                                    Cum să fac o programare ?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse border-0 collapse" aria-labelledby="headingTwo"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted bg-white">
+                                    Niciodată nu a fost mai simplu să-ți faci o programare la cel mai bun salon din zona ta.
+                                    Accesează platforma AllAboutBeauty, selectează salonul, apoi tipul de serviciu disponibil din lista (tuns/vopsit/pensat etc.), angajatul, apoi selectezi data și ora în care iți dorești o programare.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-2">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Cu cât timp inainte voi primi notificare despre o programare?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse border-0 collapse" aria-labelledby="headingThree"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted bg-white">
+                                    La finalizarea programării vei primi un mail de confirmare a acesteia.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-2">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                   Cum sa anulez o programare ?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse border-0 collapse" aria-labelledby="headingFour"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted bg-white">
+                                    Intră in contul tău si anulează oricand orice programare.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section>
 
     <!-- Contact Start -->
     <section class="section">
@@ -319,54 +433,22 @@
                     </div>
                 </div><!--end col-->
                 <div class="col-lg-4 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <div class="card rounded shadow border-0">
-                        <div class="card-body py-5">
-                            <h5 class="card-title">Get In Touch !</h5>
+                        <div class="title-heading ms-lg-4">
+                            <h4 class="mb-4">Contact</h4>
+                            <div class="d-flex contact-detail align-items-center mt-3">
+                                <div class="flex-1 content">
+                                    <h6 class="title fw-bold mb-0">Email</h6>
+                                    <a href="mailto:contact@example.com" class="text-primary">allaboutbeautymail@gmail.com</a>
+                                </div>
+                            </div>
 
-                            <div class="custom-form mt-4">
-                                <div id="message"></div>
-                                <form method="post" name="contact-form" id="contact-form">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="mb-3">
-                                                <label class="form-label">Your Name <span class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="user" class="fea icon-sm icons"></i>
-                                                    <input name="name" id="name" type="text" class="form-control ps-5" placeholder="First Name :">
-                                                </div>
-                                            </div>
-                                        </div><!--end col-->
-                                        <div class="col-md-12">
-                                            <div class="mb-3">
-                                                <label class="form-label">Your Email <span class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="mail" class="fea icon-sm icons"></i>
-                                                    <input name="email" id="email" type="email" class="form-control ps-5" placeholder="Your email :">
-                                                </div>
-                                            </div>
-                                        </div><!--end col-->
-                                        <div class="col-md-12">
-                                            <div class="mb-3">
-                                                <label class="form-label">Comments</label>
-                                                <div class="form-icon position-relative">
-                                                    <i data-feather="message-circle" class="fea icon-sm icons"></i>
-                                                    <textarea name="comments" id="comments" rows="4" class="form-control ps-5" placeholder="Your Message :"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!--end row-->
-                                    <div class="row">
-                                        <div class="col-sm-12 text-center">
-                                            <div class="d-grid">
-                                                <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary" value="Send Message">
-                                                <div id="simple-msg"></div>
-                                            </div>
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </form><!--end form-->
-                            </div><!--end custom-form-->
+                            <div class="d-flex contact-detail align-items-center mt-3">
+                                <div class="flex-1 content">
+                                    <h6 class="title fw-bold mb-0">Telefon</h6>
+                                    <a href="tel:+152534-468-854" class="text-primary">+40 (744) 823 043</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                 </div><!--end col-->
             </div><!--end row-->
         </div><!--end container-->
@@ -383,82 +465,25 @@
                         <img src="images/logo/logo.png" height="68" alt="">
                     </a>
                     <p class="mt-4">Start working with Landrick that can provide everything you need to generate awareness, drive traffic, connect.</p>
-                    <ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
-                    </ul><!--end icon-->
                 </div><!--end col-->
 
                 <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <h5 class="text-light footer-head">Company</h5>
+                    <h5 class="text-light footer-head">Pentru clienți</h5>
                     <ul class="list-unstyled footer-list mt-4">
-                        <li><a href="page-aboutus.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> About us</a></li>
-                        <li><a href="page-services.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Services</a></li>
-                        <li><a href="page-team.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Team</a></li>
-                        <li><a href="page-pricing.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Pricing</a></li>
-                        <li><a href="page-portfolio-modern.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Project</a></li>
-                        <li><a href="page-jobs.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Careers</a></li>
-                        <li><a href="page-blog-grid.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Blog</a></li>
-                        <li><a href="auth-cover-login.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Login</a></li>
+                        <li><a href="/login" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Autentificare</a></li>
+                        <li><a href="/register" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Înregistrare</a></li>
                     </ul>
                 </div><!--end col-->
 
                 <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <h5 class="text-light footer-head">Usefull Links</h5>
+                    <h5 class="text-light footer-head">Pentru profesioniști</h5>
                     <ul class="list-unstyled footer-list mt-4">
-                        <li><a href="page-terms.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Terms of Services</a></li>
-                        <li><a href="page-privacy.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Privacy Policy</a></li>
-                        <li><a href="documentation.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Documentation</a></li>
-                        <li><a href="changelog.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Changelog</a></li>
-                        <li><a href="components.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Components</a></li>
+                        <li><a href="/login" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Autentificare</a></li>
+                        <li><a href="/request" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Înregistrare salon</a></li>
                     </ul>
                 </div><!--end col-->
 
             </div><!--end row-->
         </div><!--end container-->
     </footer><!--end footer-->
-    <footer class="footer footer-bar">
-        <div class="container text-center">
-            <div class="row align-items-center">
-                <div class="col-sm-6">
-                    <div class="text-sm-start">
-                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Landrick. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="http://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container-->
-    </footer><!--end footer-->
-    <!-- Footer End -->
-
-@section('jquery')
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-    <script>
-        var data = [
-        @foreach($services as $service)
-            [
-                "{{ $service->id }}",
-                "{{ $service->name }}",
-                "{{ $service->price }}",
-                "{{ $service->gender === 'female' ? 'Femei' : ( $service->gender ===  'male' ? 'Bărbați' : '')  }}",
-                "{{ $service->duration . ' minute' }}"
-            ],
-            @endforeach
-        ];
-
-        $.extend( $.fn.dataTable.defaults, {
-            searching: false,
-            autoWidth: false,
-            bInfo : false,
-            bLengthChange : false
-        } );
-
-        $('#table_id').DataTable( {
-            data: data
-        } );
-    </script>
-
 @endsection
