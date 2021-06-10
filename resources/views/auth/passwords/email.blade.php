@@ -28,7 +28,7 @@
 <body>
 
 <div class="back-to-home rounded d-none d-sm-block">
-    <a href="/" class="btn btn-soft-primary mt-3">Acasă</a>
+    <a href="/" class="btn btn-soft-primary mt-3" style="color: white !important;">Acasă</a>
 </div>
 
 
@@ -45,7 +45,8 @@
                     <div class="card-body">
                         <h4 class="card-title text-center">Recuperează-ti contul</h4>
 
-                        <form class="login-form mt-4">
+                        <form method="POST" class="login-form mt-4" action="{{ route('password.email') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-12">
                                     <p class="text-muted">Te rugăm introdu adresa de email. Vei primi un link pentru a crea o noua parolă.</p>

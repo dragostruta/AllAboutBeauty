@@ -16,7 +16,38 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Nume <span class="text-danger">*</span></label>
+                                                        <label class="form-label">Nume de familie <span class="text-danger">*</span></label>
+                                                        <div class="form-icon position-relative">
+                                                            <i data-feather="user" class="fea icon-sm icons"></i>
+                                                            <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+
+                                                            @error('firstname')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div><!--end col-->
+                                                <div class="col-lg-12">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Prenume <span class="text-danger">*</span></label>
+                                                        <div class="form-icon position-relative">
+                                                            <i data-feather="user" class="fea icon-sm icons"></i>
+                                                            <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+
+                                                            @error('lastname')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div><!--end col-->
+
+                                                <div class="col-lg-12">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Numele Salonului <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
                                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>

@@ -895,7 +895,8 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
                 'address' => $employee['salon']['address'],
                 'city' => $employee['salon']['city'],
                 'description' => $employee['salon']['description'],
-                'user_id' => $manager->id
+                'user_id' => $manager->id,
+                'status' => 'enabled'
             ]);
 
             foreach ($employee['employee'] as $worker) {

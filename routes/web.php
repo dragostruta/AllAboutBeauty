@@ -23,6 +23,8 @@ Route::get('/request', 'SalonController@request')->name('request');
 
 Route::get('/appointment', 'AppointmentController@index')->name('appointment.index');
 Route::post('/admin/acceptSalonRequest', 'AdminController@acceptSalonRequest')->name('admin.acceptSalonRequest');
+Route::post('/admin/deleteSalonRequest', 'AdminController@deleteSalonRequest')->name('admin.deleteSalonRequest');
+Route::post('/admin/deleteSalon', 'AdminController@deleteSalon')->name('admin.deleteSalon');
 Route::post('/admin/exportExcel', 'AdminController@exportExcel')->name('admin.exportExcel');
 Route::post('/admin/exportEmployeeInfo', 'AdminController@exportEmployeeInfo')->name('admin.exportEmployeeInfo');
 Route::post('/admin/exportAppointements', 'AdminController@exportAppointements')->name('admin.exportAppointements');
@@ -54,7 +56,7 @@ Route::get('/customerAppointment', 'HomeController@appointment')->name('customer
 Route::get('/adminAppointment', 'AdminController@appointment')->name('admin.appointment');
 Route::get('/adminEmployee', 'AdminController@employee')->name('admin.employee');
 Route::get('/adminEmployeeInfo', 'AdminController@employeeInfo')->name('admin.employeeInfo');
-Route::get('/adminSalonInfo', 'AdminController@salonInfo')->name('admin.salonInfo');
+Route::get('/adminSalons', 'AdminController@salons')->name('admin.salon');
 Route::get('/salonRequestSuccess', 'SalonController@salonRequestSuccess')->name('admin.salonRequestSuccess');
 Route::get('/editUserSuccess', 'HomeController@editUserSuccess')->name('home.editUserSuccess');
 Route::get('/editUserFailed', 'HomeController@editUserFailed')->name('home.editUserFailed');

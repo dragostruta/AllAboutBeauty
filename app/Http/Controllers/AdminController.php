@@ -50,6 +50,28 @@ class AdminController extends Controller
         return view('admin.adminRequest', ['salonRequests' => $salonRequests]);
     }
 
+    public function salons(){
+        $salons = Salon::query()->join('users', 'salons.user_id', '=', 'users.id')->where('salons.status', '=', 'enabled')->select('salons.*', 'users.firstname', 'users.lastname')->get();
+        return view('admin.adminSalons', ['salons' => $salons]);
+    }
+
+    public function deleteSalon(Request $request){
+        $id = $request->get('id');
+        $salon = Salon::query()->where('id', '=', $id)->first();
+        $salon->status = 'disbaled';
+        $salon->save();
+
+        return response()->json($salon);
+    }
+
+    public function deleteSalonRequest(Request $request){
+        $id = $request->get('id');
+        $salonRequest = SalonRequests::query()->where('id', '=', $id)->first();
+        $salonRequest->delete();
+
+        return response()->json($salonRequest);
+    }
+
     public function acceptSalonRequest(Request $request){
         $email = $request->get('email');
         $id = $request->get('id');
@@ -59,8 +81,8 @@ class AdminController extends Controller
         $user = User::query()->where('email', '=', $email)->where('role', '=', 'manager')->first();
         if (!$user){
             $user = User::create([
-                'firstname' => $salonRequest->name,
-                'lastname' => $salonRequest->name,
+                'firstname' => $salonRequest->firstname,
+                'lastname' => $salonRequest->lastname,
                 'email' => $email,
                 'password' => Hash::make('test'),
                 'role' => 'manager',
@@ -212,12 +234,12 @@ class AdminController extends Controller
     }
 
     public function appointment(){
-        $salons = Salon::query()->get();
+        $salons = Salon::query()->where('salons.status', '=', 'enabled')->get();
         return view('admin.adminAppointments', ['salons' => $salons]);
     }
 
     public function employee(){
-        $salons = Salon::query()->get();
+        $salons = Salon::query()->where('salons.status', '=', 'enabled')->get();
         return view('admin.adminEmployee', ['salons' => $salons]);
     }
     public function employeeInfo(){

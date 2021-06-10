@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 require('./home');
+require('./adminSalons');
 require('./customerAppointments');
 require('./managerEmployee');
 require('./managerAppointments.js');

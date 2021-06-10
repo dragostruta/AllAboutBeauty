@@ -19,6 +19,8 @@ class SalonController extends Controller
 
     public function process(Request $request)
     {
+        $firstname = $request->get('firstname');
+        $lastname = $request->get('lastname');
         $name = $request->get('name');
         $email = $request->get('email');
         $city = $request->get('city');
@@ -30,6 +32,8 @@ class SalonController extends Controller
             return redirect('/request');
         }
         SalonRequests::create([
+            'firstname' => $firstname,
+            'lastname' => $lastname,
             'name' => $name,
             'email' => $email,
             'city' => $city,

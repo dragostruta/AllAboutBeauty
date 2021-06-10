@@ -2127,6 +2127,70 @@ if (exportButton) {
 
 /***/ }),
 
+/***/ "./resources/js/adminSalons.js":
+/*!*************************************!*\
+  !*** ./resources/js/adminSalons.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function deleteSalon() {
+  return _deleteSalon.apply(this, arguments);
+}
+
+function _deleteSalon() {
+  _deleteSalon = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    var formData, response, result;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            formData = {
+              'id': this.getAttribute('data-id')
+            };
+            _context.next = 3;
+            return fetch('/admin/deleteSalon', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+          case 3:
+            response = _context.sent;
+            _context.next = 6;
+            return response.json();
+
+          case 6:
+            result = _context.sent;
+
+            if (result) {
+              window.location.reload();
+            }
+
+          case 8:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _deleteSalon.apply(this, arguments);
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -2141,6 +2205,8 @@ if (exportButton) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./home */ "./resources/js/home.js");
+
+__webpack_require__(/*! ./adminSalons */ "./resources/js/adminSalons.js");
 
 __webpack_require__(/*! ./customerAppointments */ "./resources/js/customerAppointments.js");
 
@@ -11040,19 +11106,21 @@ if (salonRequest) {
   }());
 }
 
-var exportButton = document.getElementById('export-salon-requests');
+var salonRequestDelete = document.getElementById('delete-salon-request');
 
-if (exportButton) {
-  exportButton.addEventListener('click', /*#__PURE__*/function () {
+if (salonRequestDelete) {
+  salonRequestDelete.addEventListener('click', /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
-      var formData, response, result, link;
+      var formData, response, result;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              formData = {};
+              formData = {
+                'id': salonRequestDelete.getAttribute('data-id')
+              };
               _context2.next = 3;
-              return fetch('/admin/exportExcel', {
+              return fetch('/admin/deleteSalonRequest', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -11069,12 +11137,8 @@ if (exportButton) {
             case 6:
               result = _context2.sent;
 
-              if (result.status === 200) {
-                link = document.createElement("a");
-                link.download = result.name;
-                link.href = result.path;
-                link.click();
-                link.remove();
+              if (result) {
+                window.location.reload();
               }
 
             case 8:
@@ -11087,6 +11151,57 @@ if (exportButton) {
 
     return function (_x2) {
       return _ref2.apply(this, arguments);
+    };
+  }());
+}
+
+var exportButton = document.getElementById('export-salon-requests');
+
+if (exportButton) {
+  exportButton.addEventListener('click', /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(event) {
+      var formData, response, result, link;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              formData = {};
+              _context3.next = 3;
+              return fetch('/admin/exportExcel', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 3:
+              response = _context3.sent;
+              _context3.next = 6;
+              return response.json();
+
+            case 6:
+              result = _context3.sent;
+
+              if (result.status === 200) {
+                link = document.createElement("a");
+                link.download = result.name;
+                link.href = result.path;
+                link.click();
+                link.remove();
+              }
+
+            case 8:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
     };
   }());
 }

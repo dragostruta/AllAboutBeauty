@@ -8,15 +8,33 @@
                 <div class="p-3">Manage: {{$salon->firstname . ' ' . $salon->lastname}}</div>
                 <div class="p-3">Address: {{$salon->address}}</div>
                 <div class="p-3">Email: {{$salon->email}}</div>
-                <div class="p-3">Telefon: {{$salon->phone_number}}</div>
                 <div class="p-3">Oraș: {{$salon->city}}</div>
                 <div class="p-3">Descriere: {{$salon->description}}</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="delete-salon-request" data-dismiss="modal" data-email="{{$salon->email}}" data-id="{{$salon->id}}"  class="btn btn-danger">Delete</button>
-                <button type="button" id="accept-salon-request" data-dismiss="modal" data-email="{{$salon->email}}" data-id="{{$salon->id}}" class="btn btn-primary">Acceptă</button>
+                <button type="button" id="delete-salon" onclick="deleteSalon(this)" data-dismiss="modal" data-email="{{$salon->email}}" data-id="{{$salon->id}}"  class="btn btn-danger">Delete</button>
             </div>
         </div>
     </div>
 </div>
+<script>
+    async function deleteSalon(el){
+        let formData = {
+            'id': el.getAttribute('data-id'),
+        };
+        let response = await fetch('/admin/deleteSalon', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        });
+
+        let result = await response.json();
+        if (result) {
+            window.location.reload();
+        }
+    }
+</script>

@@ -72,7 +72,7 @@
                 @endguest
 
                 @auth
-                    <div class="buy-button">
+                    <div class="buy-button m-3">
                         <a href="{{ route('logout') }}" class="btn btn-primary"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();"
@@ -81,7 +81,7 @@
                             @csrf
                         </form>
                     </div>
-                    <div class="buy-button">
+                    <div class="buy-button m-3">
                         <a href="{{ route('setup') }}" class="btn btn-primary">Cont</a>
                     </div>
                 @endauth
@@ -95,6 +95,7 @@
                             <li><a href="{{ route('admin.request') }}" class="sub-menu-item">Cereri</a></li>
                             <li><a href="{{ route('admin.appointment') }}" class="sub-menu-item">Programări</a></li>
                             <li><a href="{{ route('admin.employee') }}" class="sub-menu-item">Angajați</a></li>
+                            <li><a href="{{ route('admin.salon') }}" class="sub-menu-item">Saloane</a></li>
                         @endif
                         @if (Auth::user()->role === 'customer')
                             <li><a href="{{ route('customer.appointment') }}" class="sub-menu-item">Programări</a></li>

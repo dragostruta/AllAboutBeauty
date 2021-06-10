@@ -26,7 +26,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $salons = Salon::query()->get()->toArray();
+        $salons = Salon::query()
+            ->where('salons.status', '=', 'enabled')->get()->toArray();
         $salons = array_map(function($salon){
            $employees = EmployeeInformation::query()
                ->where('employee_information.salon_id','=', $salon['id'])

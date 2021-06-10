@@ -28,6 +28,7 @@ class HomeController extends Controller
         $salons = Salon::query()
             ->join('appointments', 'appointments.salon_id', '=', 'salons.id')
             ->where('appointments.user_id', '=', Auth::user()->id)
+            ->where('salons.status', '=', 'enabled')
             ->select('salons.*')
             ->get();
         $resultArray = [];
@@ -58,7 +59,7 @@ class HomeController extends Controller
             }
         }
 
-        $salons = Salon::where('city', '=', 'Baia Mare')->get();
+        $salons = Salon::where('city', '=', 'Baia Mare')->where('salons.status', '=', 'enabled')->get();
         $appointments = Appointment::where('user_id', '=', Auth::user()->id)->get();
         return view('home', ['salons' => $salons, 'appointmentCount' => count($appointments)]);
     }

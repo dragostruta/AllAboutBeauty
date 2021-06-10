@@ -71,7 +71,7 @@
 
                                                         @error('password')
                                                             <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
+                                                                <strong>{{ $message === 'validation.confirmed' ? 'Parolele nu corespund' : ($message === 'validation.min.string' ? 'Parolă prea scurta' : '')}}</strong>
                                                             </span>
                                                         @enderror
                                                     </div>
