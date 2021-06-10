@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\EmployeeInformation;
+use App\Salon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +31,10 @@ class DashboardController extends Controller
                     return redirect('manager');
             }
         }
-        return view('dashboard');
+        $employee = EmployeeInformation::query()
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
+        $salon = Salon::query()->where('id', '=', $employee->salon_id)->first();
+        return view('dashboard', ['employee' => $employee, 'salon' => $salon]);
     }
 }
