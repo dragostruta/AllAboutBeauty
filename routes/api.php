@@ -28,6 +28,8 @@ Route::group([
     // Employee
     Route::post('/employee/getAllEmployeesByService', 'EmployeeInformationController@getAllEmployeesByService')->name('employee.getAllEmployeesByService');
     Route::get('/employee/getAllEmployeesBySalon', 'EmployeeInformationController@getAllEmployeesBySalon')->name('employee.getAllEmployeesBySalon');
+    Route::post('/employee/enableEmployee', 'EmployeeInformationController@enableEmployee')->name('employee.enableEmployee');
+    Route::post('/employee/disableEmployee', 'EmployeeInformationController@disableEmployee')->name('employee.disableEmployee');
 
     // Service
     Route::post('/service/getAllServicesBySalon', 'ServiceController@getAllServicesBySalon')->name('service.getAllServicesBySalon');

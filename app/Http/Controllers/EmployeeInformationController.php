@@ -34,12 +34,30 @@ class EmployeeInformationController extends Controller
         return response()->json(['status' => 200, 'employees' => $resultArray]);
     }
 
+    public function enableEmployee(Request $request){
+        $id = $request->get('id');
+        $employee = EmployeeInformation::query()->where('id', '=', $id)->first();
+        $employee->status = 'enabled';
+        $employee->save();
+
+        return response()->json(['status' => 200, 'employee' => $employee]);
+    }
+
+    public function disableEmployee(Request $request){
+        $id = $request->get('id');
+        $employee = EmployeeInformation::query()->where('id', '=', $id)->first();
+        $employee->status = 'disabled';
+        $employee->save();
+
+        return response()->json(['status' => 200, 'employee' => $employee]);
+    }
+
     public function getAllEmployeesBySalon(Request $request){
         $salonId = $request->get('salon_id');
         $resultArray = EmployeeInformation::query()
             ->where('salon_id', '=', $salonId)
             ->join('users', 'employee_information.user_id', '=', 'users.id')
-            ->select('employee_information.id as employee_information_id', 'employee_information.address', 'employee_information.phone_number', 'users.*')
+            ->select('employee_information.id as employee_information_id', 'employee_information.address', 'employee_information.phone_number', 'employee_information.status','users.*')
             ->get()->toArray();
 
         $resultArray = array_map(function ($employee){

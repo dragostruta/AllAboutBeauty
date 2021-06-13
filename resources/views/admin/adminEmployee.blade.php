@@ -33,6 +33,7 @@
                                                 <th>Adresă</th>
                                                 <th>Număr de telefon</th>
                                                 <th>Venituri (ultimele 30 de zile)</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody id="table-body-admin-employee">

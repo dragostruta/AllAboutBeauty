@@ -134,6 +134,7 @@
                                         <li class="mb-0">{{$salon['address']}}</li>
                                         <li class="list-inline-item">4.5 Stele <span class="text-muted">(380 Review-uri primite)</span></li>
                                     </ul>
+                                    <p class="text-muted">Program: 08:00 - 16:00</p>
                                     <a href="/login" class="mt-3 h6 text-primary">Crează o programare <i class="uil uil-angle-right-b"></i></a>
                                 </div>
                             </div><!--end col-->

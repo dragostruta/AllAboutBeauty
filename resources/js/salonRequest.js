@@ -21,28 +21,6 @@ if (salonRequest) {
     });
 }
 
-let salonRequestDelete = document.getElementById('delete-salon-request');
-if (salonRequestDelete) {
-    salonRequestDelete.addEventListener('click', async (event) => {
-        let formData = {
-            'id': salonRequestDelete.getAttribute('data-id'),
-        };
-        let response = await fetch('/admin/deleteSalonRequest', {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-        });
-
-        let result = await response.json();
-        if (result) {
-            window.location.reload();
-        }
-    });
-}
-
 let exportButton = document.getElementById('export-salon-requests');
 if (exportButton) {
     exportButton.addEventListener('click', async (event) => {

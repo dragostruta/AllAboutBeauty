@@ -15,7 +15,7 @@
                                             @csrf
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div>
                                                         <label class="form-label">Nume de familie <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
@@ -30,7 +30,7 @@
                                                     </div>
                                                 </div><!--end col-->
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div>
                                                         <label class="form-label">Prenume <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
@@ -46,7 +46,7 @@
                                                 </div><!--end col-->
 
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div>
                                                         <label class="form-label">Numele Salonului <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
@@ -62,7 +62,7 @@
                                                 </div><!--end col-->
 
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div>
                                                         <label class="form-label">Email <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
@@ -77,7 +77,7 @@
                                                 </div><!--end col-->
 
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div>
                                                         <label class="form-label">Oraș <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
@@ -93,7 +93,7 @@
                                                 </div><!--end col-->
 
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div>
                                                         <label class="form-label">Adresă <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
@@ -109,7 +109,7 @@
                                                 </div><!--end col-->
 
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div>
                                                         <label class="form-label">Număr de telefon <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>
@@ -125,7 +125,7 @@
                                                 </div><!--end col-->
 
                                                 <div class="col-lg-12">
-                                                    <div class="mb-3">
+                                                    <div class="mb-1">
                                                         <label class="form-label">Descriere <span class="text-danger">*</span></label>
                                                         <div class="form-icon position-relative">
                                                             <i data-feather="user" class="fea icon-sm icons"></i>

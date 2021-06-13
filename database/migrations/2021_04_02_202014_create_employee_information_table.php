@@ -20,6 +20,7 @@ class CreateEmployeeInformationTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('phone_number');
+            $table->string('status')->default('enabled');
             $table->timestamps();
         });
     }

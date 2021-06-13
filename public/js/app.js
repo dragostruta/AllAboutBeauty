@@ -2007,7 +2007,7 @@ var salon = document.getElementById('choose-salon-admin-employee');
 if (salon) {
   salon.addEventListener('click', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
-      var formData, response, result, table, data, tableRow, tableDataFirstName, tableDataLastName, tableDataAddress, tableDataPhoneNumber, tableDataEarned;
+      var formData, response, result, table, data, tableRow, tableDataFirstName, tableDataLastName, tableDataAddress, tableDataPhoneNumber, tableDataEarned, tableEnable, tableButtonEnable, tableButtonDisable;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2047,11 +2047,42 @@ if (salon) {
                   tableDataPhoneNumber.innerText = result.employees[data].phone_number;
                   tableDataEarned = document.createElement('td');
                   tableDataEarned.innerText = result.employees[data].earned;
+                  tableEnable = document.createElement('td');
+
+                  if (result.employees[data].status === 'disabled') {
+                    tableButtonEnable = document.createElement('button');
+                    tableButtonEnable.classList.add('btn');
+                    tableButtonEnable.id = result.employees[data].employee_information_id;
+                    tableButtonEnable.classList.add('btn-primary');
+
+                    tableButtonEnable.onclick = function (tableButtonEnable) {
+                      enableEmployee(tableButtonEnable);
+                    };
+
+                    tableButtonEnable.innerText = 'Enable';
+                    tableEnable.appendChild(tableButtonEnable);
+                  }
+
+                  if (result.employees[data].status === 'enabled') {
+                    tableButtonDisable = document.createElement('button');
+                    tableButtonDisable.classList.add('btn');
+                    tableButtonDisable.id = result.employees[data].employee_information_id;
+
+                    tableButtonDisable.onclick = function (tableButtonDisable) {
+                      disableEmployee(tableButtonDisable);
+                    };
+
+                    tableButtonDisable.classList.add('btn-danger');
+                    tableButtonDisable.innerText = 'Disable';
+                    tableEnable.appendChild(tableButtonDisable);
+                  }
+
                   tableRow.appendChild(tableDataFirstName);
                   tableRow.appendChild(tableDataLastName);
                   tableRow.appendChild(tableDataAddress);
                   tableRow.appendChild(tableDataPhoneNumber);
                   tableRow.appendChild(tableDataEarned);
+                  tableRow.appendChild(tableEnable);
                   table.appendChild(tableRow);
                 }
               }
@@ -2068,6 +2099,98 @@ if (salon) {
       return _ref.apply(this, arguments);
     };
   }());
+}
+
+function enableEmployee(_x2) {
+  return _enableEmployee.apply(this, arguments);
+}
+
+function _enableEmployee() {
+  _enableEmployee = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(el) {
+    var formData, response, result;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            formData = {
+              'id': el.target.getAttribute('id')
+            };
+            _context3.next = 3;
+            return fetch('/api/employee/enableEmployee', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+          case 3:
+            response = _context3.sent;
+            _context3.next = 6;
+            return response.json();
+
+          case 6:
+            result = _context3.sent;
+
+            if (result) {
+              window.location.reload();
+            }
+
+          case 8:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+  return _enableEmployee.apply(this, arguments);
+}
+
+function disableEmployee(_x3) {
+  return _disableEmployee.apply(this, arguments);
+}
+
+function _disableEmployee() {
+  _disableEmployee = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(el) {
+    var formData, response, result;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            formData = {
+              'id': el.target.getAttribute('id')
+            };
+            _context4.next = 3;
+            return fetch('/api/employee/disableEmployee', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+          case 3:
+            response = _context4.sent;
+            _context4.next = 6;
+            return response.json();
+
+          case 6:
+            result = _context4.sent;
+
+            if (result) {
+              window.location.reload();
+            }
+
+          case 8:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return _disableEmployee.apply(this, arguments);
 }
 
 var exportButton = document.getElementById('export-employee-info');
@@ -2119,7 +2242,7 @@ if (exportButton) {
       }, _callee2);
     }));
 
-    return function (_x2) {
+    return function (_x4) {
       return _ref2.apply(this, arguments);
     };
   }());
@@ -11106,21 +11229,19 @@ if (salonRequest) {
   }());
 }
 
-var salonRequestDelete = document.getElementById('delete-salon-request');
+var exportButton = document.getElementById('export-salon-requests');
 
-if (salonRequestDelete) {
-  salonRequestDelete.addEventListener('click', /*#__PURE__*/function () {
+if (exportButton) {
+  exportButton.addEventListener('click', /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
-      var formData, response, result;
+      var formData, response, result, link;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              formData = {
-                'id': salonRequestDelete.getAttribute('data-id')
-              };
+              formData = {};
               _context2.next = 3;
-              return fetch('/admin/deleteSalonRequest', {
+              return fetch('/admin/exportExcel', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
@@ -11137,8 +11258,12 @@ if (salonRequestDelete) {
             case 6:
               result = _context2.sent;
 
-              if (result) {
-                window.location.reload();
+              if (result.status === 200) {
+                link = document.createElement("a");
+                link.download = result.name;
+                link.href = result.path;
+                link.click();
+                link.remove();
               }
 
             case 8:
@@ -11151,57 +11276,6 @@ if (salonRequestDelete) {
 
     return function (_x2) {
       return _ref2.apply(this, arguments);
-    };
-  }());
-}
-
-var exportButton = document.getElementById('export-salon-requests');
-
-if (exportButton) {
-  exportButton.addEventListener('click', /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(event) {
-      var formData, response, result, link;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              formData = {};
-              _context3.next = 3;
-              return fetch('/admin/exportExcel', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-                headers: {
-                  'Content-Type': 'application/json',
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-              });
-
-            case 3:
-              response = _context3.sent;
-              _context3.next = 6;
-              return response.json();
-
-            case 6:
-              result = _context3.sent;
-
-              if (result.status === 200) {
-                link = document.createElement("a");
-                link.download = result.name;
-                link.href = result.path;
-                link.click();
-                link.remove();
-              }
-
-            case 8:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function (_x3) {
-      return _ref3.apply(this, arguments);
     };
   }());
 }
