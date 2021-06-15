@@ -14,7 +14,7 @@
                                         <h1 class="h6 card-item-title text-secondary mb-3">Crează o programare</h1>
                                     </div>
                                 </div>
-                                <form class="create-appointment" id="create-appointment-form-field">
+                                <form class="create-appointment" id="create-appointment-form-field" style="margin-left: 25%">
                                     @csrf
                                     <div id="create-appointment-salon" class="create-appointment-field form-group">
                                         <label class="create-appointment-label" for="salon">Salon</label>
@@ -39,7 +39,7 @@
                                     </div>
                                     <div id="create-appointment-date" class="create-appointment-field form-group">
                                         <label class="create-appointment-label" for="date">Ziua</label>
-                                        <input class="form-control" id="create-appointment-date-field" name="date" placeholder="MM/DD/YYY" type="date"/>
+                                        <input class="form-control" id="create-appointment-date-field" name="date" placeholder="MM/DD/YYY" type="date" min="<?php echo date("Y-m-d"); ?>"/>
                                     </div>
                                     <div id="create-appointment-hour" class="create-appointment-field form-group">
                                         <label class="create-appointment-label" for="hour">Ora</label>
