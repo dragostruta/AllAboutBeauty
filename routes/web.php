@@ -55,6 +55,7 @@ Route::get('/adminRequest', 'AdminController@request')->name('admin.request');
 Route::get('/customerAppointment', 'HomeController@appointment')->name('customer.appointment');
 Route::get('/adminAppointment', 'AdminController@appointment')->name('admin.appointment');
 Route::get('/adminEmployee', 'AdminController@employee')->name('admin.employee');
+Route::get('/adminManager', 'AdminController@manager')->name('admin.manager');
 Route::get('/adminEmployeeInfo', 'AdminController@employeeInfo')->name('admin.employeeInfo');
 Route::get('/adminSalons', 'AdminController@salons')->name('admin.salon');
 Route::get('/salonRequestSuccess', 'SalonController@salonRequestSuccess')->name('admin.salonRequestSuccess');

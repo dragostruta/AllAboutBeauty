@@ -233,6 +233,14 @@ class AdminController extends Controller
         return response()->json(['status' => 200, 'path' => 'files/'.$filename, 'name' => $filename]);
     }
 
+    public function manager(){
+        $managers = Salon::query()
+            ->join('users', 'salons.user_id', '=', 'users.id')
+            ->select('users.*')
+            ->get();
+        return view('admin.adminManagers', ['managers' => $managers]);
+    }
+
     public function appointment(){
         $salons = Salon::query()->where('salons.status', '=', 'enabled')->get();
         return view('admin.adminAppointments', ['salons' => $salons]);

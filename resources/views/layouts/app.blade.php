@@ -53,7 +53,7 @@
         <!-- Navbar STart -->
         <header id="topnav" class="defaultscroll sticky bg-white">
 
-            <div class="container">
+            <div class="container" style="max-width: 1300px !important">
                 <!-- Logo container-->
                 <a class="logo" href="{{ route('welcome') }}">
                     <img src="images/logo/logo.png" height="68" class="logo-light-mode" alt="">
@@ -96,6 +96,7 @@
                             <li><a href="{{ route('admin.appointment') }}" class="sub-menu-item">Programări</a></li>
                             <li><a href="{{ route('admin.employee') }}" class="sub-menu-item">Angajați</a></li>
                             <li><a href="{{ route('admin.salon') }}" class="sub-menu-item">Saloane</a></li>
+                            <li><a href="{{ route('admin.manager') }}" class="sub-menu-item">Manageri</a></li>
                         @endif
                         @if (Auth::user()->role === 'customer')
                             <li><a href="{{ route('customer.appointment') }}" class="sub-menu-item">Programări</a></li>
