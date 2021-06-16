@@ -233,6 +233,35 @@ class AdminController extends Controller
         return response()->json(['status' => 200, 'path' => 'files/'.$filename, 'name' => $filename]);
     }
 
+    public function addEmployee(Request $request){
+        $firstname = $request->get('firstname');
+        $lastname = $request->get('lastname');
+        $email = $request->get('email');
+        $password = $request->get('password');
+        $address = $request->get('address');
+        $city = $request->get('city');
+        $salon = $request->get('salon');
+        $phoneNumber = $request->get('phoneNumber');
+
+        $user = User::create([
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'email' => $email,
+            'password' => Hash::make($password),
+            'role' => 'employee',
+        ]);
+
+        $employee = EmployeeInformation::create([
+            'user_id' => $user->id,
+            'salon_id' => $salon,
+            'address' => $address,
+            'city' => $city,
+            'phone_number' => $phoneNumber,
+        ]);
+
+        return response()->json(['status' => 200, 'employee' => $employee]);
+    }
+
     public function manager(){
         $managers = Salon::query()
             ->join('users', 'salons.user_id', '=', 'users.id')

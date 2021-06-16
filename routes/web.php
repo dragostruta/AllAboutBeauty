@@ -26,6 +26,7 @@ Route::post('/admin/acceptSalonRequest', 'AdminController@acceptSalonRequest')->
 Route::post('/admin/deleteSalonRequest', 'AdminController@deleteSalonRequest')->name('admin.deleteSalonRequest');
 Route::post('/admin/deleteSalon', 'AdminController@deleteSalon')->name('admin.deleteSalon');
 Route::post('/admin/exportExcel', 'AdminController@exportExcel')->name('admin.exportExcel');
+Route::post('/admin/addEmployee', 'AdminController@addEmployee')->name('admin.addEmployee');
 Route::post('/admin/exportEmployeeInfo', 'AdminController@exportEmployeeInfo')->name('admin.exportEmployeeInfo');
 Route::post('/admin/exportAppointements', 'AdminController@exportAppointements')->name('admin.exportAppointements');
 Route::post('/service/getAllServicesBySalon', 'ServiceController@getAllServicesBySalon')->name('service.getAllServicesBySalon');

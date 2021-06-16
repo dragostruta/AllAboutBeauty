@@ -10,7 +10,7 @@
                             <div class="col-md-12">
                                 <div class="card-item">
                                     <div class="row">
-                                        <div class="col-md-11">
+                                        <div class="col-md-10">
                                             <h1 class="h6 card-item-title text-secondary mb-3">Angajați</h1>
                                         </div>
                                         <div class="col-md-1">
@@ -18,7 +18,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-9 pb-3">
                                             <select id="choose-salon-admin-employee" class="form-select" aria-label="Default select example">
                                                 <option selected>Alege salonul</option>
                                                 @foreach($salons as $salon)
@@ -50,7 +50,61 @@
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Adauga Angajat</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Adaugă Angajat</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <form id="add-employee-form">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="employee-firstname">Prenume</label>
+                                                                <input type="text" class="form-control" id="employee-firstname" placeholder="Prenume">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="employee-lastname">Nume</label>
+                                                                <input type="text" class="form-control" id="employee-lastname" placeholder="Nume">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="employee-email">Email</label>
+                                                                <input type="email" class="form-control" id="employee-email" placeholder="Email">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="employee-password">Parolă</label>
+                                                                <input type="password" class="form-control" id="employee-password" placeholder="Parolă">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="employee-address">Adresă</label>
+                                                                <input type="text" class="form-control" id="employee-address" placeholder="Adresă">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="employee-city">Oraș</label>
+                                                                <input type="text" class="form-control" id="employee-city" placeholder="Oraș">
+                                                            </div>
+                                                        </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="employee-phone">Telefon</label>
+                                                                    <input type="text" class="form-control" id="employee-phone" placeholder="Telefon">
+                                                                </div>
+                                                            </div>
+                                                        <div class="form-row">
+                                                            <label for="employee-salon">Salon</label>
+                                                            <select id="employee-salon" class="form-control">
+                                                                <option selected>Alege salon</option>
+                                                                @foreach($salons as $salon)
+                                                                    <option value="{{$salon->id}}">{{$salon->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-row pt-3">
+                                                            <button type="submit" id="employee-add" class="btn btn-primary">Adaugă</button>
+                                                        </div>
+                                                    </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

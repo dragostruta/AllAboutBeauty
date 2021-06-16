@@ -2106,53 +2106,7 @@ function enableEmployee(_x2) {
 }
 
 function _enableEmployee() {
-  _enableEmployee = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(el) {
-    var formData, response, result;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            formData = {
-              'id': el.target.getAttribute('id')
-            };
-            _context3.next = 3;
-            return fetch('/api/employee/enableEmployee', {
-              method: 'POST',
-              body: JSON.stringify(formData),
-              headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-            });
-
-          case 3:
-            response = _context3.sent;
-            _context3.next = 6;
-            return response.json();
-
-          case 6:
-            result = _context3.sent;
-
-            if (result) {
-              window.location.reload();
-            }
-
-          case 8:
-          case "end":
-            return _context3.stop();
-        }
-      }
-    }, _callee3);
-  }));
-  return _enableEmployee.apply(this, arguments);
-}
-
-function disableEmployee(_x3) {
-  return _disableEmployee.apply(this, arguments);
-}
-
-function _disableEmployee() {
-  _disableEmployee = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(el) {
+  _enableEmployee = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(el) {
     var formData, response, result;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
       while (1) {
@@ -2162,7 +2116,7 @@ function _disableEmployee() {
               'id': el.target.getAttribute('id')
             };
             _context4.next = 3;
-            return fetch('/api/employee/disableEmployee', {
+            return fetch('/api/employee/enableEmployee', {
               method: 'POST',
               body: JSON.stringify(formData),
               headers: {
@@ -2190,7 +2144,110 @@ function _disableEmployee() {
       }
     }, _callee4);
   }));
+  return _enableEmployee.apply(this, arguments);
+}
+
+function disableEmployee(_x3) {
   return _disableEmployee.apply(this, arguments);
+}
+
+function _disableEmployee() {
+  _disableEmployee = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(el) {
+    var formData, response, result;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            formData = {
+              'id': el.target.getAttribute('id')
+            };
+            _context5.next = 3;
+            return fetch('/api/employee/disableEmployee', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+          case 3:
+            response = _context5.sent;
+            _context5.next = 6;
+            return response.json();
+
+          case 6:
+            result = _context5.sent;
+
+            if (result) {
+              window.location.reload();
+            }
+
+          case 8:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return _disableEmployee.apply(this, arguments);
+}
+
+var form = document.getElementById('add-employee-form');
+
+if (form) {
+  form.onsubmit = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(e) {
+      var formData, response, result;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              formData = {
+                'firstname': document.getElementById('employee-firstname').value,
+                'lastname': document.getElementById('employee-lastname').value,
+                'email': document.getElementById('employee-email').value,
+                'password': document.getElementById('employee-password').value,
+                'address': document.getElementById('employee-address').value,
+                'city': document.getElementById('employee-city').value,
+                'salon': document.getElementById('employee-salon').value,
+                'phoneNumber': document.getElementById('employee-phone').value
+              };
+              _context2.next = 4;
+              return fetch('/admin/addEmployee', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+              });
+
+            case 4:
+              response = _context2.sent;
+              _context2.next = 7;
+              return response.json();
+
+            case 7:
+              result = _context2.sent;
+
+              if (result.status === 200) {
+                window.location.reload();
+              }
+
+            case 9:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x4) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
 }
 
 var exportButton = document.getElementById('export-employee-info');
@@ -2199,16 +2256,16 @@ if (exportButton) {
   var _salon = document.getElementById('choose-salon-admin-employee');
 
   exportButton.addEventListener('click', /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(event) {
       var formData, response, result, link;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               formData = {
                 'salonId': _salon.value
               };
-              _context2.next = 3;
+              _context3.next = 3;
               return fetch('/admin/exportEmployeeInfo', {
                 method: 'POST',
                 body: JSON.stringify(formData),
@@ -2219,12 +2276,12 @@ if (exportButton) {
               });
 
             case 3:
-              response = _context2.sent;
-              _context2.next = 6;
+              response = _context3.sent;
+              _context3.next = 6;
               return response.json();
 
             case 6:
-              result = _context2.sent;
+              result = _context3.sent;
 
               if (result.status === 200) {
                 link = document.createElement("a");
@@ -2236,14 +2293,14 @@ if (exportButton) {
 
             case 8:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2);
+      }, _callee3);
     }));
 
-    return function (_x4) {
-      return _ref2.apply(this, arguments);
+    return function (_x5) {
+      return _ref3.apply(this, arguments);
     };
   }());
 }

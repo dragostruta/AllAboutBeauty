@@ -93,6 +93,37 @@ async function disableEmployee(el){
     }
 }
 
+let form = document.getElementById('add-employee-form');
+if (form) {
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+
+        let formData = {
+            'firstname': document.getElementById('employee-firstname').value,
+            'lastname': document.getElementById('employee-lastname').value,
+            'email': document.getElementById('employee-email').value,
+            'password': document.getElementById('employee-password').value,
+            'address': document.getElementById('employee-address').value,
+            'city': document.getElementById('employee-city').value,
+            'salon': document.getElementById('employee-salon').value,
+            'phoneNumber': document.getElementById('employee-phone').value,
+        };
+        let response = await fetch('/admin/addEmployee', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        });
+
+        let result = await response.json();
+        if (result.status === 200){
+            window.location.reload();
+        }
+    }
+}
+
 let exportButton = document.getElementById('export-employee-info');
 if (exportButton) {
     let salon = document.getElementById('choose-salon-admin-employee');
