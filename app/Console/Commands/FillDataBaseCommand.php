@@ -92,7 +92,8 @@ class FillDataBaseCommand extends Command
                     'description' => 'Suntem atenti la tot ceea ce inseamna inovatie in acest domeniu, culegem informatii constant si alegem sa folosim doar ceea este realmente benefic pentru sanatatea parului.
 Cunoastem in profunzime detaliile care stau la baza tehnicilor primare ale produselor pe care le recomandam si ne implicam doar in proiecte care aduc realmente schimbari pozitive. Noi credem cu tarie ca in spatele unui NU ferm se afla puterea unui DA calculat care raspunde nevoilor clientilor nostri.',
                     'address' => 'Strada Gheorghe Șincai 31',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/nobless.jpg'
                 ]
             ],
             [
@@ -143,7 +144,8 @@ Cunoastem in profunzime detaliile care stau la baza tehnicilor primare ale produ
                     'name' => 'Illusion',
                     'description' => 'Vrei un Look perfect? Te asteptam la salon Illusion.',
                     'address' => 'Strada Vasile Lucaciu 6',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/Illusion.jpg.jpg'
                 ]
             ],
             [
@@ -196,7 +198,8 @@ Cunoastem in profunzime detaliile care stau la baza tehnicilor primare ale produ
 Facem acest lucru pentru ca dumneavoastra, clientii nostri, sa va bucuraţi de cele mai noi, eficiente şi performante produse din lumea internaţionala a frumuseţii.
 Salonul Prestige si-a propus inca de la infiintare sa satisfaca exigentele fiecarei persoane, oferindu-i cea mai buna experienta a culorii, tunsorii si stylingului.',
                     'address' => 'Bulevardul Bucuresti 31',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/prestige.jpg.jpg'
                 ]
             ],
             [
@@ -250,7 +253,9 @@ Toate produsele folosite sunt de cea mai inalta calitate, apartinând doar brand
 Cel mai mare secret al nostru! Pasiunea.
 ',
                     'address' => 'Strada Victoriei 3',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/bio.jpg.jpg'
+
                 ]
             ],
             [
@@ -302,7 +307,8 @@ Cel mai mare secret al nostru! Pasiunea.
                     'description' => 'Sublim Beauty Studio este salonul in care vei putea sa redescoperi gingasia, eleganta si stralucirea feminina. Frumusetea ascunsa si feminitatea aceea cuceritoate, se reveleaza cu fiecare noua experienta in cadrul salonului nostru. Astfel tinem cont de cele mai mici detalii si va punem la dispozitie serviciile noastre de beauty profesionale de top. Alaturi de suportul unor branduri recunoscute, dar si a unui showroom in care va asteptam cu creatii ale unor designeri vestimentari recunoscuti.
 Personulul salonului nostru este unul specializat. Acestia au studiat si exersat la cele mai renumite academii din tara, dar si strainatate. Au reusit sa se remarce prin premii importante pe care le-au castigat atat pe plan national, dar si international.',
                     'address' => 'Strada Vasile Alecsandri 89',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/salon6.jpg'
                 ]
             ],
             [
@@ -354,7 +360,8 @@ Personulul salonului nostru este unul specializat. Acestia au studiat si exersat
                     'description' => 'Beauty House este un spatiu de lucru unde cei mai talentati coafori isi desfasoara activitatea in fiecare zi. Ne asociem si folosim cele mai respectate branduri de pe piata astfel incat tu sa ai cel mai frumos si sanatos par.
 De asemenea transparenta este un principiu de baza astfel vei sti mereu care sunt costurile EXACTE pentru fiecare serviciu, inainte de programare.',
                     'address' => 'Strada Gheorghe Șincai 24',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/beauty.jpg.jpg'
                 ]
             ],
             [
@@ -408,7 +415,8 @@ Un nou look,
 O noua senzatie de bine,
 Un nou inceput la fel de fresh ca o noua tunsoare!',
                     'address' => 'Strada Victoriei 73',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/station.jpg'
                 ]
             ],
             [
@@ -460,7 +468,8 @@ Un nou inceput la fel de fresh ca o noua tunsoare!',
                     'description' => 'B’Elle Cosmetique ofera servicii de ingrijire si estetica a parului, inclusiv tunsori, vopsire si multe altele. De asemenea, ofera o gama variata de tratamente cosmetice personalizate in functie de tipul de ten.
 Indiferent de pretentiile tale, iti oferim tot ce ai nevoie sa arati si sa te simti impecabil. In plus, stilistii se mândresc cu capacitatea lor de a transforma o vizita obisnuita la salon intr-un ritual de infrumusetare.',
                     'address' => 'Strada Victoriei 73',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/belle.jpg.jpg'
                 ]
             ],
             [
@@ -511,7 +520,8 @@ Indiferent de pretentiile tale, iti oferim tot ce ai nevoie sa arati si sa te si
                     'name' => 'ADE beauty-studio',
                     'description' => 'Este un concept de salon de infrumusetare unisex creat in anul 2000. VINO sI REVINO!',
                     'address' => 'Strada George Coşbuc 2/31',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/adde.jpg.jpg'
                 ]
             ],
             [
@@ -563,7 +573,8 @@ Indiferent de pretentiile tale, iti oferim tot ce ai nevoie sa arati si sa te si
                     'description' => 'Salonul Mela Ela s-a nascut din dorinta de inovatie a doi stilisti dornici de mai mult. Cu peste 10 ani de experienta in domeniu, au crescut o echipa de stilisti cu o dorinta de dezvoltare dusa la extrem. De ce noi? Unitate, munca in echipa, tehnica, trend, devotament, sunt câteva din lucrurile pe care clientii nostri ni le spun de câte ori au ocazia.
 Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam pentru a-ti oferi experienta vietii tale de fiecare data când vii in salonul nostru. Sa te simti important/a, sa te simti rasfatat/a, sa iti oferim perfectul in materie de par. Te-am facut curios/oasa? Vino sa ne cunosti si convinge-te singur/a. WE CHANGE YOUR HAIRSTYLE, WE CHANGE YOUR LIFESTYLE!',
                     'address' => 'Strada Transilvaniei 6/19',
-                    'city' => 'Baia Mare'
+                    'city' => 'Baia Mare',
+                    'path' => 'images/salon/mella.jpg.jpg'
                 ]
             ]
         ];
@@ -896,7 +907,8 @@ Care e scopul nostru? Sa ne depasim limitele in fiecare zi, sa ne perfectionam p
                 'city' => $employee['salon']['city'],
                 'description' => $employee['salon']['description'],
                 'user_id' => $manager->id,
-                'status' => 'enabled'
+                'path' => $employee['salon']['path'],
+                'status' => 'enabled',
             ]);
 
             foreach ($employee['employee'] as $worker) {

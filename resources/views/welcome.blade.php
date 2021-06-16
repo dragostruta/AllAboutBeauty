@@ -107,7 +107,7 @@
     <!-- Hero End -->
 
     <!-- Rooms Start -->
-    <section class="section">
+    <section class="section" id="scrollTo">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
@@ -117,31 +117,16 @@
                 </div><!--end col-->
             </div><!--end row-->
 
-            <div class="row">
-                @foreach($salons as $salon)
-                    <div class="container mt-100 mt-60">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 col-md-6">
-                                <img src="images/salon/salon6.jpg" class="img-fluid shadow rounded" alt="">
-                            </div><!--end col-->
+            <table class="table" id="our-table">
+                <thead>
+                </thead>
+                <tbody id="table-body">
 
-                            <div class="col-lg-6 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                                <div class="section-title ms-lg-5">
-                                    <h4 class="title mb-4">{{$salon['name']}}</h4>
-                                    <p class="text-muted">{{$salon['description']}}</p>
-                                    <ul class="list-unstyled text-muted">
-                                        <li class="mb-0">{{$salon['city']}}</li>
-                                        <li class="mb-0">{{$salon['address']}}</li>
-                                        <li class="list-inline-item">4.5 Stele <span class="text-muted">(380 Review-uri primite)</span></li>
-                                    </ul>
-                                    <p class="text-muted">Program: 08:00 - 16:00</p>
-                                    <a href="/login" class="mt-3 h6 text-primary">Crează o programare <i class="uil uil-angle-right-b"></i></a>
-                                </div>
-                            </div><!--end col-->
-                        </div><!--end row-->
-                    </div><!--end container-->
-                @endforeach
-            </div><!--end row-->
+                </tbody>
+            </table>
+            <div class="container d-flex justify-content-center">
+                <div id="pagination-wrapper"></div>
+            </div>
         </div><!--end container-->
     </section><!--end section-->
     <!-- Rooms End -->
@@ -487,4 +472,130 @@
             </div><!--end row-->
         </div><!--end container-->
     </footer><!--end footer-->
+    <script>
+        let tableData = [
+            @foreach($salons as $salon)
+            {
+                id : '{{$salon['id']}}',
+                name : '{{$salon['name']}}',
+                description : `{{$salon['description']}}`,
+                address: '{{$salon['address']}}',
+                city: '{{$salon['city']}}',
+                path: '{{$salon['path']}}'
+            },
+            @endforeach
+        ];
+
+        var state = {
+            'querySet': tableData,
+
+            'page': 1,
+            'rows': 3,
+            'window': 5,
+        }
+
+        buildTable();
+
+        function pagination(querySet, page, rows) {
+
+            var trimStart = (page - 1) * rows
+            var trimEnd = trimStart + rows
+
+            var trimmedData = querySet.slice(trimStart, trimEnd)
+
+            var pages = Math.ceil(querySet.length / rows);
+
+            return {
+                'querySet': trimmedData,
+                'pages': pages,
+            }
+        }
+
+        function pageButtons(pages) {
+            var wrapper = document.getElementById('pagination-wrapper')
+
+            wrapper.innerHTML = ``
+            console.log('Pages:', pages)
+
+            var maxLeft = (state.page - Math.floor(state.window / 2))
+            var maxRight = (state.page + Math.floor(state.window / 2))
+
+            if (maxLeft < 1) {
+                maxLeft = 1
+                maxRight = state.window
+            }
+
+            if (maxRight > pages) {
+                maxLeft = pages - (state.window - 1)
+
+                if (maxLeft < 1){
+                    maxLeft = 1
+                }
+                maxRight = pages
+            }
+
+
+
+            for (var page = maxLeft; page <= maxRight; page++) {
+                wrapper.innerHTML += `<button value=${page} class="page btn btn-primary btn-info mr-3">${page}</button>`
+            }
+
+            if (state.page != 1) {
+                wrapper.innerHTML = `<button value=${1} class="page btn btn-primary btn-info mr-3">&#171; First</button>` + wrapper.innerHTML
+            }
+
+            if (state.page != pages) {
+                wrapper.innerHTML += `<button value=${pages} class="page btn btn-primary btn-info mr-3">Last &#187;</button>`
+            }
+
+            $('.page').on('click', function() {
+                $('#table-body').empty()
+
+                state.page = Number($(this).val())
+                document.getElementById('scrollTo').scrollIntoView();
+                buildTable()
+            })
+
+        }
+
+        function buildTable() {
+            var table = $('#table-body')
+
+            var data = pagination(state.querySet, state.page, state.rows)
+            var myList = data.querySet
+
+            for (var i = 1 in myList) {
+                //Keep in mind we are using "Template Litterals to create rows"
+                var row = `<div class="container mt-100 mt-60">
+                     <div class="row align-items-center">
+                     <div class="col-lg-6 col-md-6">
+                    <img src="${myList[i].path}" class="img-fluid shadow rounded" alt="">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="section-title ms-lg-5">
+                    <h4 class="title mb-4">${myList[i].name}</h4>
+                       <ul class="list-unstyled text-muted">
+                            <li class="mb-0">${myList[i].description}</li>
+                            <li class="mb-0">${myList[i].city}</li>
+                           <li class="mb-0">${myList[i].address}</li>
+                           <li class="list-inline-item">4.5 Stele <span class="text-muted">(380 Review-uri primite)</span></li>
+                        </ul>
+                        <p class="text-muted">Program: 08:00 - 16:00</p>
+                         <a href="/login" class="mt-3 h6 text-primary">Crează o programare <i class="uil uil-angle-right-b"></i></a>
+                     </div>
+                      </div>
+                    </div>
+                     </div>`;
+                // var row = `<tr>
+                //   <td>${myList[i].name}</td>
+                //   `
+                table.append(row)
+            }
+
+            pageButtons(data.pages)
+        }
+
+
+    </script>
 @endsection
