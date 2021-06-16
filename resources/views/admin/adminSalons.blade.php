@@ -20,8 +20,7 @@
                                             <tr>
                                                 <th scope="col">Name</th>
                                                 <th>Address</th>
-                                                <th>Email</th>
-                                                <th>Phone</th>
+                                                <th></th>
                                                 <th></th>
                                             </tr>
                                             </thead>

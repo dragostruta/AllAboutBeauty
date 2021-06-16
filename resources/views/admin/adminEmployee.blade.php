@@ -10,8 +10,11 @@
                             <div class="col-md-12">
                                 <div class="card-item">
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-11">
                                             <h1 class="h6 card-item-title text-secondary mb-3">Angajați</h1>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div id="add-employee" data-toggle="modal" data-target=".add-employee" class="btn btn-primary">Adauga</div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -41,6 +44,15 @@
                                         </table>
                                         <div class="buy-button">
                                             <div id="export-employee-info" class="btn btn-primary">Excel</div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade add-employee" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Adauga Angajat</h5>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
