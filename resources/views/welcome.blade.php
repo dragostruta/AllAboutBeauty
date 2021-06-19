@@ -563,39 +563,112 @@
 
             var data = pagination(state.querySet, state.page, state.rows)
             var myList = data.querySet
-
-            for (var i = 1 in myList) {
-                //Keep in mind we are using "Template Litterals to create rows"
-                var row = `<div class="container mt-100 mt-60">
-                     <div class="row align-items-center">
-                     <div class="col-lg-6 col-md-6">
-                    <img src="${myList[i].path}" class="img-fluid shadow rounded" alt="">
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <div class="section-title ms-lg-5">
-                    <h4 class="title mb-4">${myList[i].name}</h4>
-                       <ul class="list-unstyled text-muted">
-                            <li class="mb-0">${myList[i].description}</li>
-                            <li class="mb-0">${myList[i].city}</li>
-                           <li class="mb-0">${myList[i].address}</li>
-                           <li class="list-inline-item">4.5 Stele <span class="text-muted">(380 Review-uri primite)</span></li>
-                        </ul>
-                        <p class="text-muted">Program: 08:00 - 16:00</p>
-                         <a href="/login" class="mt-3 h6 text-primary">Crează o programare <i class="uil uil-angle-right-b"></i></a>
-                     </div>
-                      </div>
-                    </div>
-                     </div>`;
-                // var row = `<tr>
-                //   <td>${myList[i].name}</td>
-                //   `
+            let i;
+            for (i in myList) {
+                let row = `@include('layouts.rating')`;
                 table.append(row)
             }
 
             pageButtons(data.pages)
         }
 
+        $(document).ready(function(){
+            @foreach($salons as $salon)
+            document.getElementsByClassName('salon-1-star-4')[0].checked = true;
+            document.getElementsByClassName('salon-2-star-4')[0].checked = true;
+            if (document.getElementsByClassName('salon-{{$salon['id']}}-star-{{$salon['rating']}}').length > 0) {
+                console.log(document.getElementsByClassName('salon-{{$salon['id']}}-star-{{$salon['rating']}}')[0]);
+                document.getElementsByClassName('salon-{{$salon['id']}}-star-{{$salon['rating']}}')[0].checked = true;
+            }
+            @endforeach
+            $("input[type='radio']").click(async function(){
+                let parent = $("input[type='radio']:checked").parent()[0];
+                let rating = $("input[type='radio']:checked").val();
+                let formData = {
+                    'salon_id': parent.id,
+                    'rating': rating
+                };
+                let response = await fetch('/salonProcessRating', {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                });
+
+                let result = await response.json();
+                if (result.status === 200){
+                   console.log('success');
+                }
+            });
+        });
+
 
     </script>
+    <style>
+        @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+        @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+        fieldset,
+        label {
+            margin: 0;
+            padding: 0
+        }
+
+        .rating {
+            border: none;
+            margin-right: 49px
+        }
+
+        .myratings {
+            font-size: 85px;
+            color: green
+        }
+
+        .rating>[id^="star"] {
+            display: none
+        }
+
+        .rating>label:before {
+            margin: 5px;
+            font-size: 2.25em;
+            font-family: FontAwesome;
+            display: inline-block;
+            content: "\f005"
+        }
+
+        .rating>.half:before {
+            content: "\f089";
+            position: absolute
+        }
+
+        .rating>label {
+            color: #ddd;
+            float: right
+        }
+
+        .rating>[id^="star"]:checked~label,
+        .rating:not(:checked)>label:hover,
+        .rating:not(:checked)>label:hover~label {
+            color: #FFD700
+        }
+
+        .rating>[id^="star"]:checked+label:hover,
+        .rating>[id^="star"]:checked~label:hover,
+        .rating>label:hover~[id^="star"]:checked~label,
+        .rating>[id^="star"]:checked~label:hover~label {
+            color: #FFED85
+        }
+
+        .reset-option {
+            display: none
+        }
+
+        .reset-button {
+            margin: 6px 12px;
+            background-color: rgb(255, 255, 255);
+            text-transform: uppercase
+        }
+    </style>
 @endsection

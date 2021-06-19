@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\EmployeeInformation;
+use App\Review;
 use App\Salon;
 use App\Service;
 use Illuminate\Http\Request;
@@ -37,6 +38,17 @@ class WelcomeController extends Controller
                $services[] = $employee->services()->get();
            }
            $salon['services'] = $services;
+           $reviews = Review::query()
+               ->where('reviews.salon_id', '=', $salon['id'])
+               ->get();
+           $rating = 0;
+           foreach ($reviews as $review){
+               $rating += $review->rating;
+           }
+           if (count($reviews) > 0) {
+               $rating = round($rating / count($reviews));
+           }
+           $salon['rating'] = $rating;
            return $salon;
         }, $salons);
 

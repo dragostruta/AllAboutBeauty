@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Review;
 use App\SalonRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -48,5 +49,19 @@ class SalonController extends Controller
     public function showSalonRequests(Request $request){
         $salonRequests = SalonRequests::query()->get();
         return response()->json(['salonsRequests' => $salonRequests]);
+    }
+
+    public function processRating(Request $request){
+        $salonId = $request->get('salon_id');
+        $rating = $request->get('rating');
+
+        $review = Review::create([
+            'name' => 'Star',
+            'salon_id' => $salonId,
+            'description' => 'Star Rating',
+            'rating' => $rating
+        ]);
+
+        return response()->json(['status' => 200, 'review' => $review]);
     }
 }

@@ -60,6 +60,7 @@ Route::get('/adminManager', 'AdminController@manager')->name('admin.manager');
 Route::get('/adminEmployeeInfo', 'AdminController@employeeInfo')->name('admin.employeeInfo');
 Route::get('/adminSalons', 'AdminController@salons')->name('admin.salon');
 Route::get('/salonRequestSuccess', 'SalonController@salonRequestSuccess')->name('admin.salonRequestSuccess');
+Route::post('/salonProcessRating', 'SalonController@processRating')->name('salon.processRating');
 Route::get('/editUserSuccess', 'HomeController@editUserSuccess')->name('home.editUserSuccess');
 Route::get('/editUserFailed', 'HomeController@editUserFailed')->name('home.editUserFailed');
 Route::post('/editUser', 'HomeController@editUser')->name('home.editUser');
