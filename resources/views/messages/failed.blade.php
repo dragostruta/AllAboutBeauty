@@ -60,10 +60,10 @@
                         <div class="col-12">
                             <div class="text-center">
                                 <div class="icon d-flex align-items-center justify-content-center bg-soft-primary rounded-circle mx-auto" style="height: 90px; width:90px;">
-                                    <i class="uil uil-thumbs-down align-middle h1 mb-0"></i>
+                                    <i class="uil uil-thumbs-down align-middle h1 mb-0" style="color: white"></i>
                                 </div>
                                 <h1 class="my-4 fw-bold">A eșuat!</h1>
-                                <a href="/" class="btn btn-soft-primary mt-3">Acasă</a>
+                                <a href="/" class="btn btn-soft-primary mt-3" style="color: white !important;">Acasă</a>
                             </div>
                         </div><!--end col-->
                     </div><!--end row-->

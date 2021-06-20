@@ -82,11 +82,14 @@ class HomeController extends Controller
                 $user->lastname = $request->get('lastname');
             }
             if ($request->get('email')) {
-                $email = User::query()->where('email', '=', $request->get('email'))->first();
+                $email = User::query()
+                    ->where('email', '=', $request->get('email'))
+                    ->where('email', '!=', $user->email)
+                    ->first();
                 if ($email){
                     return response()->json(['status' => 400]);
                 }
-                $user->lastname = $request->get('email');
+                $user->email = $request->get('email');
             }
             if ($request->get('password')){
                 $user->password = Hash::make($request->get('password'));
