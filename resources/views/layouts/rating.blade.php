@@ -13,28 +13,20 @@
                     <li class="mb-0">${myList[i].address}</li>
                 </ul>
                 <div>
-                    <fieldset class="rating" id="${myList[i].id}" style="width: 56%">
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-5" id="star5" name="rating" value="5" />
-                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-4-5" id="star4half" name="rating" value="4.5" />
-                        <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-4" id="star4" name="rating" value="4" />
-                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-3-5" id="star3half" name="rating" value="3.5" />
-                        <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-3" id="star3" name="rating" value="3" />
-                        <label class="full" for="star3" title="Meh - 3 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-2-5" id="star2half" name="rating" value="2.5" />
-                        <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-2" id="star2" name="rating" value="2" />
-                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-1-5" id="star1half" name="rating" value="1.5" />
-                        <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-1" id="star1" name="rating" value="1" />
-                        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        <input type="radio" data-parent="${myList[i].id}" class="rating-star salon-${myList[i].id}-star-0-5" id="starhalf" name="rating" value="0.5" />
-                        <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                    </fieldset>
+                    <div id="full-stars-example">
+                        <div class="rating-group" id="${myList[i].id}">
+                            <label aria-label="1 star" class="rating__label" for="rating-1-${myList[i].id}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating-${myList[i].id}" id="rating-1-${myList[i].id}" value="1" type="radio">
+                            <label aria-label="2 stars" class="rating__label" for="rating-2-${myList[i].id}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating-${myList[i].id}" id="rating-2-${myList[i].id}" value="2" type="radio">
+                            <label aria-label="3 stars" class="rating__label" for="rating-3-${myList[i].id}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating-${myList[i].id}" id="rating-3-${myList[i].id}" value="3" type="radio">
+                            <label aria-label="4 stars" class="rating__label" for="rating-4-${myList[i].id}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating-${myList[i].id}" id="rating-4-${myList[i].id}" value="4" type="radio">
+                            <label aria-label="5 stars" class="rating__label" for="rating-5-${myList[i].id}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating-${myList[i].id}" id="rating-5-${myList[i].id}" value="5" type="radio">
+                        </div>
+                    </div>
                 </div>
                 <p class="text-muted">Program: 08:00 - 16:00</p>
                 <a href="/login" class="mt-3 h6 text-primary">Crează o programare <i class="uil uil-angle-right-b"></i></a>

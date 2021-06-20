@@ -573,19 +573,22 @@
         }
 
         $(document).ready(function(){
+            let idString;
+            let star;
+
             @foreach($salons as $salon)
-            document.getElementsByClassName('salon-1-star-4')[0].checked = true;
-            document.getElementsByClassName('salon-2-star-4')[0].checked = true;
-            if (document.getElementsByClassName('salon-{{$salon['id']}}-star-{{$salon['rating']}}').length > 0) {
-                console.log(document.getElementsByClassName('salon-{{$salon['id']}}-star-{{$salon['rating']}}')[0]);
-                document.getElementsByClassName('salon-{{$salon['id']}}-star-{{$salon['rating']}}')[0].checked = true;
+            idString = 'rating-'+ {{$salon['rating']}}+'-'+ {{$salon['id']}};
+            star = document.getElementById(idString);
+            if (star) {
+                star.checked = true;
             }
             @endforeach
-            $("input[type='radio']").click(async function(){
-                let parent = $("input[type='radio']:checked").parent()[0];
-                let rating = $("input[type='radio']:checked").val();
+            $("input[type='radio']").click(async function(e){
+                console.log(e.target.parentElement.id);
+                let parent = e.target.parentElement.id;
+                let rating = e.target.value;
                 let formData = {
-                    'salon_id': parent.id,
+                    'salon_id': parent,
                     'rating': rating
                 };
                 let response = await fetch('/salonProcessRating', {
@@ -607,68 +610,68 @@
 
     </script>
     <style>
-        @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-        @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
 
-        fieldset,
-        label {
-            margin: 0;
-            padding: 0
+        /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+        .rating-group {
+            display: inline-flex;
         }
 
-        .rating {
-            border: none;
-            margin-right: 49px
+        /* make hover effect work properly in IE */
+        .rating__icon {
+            pointer-events: none;
         }
 
-        .myratings {
-            font-size: 85px;
-            color: green
+        /* hide radio inputs */
+        .rating__input {
+            position: absolute !important;
+            left: -9999px !important;
         }
 
-        .rating>[id^="star"] {
-            display: none
+        /* set icon padding and size */
+        .rating__label {
+            cursor: pointer;
+            padding: 0 0.1em;
+            font-size: 2rem;
         }
 
-        .rating>label:before {
-            margin: 5px;
-            font-size: 2.25em;
-            font-family: FontAwesome;
-            display: inline-block;
-            content: "\f005"
+        /* set default star color */
+        .rating__icon--star {
+            color: orange;
         }
 
-        .rating>.half:before {
-            content: "\f089";
-            position: absolute
+        /* set color of none icon when unchecked */
+        .rating__icon--none {
+            color: #eee;
         }
 
-        .rating>label {
+        /* if none icon is checked, make it red */
+        .rating__input--none:checked + .rating__label .rating__icon--none {
+            color: red;
+        }
+
+        /* if any input is checked, make its following siblings grey */
+        .rating__input:checked ~ .rating__label .rating__icon--star {
             color: #ddd;
-            float: right
         }
 
-        .rating>[id^="star"]:checked~label,
-        .rating:not(:checked)>label:hover,
-        .rating:not(:checked)>label:hover~label {
-            color: #FFD700
+        /* make all stars orange on rating group hover */
+        .rating-group:hover .rating__label .rating__icon--star {
+            color: orange;
         }
 
-        .rating>[id^="star"]:checked+label:hover,
-        .rating>[id^="star"]:checked~label:hover,
-        .rating>label:hover~[id^="star"]:checked~label,
-        .rating>[id^="star"]:checked~label:hover~label {
-            color: #FFED85
+        /* make hovered input's following siblings grey on hover */
+        .rating__input:hover ~ .rating__label .rating__icon--star {
+            color: #ddd;
         }
 
-        .reset-option {
-            display: none
+        /* make none icon grey on rating group hover */
+        .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+            color: #eee;
         }
 
-        .reset-button {
-            margin: 6px 12px;
-            background-color: rgb(255, 255, 255);
-            text-transform: uppercase
+        /* make none icon red on hover */
+        .rating__input--none:hover + .rating__label .rating__icon--none {
+            color: red;
         }
     </style>
 @endsection
