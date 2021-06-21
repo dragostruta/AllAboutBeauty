@@ -569,6 +569,38 @@
                 table.append(row)
             }
 
+            let idString;
+            let star;
+
+            @foreach($salons as $salon)
+                idString = 'rating-'+ {{$salon['rating']}}+'-'+ {{$salon['id']}};
+            star = document.getElementById(idString);
+            if (star) {
+                star.checked = true;
+            }
+            @endforeach
+            $("input[type='radio']").click(async function(e){
+                console.log(e.target.parentElement.id);
+                let parent = e.target.parentElement.id;
+                let rating = e.target.value;
+                let formData = {
+                    'salon_id': parent,
+                    'rating': rating
+                };
+                let response = await fetch('/salonProcessRating', {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                });
+
+                let result = await response.json();
+                if (result.status === 200){
+                    console.log('success');
+                }
+            });
             pageButtons(data.pages)
         }
 
