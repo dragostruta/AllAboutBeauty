@@ -47,6 +47,12 @@ Route::get('/appointment/getAllAppointmentsByEmployeeId', 'AppointmentController
 Route::get('/appointment/getAllAppointmentsBySalonId', 'AppointmentController@getAllAppointmentsBySalonId')->name('appointment.getAllAppointmentsBySalonId');
 Route::get('/appointment/getAllAppointmentsBySalonIdAndUserId', 'AppointmentController@getAllAppointmentsBySalonIdAndUserId')->name('appointment.getAllAppointmentsBySalonIdAndUserId');
 
+Route::post('/employee/enableEmployee', 'EmployeeInformationController@enableEmployee')->name('employee.enableEmployee');
+Route::post('/employee/disableEmployee', 'EmployeeInformationController@disableEmployee')->name('employee.disableEmployee');
+
+Route::post('/admin/enableManager', 'AdminController@enableManager')->name('admin.enableManager');
+Route::post('/admin/disableManager', 'AdminController@disableManager')->name('admin.disableManager');
+
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

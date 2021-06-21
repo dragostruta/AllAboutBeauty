@@ -2049,7 +2049,7 @@ if (salon) {
                   tableDataEarned.innerText = result.employees[data].earned;
                   tableEnable = document.createElement('td');
 
-                  if (result.employees[data].status === 'disabled') {
+                  if (result.employees[data].employee_status === 'disabled') {
                     tableButtonEnable = document.createElement('button');
                     tableButtonEnable.classList.add('btn');
                     tableButtonEnable.id = result.employees[data].employee_information_id;
@@ -2063,7 +2063,7 @@ if (salon) {
                     tableEnable.appendChild(tableButtonEnable);
                   }
 
-                  if (result.employees[data].status === 'enabled') {
+                  if (result.employees[data].employee_status === 'enabled') {
                     tableButtonDisable = document.createElement('button');
                     tableButtonDisable.classList.add('btn');
                     tableButtonDisable.id = result.employees[data].employee_information_id;
@@ -2116,7 +2116,7 @@ function _enableEmployee() {
               'id': el.target.getAttribute('id')
             };
             _context4.next = 3;
-            return fetch('/api/employee/enableEmployee', {
+            return fetch('/employee/enableEmployee', {
               method: 'POST',
               body: JSON.stringify(formData),
               headers: {
@@ -2162,7 +2162,7 @@ function _disableEmployee() {
               'id': el.target.getAttribute('id')
             };
             _context5.next = 3;
-            return fetch('/api/employee/disableEmployee', {
+            return fetch('/employee/disableEmployee', {
               method: 'POST',
               body: JSON.stringify(formData),
               headers: {
@@ -2307,6 +2307,16 @@ if (exportButton) {
 
 /***/ }),
 
+/***/ "./resources/js/adminManager.js":
+/*!**************************************!*\
+  !*** ./resources/js/adminManager.js ***!
+  \**************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./resources/js/adminSalons.js":
 /*!*************************************!*\
   !*** ./resources/js/adminSalons.js ***!
@@ -2387,6 +2397,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
 __webpack_require__(/*! ./adminSalons */ "./resources/js/adminSalons.js");
+
+__webpack_require__(/*! ./adminManager */ "./resources/js/adminManager.js");
 
 __webpack_require__(/*! ./customerAppointments */ "./resources/js/customerAppointments.js");
 

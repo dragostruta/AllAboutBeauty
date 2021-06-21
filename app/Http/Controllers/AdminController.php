@@ -262,6 +262,30 @@ class AdminController extends Controller
         return response()->json(['status' => 200, 'employee' => $employee]);
     }
 
+    public function enableManager(Request $request){
+        $id = $request->get('id');
+        $manager = User::query()
+            ->where('id', '=', $id)
+            ->where('role', '=', 'manager')
+            ->first();
+        $manager->status = 'enabled';
+        $manager->save();
+
+        return response()->json(['status' => 200, 'manager' => $manager]);
+    }
+
+    public function disableManager(Request $request){
+        $id = $request->get('id');
+        $manager = User::query()
+            ->where('id', '=', $id)
+            ->where('role', '=', 'manager')
+            ->first();
+        $manager->status = 'disabled';
+        $manager->save();
+
+        return response()->json(['status' => 200, 'manager' => $manager]);
+    }
+
     public function manager(){
         $managers = Salon::query()
             ->join('users', 'salons.user_id', '=', 'users.id')

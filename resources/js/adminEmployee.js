@@ -23,7 +23,7 @@ if (salon) {
                     tableDataEarned.innerText = result.employees[data].earned;
                     let tableEnable = document.createElement('td');
 
-                    if (result.employees[data].status === 'disabled') {
+                    if (result.employees[data].employee_status === 'disabled') {
                         let tableButtonEnable = document.createElement('button');
                         tableButtonEnable.classList.add('btn');
                         tableButtonEnable.id = result.employees[data].employee_information_id;
@@ -33,7 +33,7 @@ if (salon) {
 
                         tableEnable.appendChild(tableButtonEnable);
                     }
-                    if (result.employees[data].status === 'enabled') {
+                    if (result.employees[data].employee_status === 'enabled') {
                         let tableButtonDisable = document.createElement('button');
                         tableButtonDisable.classList.add('btn');
                         tableButtonDisable.id = result.employees[data].employee_information_id;
@@ -61,7 +61,7 @@ async function enableEmployee(el){
     let formData = {
         'id': el.target.getAttribute('id'),
     };
-    let response = await fetch('/api/employee/enableEmployee', {
+    let response = await fetch('/employee/enableEmployee', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
@@ -79,7 +79,7 @@ async function disableEmployee(el){
     let formData = {
         'id': el.target.getAttribute('id'),
     };
-    let response = await fetch('/api/employee/disableEmployee', {
+    let response = await fetch('/employee/disableEmployee', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
