@@ -49,6 +49,9 @@ Route::get('/appointment/getAllAppointmentsBySalonIdAndUserId', 'AppointmentCont
 
 Route::post('/employee/enableEmployee', 'EmployeeInformationController@enableEmployee')->name('employee.enableEmployee');
 Route::post('/employee/disableEmployee', 'EmployeeInformationController@disableEmployee')->name('employee.disableEmployee');
+Route::post('/employee/enableEmployeeManager', 'EmployeeInformationController@enableEmployeeManager')->name('employee.enableEmployeeManager');
+Route::post('/employee/disableEmployeeManager', 'EmployeeInformationController@disableEmployeeManager')->name('employee.disableEmployeeManager');
+
 
 Route::post('/admin/enableManager', 'AdminController@enableManager')->name('admin.enableManager');
 Route::post('/admin/disableManager', 'AdminController@disableManager')->name('admin.disableManager');

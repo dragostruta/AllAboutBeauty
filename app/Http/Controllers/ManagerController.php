@@ -209,7 +209,7 @@ class ManagerController extends Controller
         $resultArray = EmployeeInformation::query()
             ->where('salon_id', '=', $salon->id)
             ->join('users', 'employee_information.user_id', '=', 'users.id')
-            ->select('employee_information.id as employee_information_id', 'employee_information.address', 'employee_information.phone_number', 'users.*')
+            ->select('employee_information.id as employee_information_id', 'employee_information.address', 'employee_information.phone_number', 'employee_information.status as employee_status','users.*')
             ->get()->toArray();
 
         $resultArray = array_map(function ($employee){
@@ -230,7 +230,7 @@ class ManagerController extends Controller
 
         }, $resultArray);
 
-        return view('manager.managerEmployee', ['employees' => $resultArray]);
+        return view('manager.managerEmployee', ['employees' => $resultArray, 'salon'=> $salon]);
     }
     public function employeeInfo(){
         return view('manager.managerEmployeeInfo');

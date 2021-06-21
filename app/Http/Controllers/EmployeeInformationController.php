@@ -52,6 +52,24 @@ class EmployeeInformationController extends Controller
         return response()->json(['status' => 200, 'employee' => $employee]);
     }
 
+    public function enableEmployeeManager(Request $request){
+        $id = $request->get('id');
+        $employee = EmployeeInformation::query()->where('user_id', '=', $id)->first();
+        $employee->status = 'enabled';
+        $employee->save();
+
+        return response()->json(['status' => 200, 'employee' => $employee]);
+    }
+
+    public function disableEmployeeManager(Request $request){
+        $id = $request->get('id');
+        $employee = EmployeeInformation::query()->where('user_id', '=', $id)->first();
+        $employee->status = 'disabled';
+        $employee->save();
+
+        return response()->json(['status' => 200, 'employee' => $employee]);
+    }
+
     public function getAllEmployeesBySalon(Request $request){
         $salonId = $request->get('salon_id');
         $resultArray = EmployeeInformation::query()

@@ -9,8 +9,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card-item">
-                                    <div class="row">
-                                        <div class="col-md-9">
+                                    <div class="row pb-3">
+                                        <div class="col-md-10">
                                             <h1 class="h6 card-item-title text-secondary mb-3">Angajați</h1>
                                         </div>
                                         <div class="col-md-1">
@@ -26,6 +26,7 @@
                                                 <th>Adresă</th>
                                                 <th>Număr de telefon</th>
                                                 <th>Venituri (ultimele 30 de zile)</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody id="table-body-admin-employee">
@@ -36,6 +37,12 @@
                                                     <td>{{$employee['address']}}</td>
                                                     <td>{{$employee['phone_number']}}</td>
                                                     <td>{{$employee['earned']}}</td>
+                                                    @if($employee['employee_status'] === 'disabled')
+                                                        <td><button id="{{$employee['id']}}" onclick="enableEmployee(this)" class="btn btn-primary">Enable</button></td>
+                                                    @endif
+                                                    @if($employee['employee_status'] === 'enabled')
+                                                        <td><button id="{{$employee['id']}}" onclick="disableEmployee(this)" class="btn btn-danger">Disable</button></td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -52,7 +59,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container">
-                                                        <form id="add-employee-form">
+                                                        <form id="add-employee-form-manager">
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
                                                                     <label for="employee-firstname">Prenume</label>
@@ -89,11 +96,10 @@
                                                                     <input type="text" class="form-control" id="employee-phone" placeholder="Telefon">
                                                                 </div>
                                                             </div>
-                                                            <div class="form-row">
-                                                                <label for="employee-salon">Salon</label>
-                                                                <select id="employee-salon" class="form-control">
-                                                                    <option selected>Alege salon</option>
-                                                                </select>
+                                                            <div class="form-row d-none">
+                                                                <div class="form-group col-md-6">
+                                                                    <input type="text" id="employee-salon" value="{{$salon->id}}">
+                                                                </div>
                                                             </div>
                                                             <div class="form-row pt-3">
                                                                 <button type="submit" id="employee-add" class="btn btn-primary">Adaugă</button>
@@ -112,4 +118,73 @@
             </div>
         </section>
     </div>
+    <script>
+        let form = document.getElementById('add-employee-form-manager');
+        if (form) {
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+
+                let formData = {
+                    'firstname': document.getElementById('employee-firstname').value,
+                    'lastname': document.getElementById('employee-lastname').value,
+                    'email': document.getElementById('employee-email').value,
+                    'password': document.getElementById('employee-password').value,
+                    'address': document.getElementById('employee-address').value,
+                    'city': document.getElementById('employee-city').value,
+                    'salon': document.getElementById('employee-salon').value,
+                    'phoneNumber': document.getElementById('employee-phone').value,
+                };
+                let response = await fetch('/admin/addEmployee', {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                });
+
+                let result = await response.json();
+                if (result.status === 200){
+                    window.location.reload();
+                }
+            }
+        }
+
+        async function enableEmployee(el){
+            let formData = {
+                'id': el.getAttribute('id'),
+            };
+            let response = await fetch('/employee/enableEmployeeManager', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            });
+            let result = await response.json();
+            if (result) {
+                window.location.reload();
+            }
+        }
+
+        async function disableEmployee(el){
+            let formData = {
+                'id': el.getAttribute('id'),
+            };
+            let response = await fetch('/employee/disableEmployeeManager', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            });
+            let result = await response.json();
+            if (result) {
+                window.location.reload();
+            }
+        }
+
+    </script>
 @endsection
