@@ -28,11 +28,12 @@
                                         <table class="table">
                                             <thead class="thead-explorer">
                                             <tr>
-                                                <th scope="col">Appointment Date</th>
-                                                <th>Employee</th>
+                                                <th scope="col">Data programării</th>
+                                                <th>Angajat</th>
                                                 <th>Client</th>
-                                                <th>Service</th>
-                                                <th>Price</th>
+                                                <th>Serviciu</th>
+                                                <th>Preț</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody id="table-admin-appointments-body">

@@ -42,6 +42,7 @@ Route::get('/managerEmployeeInfo', 'ManagerController@employeeInfo')->name('mana
 // Appointment //
 Route::post('/appointment/getAllAvailableHoursByDate', 'AppointmentController@getAllAvailableHoursByDate')->name('appointment.getAllAvailableHoursByDate');
 Route::post('/appointment/createAppointment', 'AppointmentController@createAppointment')->name('appointment.createAppointment');
+Route::post('/appointment/deleteAppointment', 'AppointmentController@deleteAppointment')->name('appointment.deleteAppointment');
 Route::get('/appointment/getAllAppointmentsByUserId', 'AppointmentController@getAllAppointmentsByUserId')->name('appointment.getAllAppointmentsByUserId');
 Route::get('/appointment/getAllAppointmentsByEmployeeId', 'AppointmentController@getAllAppointmentsByEmployeeId')->name('appointment.getAllAppointmentsByEmployeeId');
 Route::get('/appointment/getAllAppointmentsBySalonId', 'AppointmentController@getAllAppointmentsBySalonId')->name('appointment.getAllAppointmentsBySalonId');

@@ -21,15 +21,41 @@ if (salon) {
                     tableDataService.innerText = result.appointments[data].service;
                     let tableDataPrice = document.createElement('td');
                     tableDataPrice.innerText = result.appointments[data].servicePrice + ' RON';
+                    let tableButtonDisable = document.createElement('button');
+                    tableButtonDisable.classList.add('btn');
+                    tableButtonDisable.id = result.appointments[data].id;
+                    tableButtonDisable.onclick =  (tableButtonDisable) => {deleteAppointment(tableButtonDisable)};
+                    tableButtonDisable.classList.add('btn-danger');
+                    tableButtonDisable.innerText = 'Șterge';
+
 
                     tableRow.appendChild(tableDataDate);
                     tableRow.appendChild(tableDataEmployee);
                     tableRow.appendChild(tableDataCustomer);
                     tableRow.appendChild(tableDataService);
                     tableRow.appendChild(tableDataPrice);
+                    tableRow.appendChild(tableButtonDisable);
                     table.appendChild(tableRow);
                 }
             }
         }
     });
+}
+
+async function deleteAppointment(el){
+    let formData = {
+        'id': el.target.getAttribute('id'),
+    };
+    let response = await fetch('/appointment/deleteAppointment', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+    });
+    let result = await response.json();
+    if (result) {
+        window.location.reload();
+    }
 }

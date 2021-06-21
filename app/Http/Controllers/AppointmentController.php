@@ -139,6 +139,14 @@ class AppointmentController extends Controller
         return response()->json(['status' => 200, 'appointments' => $appointments]);
     }
 
+    public function deleteAppointment(Request $request){
+        $appointments = Appointment::query()
+            ->where('id', '=', $request->get('id'))
+            ->first();
+        $appointments->delete();
+        return response()->json(['status' => 200, 'appointments' => $appointments]);
+    }
+
     public function getAllAppointmentsBySalonIdAndUserId(Request $request){
         $appointments = Appointment::query()
             ->where('salon_id', '=', $request->get('salon_id'))
@@ -152,6 +160,7 @@ class AppointmentController extends Controller
             $date = explode(':',$element['appointment_date']);
             $service = Service::where('id', '=', $element['service_id'])->first();
             return [
+                'id' => $element['id'],
                 'customer' => $customerUser->firstname.' '.$customerUser->lastname,
                 'employee' => $employeeUserInfo->firstname.' '.$employeeUserInfo->lastname,
                 'service' => $service->name,
